@@ -1,0 +1,1782 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://models/info_player_start.tscn" type="PackedScene" id=1]
+[ext_resource path="res://filter.gd" type="Script" id=2]
+[ext_resource path="res://materials/dev/dev_text03/TestWall.tres" type="Material" id=3]
+[ext_resource path="res://materials/dev/dev_text01/TestWall.tres" type="Material" id=4]
+[ext_resource path="res://materials/dev/dev_text02/TestWall.tres" type="Material" id=5]
+[ext_resource path="res://maps/level_transition.gd" type="Script" id=6]
+[ext_resource path="res://npc_barney_chase.tscn" type="PackedScene" id=7]
+[ext_resource path="res://maps/level_onload.gd" type="Script" id=8]
+[ext_resource path="res://models/ammo.tscn" type="PackedScene" id=9]
+[ext_resource path="res://test_env.tres" type="Environment" id=10]
+
+[sub_resource type="ViewportTexture" id=4]
+flags = 4
+viewport_path = NodePath("hallwayaaa/Sprite3D/Viewport")
+
+[sub_resource type="ViewportTexture" id=5]
+viewport_path = NodePath("ViewportContainer/Viewport")
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1.45347, 1.1813, 1 )
+
+[sub_resource type="NavigationMesh" id=8]
+vertices = PoolVector3Array( 41.592, -9.80495, -61.6043, 41.592, -9.80495, -73.0043, 32.8919, -9.80495, -73.0043, 24.192, -9.80495, -61.6043, 24.192, -9.80495, -61.6043, 32.8919, -9.80495, -73.0043, 24.192, -9.80495, -73.0043, 23.8919, -9.80495, -58.9043, 17.592, -9.80495, -58.9043, 17.592, -9.80495, -55.9043, 23.8919, -9.80495, -55.9043, 23.8919, -9.80495, -55.9043, 24.192, -9.80495, -53.2043, 41.592, -9.80495, -53.2043, 41.592, -9.80495, -61.6043, 24.192, -9.80495, -61.6043, 23.8919, -9.80495, -58.9043, 1.39195, -5.60495, -44.2043, 6.49195, -5.60495, -44.2043, 6.79195, -6.60495, -46.6043, 1.09195, -6.60495, -46.6043, 6.79195, -6.60495, -46.6043, 10.392, -6.60495, -46.6043, 10.392, -6.60495, -55.6043, -2.20805, -6.60495, -52.9043, -2.20805, -6.60495, -46.6043, 1.09195, -6.60495, -46.6043, 10.392, -6.60495, -55.6043, 16.992, -6.60495, -55.9043, 16.992, -6.60495, -58.9043, 7.39195, -6.60495, -58.9043, -2.20805, -6.60495, -52.9043, 1.09195, -6.60495, -46.6043, 6.79195, -6.60495, -46.6043, 10.392, -6.60495, -55.6043, 7.39195, -6.60495, -58.9043, -2.20805, -6.60495, -58.9043, 24.192, -9.80495, -53.2043, 24.192, -9.80495, -43.9043, 32.8919, -9.80495, -43.9043, 41.592, -9.80495, -53.2043, 41.592, -9.80495, -53.2043, 32.8919, -9.80495, -43.9043, 41.592, -9.80495, -43.9043, 1.39195, -0.604949, -33.7043, 6.49195, -0.604949, -33.7043, 6.49195, -5.60495, -44.2043, 1.39195, -5.60495, -44.2043, -4.90805, -0.00494957, -26.5043, -0.70805, -0.00494957, -26.2043, -0.408051, -0.00494957, -26.8043, 1.09195, -0.00494957, -31.3043, -4.90805, -0.00494957, -31.3043, 6.49195, 0.19505, -31.9043, 6.49195, -0.604949, -33.7043, 1.39195, -0.604949, -33.7043, 1.09195, -0.00494957, -31.3043, 1.24195, -0.00494957, -32.5043, 1.09195, -0.00494957, -31.3043, -0.408051, -0.00494957, -26.8043, 6.19195, -0.00494957, -26.8043, 6.49195, 0.19505, -31.9043, 13.392, -0.00494957, -26.8043, 13.692, -0.00494957, -24.1043, 16.692, -0.00494957, -24.1043, 16.692, -0.00494957, -31.3043, 6.79195, -0.00494957, -31.3043, 6.49195, 0.19505, -31.9043, 6.19195, -0.00494957, -26.8043, 13.392, -0.00494957, -26.8043, 16.692, -0.00494957, -31.3043, 6.79195, -0.00494957, -31.3043, 6.19195, -0.00494957, -26.8043, -0.70805, -0.00494957, -26.2043, -4.90805, -0.00494957, -26.5043, -5.20805, -0.00494957, -25.9043, -8.50805, -0.00494957, -25.9043, -8.50805, -0.00494957, -21.7043, -6.40805, -0.00494957, -21.4043, -5.20805, -0.00494957, -25.9043, -0.108047, -0.00494957, -17.8043, 6.49195, -0.00494957, -17.8043, 6.49195, -0.00494957, -23.2043, -0.408051, -0.00494957, -23.2043, -0.408051, -0.00494957, -23.2043, -0.70805, -0.00494957, -26.2043, -5.20805, -0.00494957, -25.9043, -6.40805, -0.00494957, -21.4043, -6.40805, -0.00494957, -17.8043, -0.108047, -0.00494957, -17.8043, -10.6081, -0.00494957, -21.7043, -8.50805, -0.00494957, -21.7043, -8.50805, -0.00494957, -25.9043, -15.4081, -0.00494957, -19.9043, -10.9081, -0.00494957, -19.6043, -10.6081, -0.00494957, -21.7043, -10.6081, -0.00494957, -21.7043, -8.50805, -0.00494957, -25.9043, -15.4081, -0.00494957, -25.9043, -15.4081, -0.00494957, -19.9043, 13.692, -0.00494957, -17.8043, 10.992, -0.00494957, -17.5043, 10.992, -0.00494957, -14.5043, 16.692, -0.00494957, -14.2043, 16.692, -0.00494957, -24.1043, 13.692, -0.00494957, -24.1043, 13.692, -0.00494957, -17.8043, 16.692, -0.00494957, -14.2043, -10.9081, -0.00494957, -19.6043, -15.4081, -0.00494957, -19.9043, -15.708, -0.00494957, -17.8043, -15.4081, -0.00494957, -13.0043, -10.9081, -0.00494957, -7.90434, -15.4081, -0.00494957, -13.0043, -15.4081, -0.00494957, -7.90434, -10.9081, -0.00494957, -7.90434, -15.708, -0.00494957, -17.8043, -23.8081, -0.00494957, -17.8043, -23.8081, -0.00494957, -13.3043, -15.4081, -0.00494957, -13.0043, -1.60805, 3.59505, -3.10435, -1.60805, 3.39505, 3.19566, 1.39195, 3.39505, 3.19566, 1.39195, 3.59505, -3.10435, -1.60805, 2.99505, 1.62066, 1.39195, 2.99505, 1.62066, 6.49195, 2.99505, -10.9043, 6.49195, 2.99505, -17.8043, -0.108047, 2.99505, -17.8043, -6.40805, 2.99505, -10.9043, -2.50805, 3.19505, -4.00434, 2.29195, 3.19505, -4.00434, -2.50805, 3.19505, -4.00434, -1.60805, 3.59505, -3.10435, 1.39195, 3.59505, -3.10435, 2.29195, 3.19505, -4.00434, -0.108047, 2.99505, -17.8043, -6.40805, 2.99505, -17.8043, -6.40805, 2.99505, -10.9043, -6.40805, 2.99505, -10.9043, -6.40805, 3.19505, -4.00434, -2.50805, 3.19505, -4.00434, 2.29195, 3.19505, -4.00434, 6.49195, 3.19505, -4.00434, 6.49195, 2.99505, -10.9043, 6.19195, -0.00494957, -4.60435, 6.19195, -0.00494957, -5.20435, 4.39195, -0.00494957, -5.50434, 3.79195, -0.00494957, -5.50434, -0.108047, -0.00494957, -4.30434, 10.992, -0.00494957, -17.5043, 7.39195, -0.00494957, -17.5043, 7.09195, -0.00494957, -16.3043, 7.09195, -0.00494957, -16.3043, 6.79195, -0.00494957, -15.4043, 7.39195, -0.00494957, -14.5043, 10.992, -0.00494957, -14.5043, 10.992, -0.00494957, -17.5043, 4.39195, -0.00494957, -5.50434, 4.39195, -0.00494957, -15.1043, 3.79195, -0.00494957, -15.1043, 3.79195, -0.00494957, -5.50434, -6.10805, -0.00494957, -4.60435, -5.50805, -0.00494957, -5.50434, -5.50805, -0.00494957, -15.1043, -6.10805, -0.00494957, -16.3043, 4.39195, -0.00494957, -15.1043, 6.79195, -0.00494957, -15.4043, 7.09195, -0.00494957, -16.3043, 0.491951, -0.00494957, -16.3043, 3.79195, -0.00494957, -15.1043, -5.50805, -0.00494957, -5.50434, -6.10805, -0.00494957, -4.60435, -0.108047, -0.00494957, -4.30434, 3.79195, -0.00494957, -5.50434, 0.491951, -0.00494957, -16.3043, -6.10805, -0.00494957, -16.3043, -5.50805, -0.00494957, -15.1043, 3.79195, -0.00494957, -15.1043, -7.30805, -0.00494957, -3.10435, -7.60805, -0.00494957, -5.50434, -10.9081, -0.00494957, -5.80434, -15.708, -0.00494957, -5.50434, -2.80805, -0.00494957, -2.50434, -3.40805, -0.00494957, -3.10435, -7.30805, -0.00494957, -3.10435, -5.20805, -0.00494957, 2.89565, -2.80805, -0.00494957, 2.29565, -10.9081, -0.00494957, -5.80434, -10.9081, -0.00494957, -7.90434, -15.4081, -0.00494957, -7.90434, -15.708, -0.00494957, -5.50434, -16.308, -0.00494957, 22.6957, -5.20805, -0.00494957, 12.7957, -5.20805, -0.00494957, 2.89565, -49.0081, -0.00494957, 8.59566, -49.0081, -0.00494957, 15.4957, -38.208, -0.00494957, 22.6957, -27.1081, -0.00494957, 22.6957, -5.20805, -0.00494957, 2.89565, -24.108, -0.00494957, -5.50434, -32.508, -0.00494957, -5.50434, -49.0081, -0.00494957, 8.59566, -27.1081, -0.00494957, 22.6957, -16.308, -0.00494957, 22.6957, -40.9081, -0.00494957, -5.50434, -49.0081, -0.00494957, 1.39565, -49.0081, -0.00494957, 8.59566, -32.508, -0.00494957, -5.50434, -40.9081, -0.00494957, -5.50434, -49.0081, -0.00494957, -5.50434, -49.0081, -0.00494957, 1.39565, -49.0081, -0.00494957, 15.4957, -49.0081, -0.00494957, 22.6957, -38.208, -0.00494957, 22.6957, -5.20805, -0.00494957, 2.89565, -7.30805, -0.00494957, -3.10435, -15.708, -0.00494957, -5.50434, -24.108, -0.00494957, -5.50434, -16.308, -0.00494957, 22.6957, -5.20805, -0.00494957, 22.6957, -5.20805, -0.00494957, 12.7957, 6.49195, -0.00494957, -3.10435, 3.19195, -0.00494957, -3.10435, 2.59195, -0.00494957, -2.20435, 2.59195, -0.00494957, 2.59566, 6.49195, -0.00494957, 2.59566, -1.30805, -0.00494957, -2.50434, -1.30805, -0.00494957, 2.29565, 1.09195, -0.00494957, 2.29565, 1.09195, -0.00494957, -2.50434 )
+polygons = [ PoolIntArray( 1, 0, 2 ), PoolIntArray( 2, 0, 3 ), PoolIntArray( 6, 5, 4 ), PoolIntArray( 10, 9, 7 ), PoolIntArray( 7, 9, 8 ), PoolIntArray( 16, 15, 11 ), PoolIntArray( 11, 15, 12 ), PoolIntArray( 12, 15, 14 ), PoolIntArray( 12, 14, 13 ), PoolIntArray( 18, 17, 19 ), PoolIntArray( 19, 17, 20 ), PoolIntArray( 23, 22, 21 ), PoolIntArray( 26, 25, 24 ), PoolIntArray( 28, 27, 29 ), PoolIntArray( 29, 27, 30 ), PoolIntArray( 32, 31, 33 ), PoolIntArray( 33, 31, 36 ), PoolIntArray( 33, 36, 35 ), PoolIntArray( 33, 35, 34 ), PoolIntArray( 38, 37, 39 ), PoolIntArray( 39, 37, 40 ), PoolIntArray( 43, 42, 41 ), PoolIntArray( 47, 46, 44 ), PoolIntArray( 44, 46, 45 ), PoolIntArray( 49, 48, 50 ), PoolIntArray( 50, 48, 52 ), PoolIntArray( 50, 52, 51 ), PoolIntArray( 55, 54, 57 ), PoolIntArray( 57, 54, 53 ), PoolIntArray( 57, 53, 56 ), PoolIntArray( 61, 60, 58 ), PoolIntArray( 58, 60, 59 ), PoolIntArray( 63, 62, 64 ), PoolIntArray( 64, 62, 65 ), PoolIntArray( 68, 67, 66 ), PoolIntArray( 72, 71, 69 ), PoolIntArray( 69, 71, 70 ), PoolIntArray( 73, 75, 74 ), PoolIntArray( 77, 76, 78 ), PoolIntArray( 78, 76, 79 ), PoolIntArray( 81, 80, 82 ), PoolIntArray( 82, 80, 83 ), PoolIntArray( 85, 84, 86 ), PoolIntArray( 86, 84, 87 ), PoolIntArray( 87, 84, 88 ), PoolIntArray( 88, 84, 89 ), PoolIntArray( 92, 91, 90 ), PoolIntArray( 95, 94, 93 ), PoolIntArray( 99, 98, 96 ), PoolIntArray( 96, 98, 97 ), PoolIntArray( 101, 100, 102 ), PoolIntArray( 102, 100, 103 ), PoolIntArray( 105, 104, 106 ), PoolIntArray( 106, 104, 107 ), PoolIntArray( 109, 108, 110 ), PoolIntArray( 110, 108, 111 ), PoolIntArray( 111, 108, 112 ), PoolIntArray( 115, 114, 113 ), PoolIntArray( 117, 116, 118 ), PoolIntArray( 118, 116, 119 ), PoolIntArray( 121, 124, 122 ), PoolIntArray( 122, 124, 125 ), PoolIntArray( 125, 124, 120 ), PoolIntArray( 125, 120, 123 ), PoolIntArray( 127, 126, 128 ), PoolIntArray( 128, 126, 131 ), PoolIntArray( 128, 131, 130 ), PoolIntArray( 128, 130, 129 ), PoolIntArray( 133, 132, 134 ), PoolIntArray( 134, 132, 135 ), PoolIntArray( 138, 137, 136 ), PoolIntArray( 141, 140, 139 ), PoolIntArray( 144, 143, 142 ), PoolIntArray( 146, 145, 147 ), PoolIntArray( 147, 145, 148 ), PoolIntArray( 148, 145, 149 ), PoolIntArray( 152, 151, 150 ), PoolIntArray( 154, 153, 155 ), PoolIntArray( 155, 153, 156 ), PoolIntArray( 156, 153, 157 ), PoolIntArray( 161, 160, 158 ), PoolIntArray( 158, 160, 159 ), PoolIntArray( 163, 162, 164 ), PoolIntArray( 164, 162, 165 ), PoolIntArray( 166, 170, 167 ), PoolIntArray( 167, 170, 168 ), PoolIntArray( 168, 170, 169 ), PoolIntArray( 172, 171, 173 ), PoolIntArray( 173, 171, 174 ), PoolIntArray( 176, 175, 177 ), PoolIntArray( 177, 175, 178 ), PoolIntArray( 180, 179, 181 ), PoolIntArray( 181, 179, 182 ), PoolIntArray( 184, 183, 185 ), PoolIntArray( 185, 183, 187 ), PoolIntArray( 185, 187, 186 ), PoolIntArray( 189, 188, 190 ), PoolIntArray( 190, 188, 191 ), PoolIntArray( 194, 193, 192 ), PoolIntArray( 196, 195, 197 ), PoolIntArray( 197, 195, 198 ), PoolIntArray( 200, 199, 201 ), PoolIntArray( 201, 199, 204 ), PoolIntArray( 201, 204, 203 ), PoolIntArray( 201, 203, 202 ), PoolIntArray( 206, 205, 207 ), PoolIntArray( 207, 205, 208 ), PoolIntArray( 211, 210, 209 ), PoolIntArray( 214, 213, 212 ), PoolIntArray( 216, 215, 217 ), PoolIntArray( 217, 215, 218 ), PoolIntArray( 221, 220, 219 ), PoolIntArray( 223, 222, 224 ), PoolIntArray( 224, 222, 225 ), PoolIntArray( 225, 222, 226 ), PoolIntArray( 230, 229, 227 ), PoolIntArray( 227, 229, 228 ) ]
+geometry/parsed_geometry_type = 2
+geometry/collision_mask = 4294967295
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 2.87273, 1.76083, 1 )
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 8 )
+is_map_flipped = true
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+margin_right = 640.0
+margin_bottom = 480.0
+stretch = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+egg = true
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+size = Vector2( 640, 480 )
+size_override_stretch = true
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Player" parent="ViewportContainer/Viewport" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.1744, -6.75829, -57.6592 )
+spawn_with_suit = true
+
+[node name="Spatial" type="Spatial" parent="."]
+transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, 1, 22.82, 0, 0 )
+
+[node name="hallway section 2" type="Spatial" parent="Spatial"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 29.9632, -6.69591, -45.4745 )
+
+[node name="CSGBox19" type="CSGBox" parent="Spatial/hallway section 2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.949, 1.82854, -15.7578 )
+use_collision = true
+width = 3.93519
+height = 0.002
+depth = 6.40739
+material = ExtResource( 5 )
+
+[node name="CSGBox3" type="CSGBox" parent="Spatial/hallway section 2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0351, 0.412588, -15.8297 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 6.40739
+material = ExtResource( 3 )
+
+[node name="CSGBox4" type="CSGBox" parent="Spatial/hallway section 2"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.9494, 0.412588, -15.8297 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 6.40739
+material = ExtResource( 3 )
+
+[node name="ah, hello gordon!" type="Spatial" parent="Spatial"]
+
+[node name="CSGBox8" type="CSGBox" parent="Spatial/ah, hello gordon!"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.75583, -4.33145, -45.8198 )
+use_collision = true
+width = 4.70102
+height = 1.64179
+depth = 0.456026
+material = ExtResource( 3 )
+
+[node name="CSGBox10" type="CSGBox" parent="Spatial/ah, hello gordon!"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09534, -4.87018, -53.3775 )
+use_collision = true
+width = 13.7803
+height = 0.002
+depth = 14.8032
+material = ExtResource( 5 )
+
+[node name="CSGBox11" type="CSGBox" parent="Spatial/ah, hello gordon!"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7421, -6.28614, -52.8002 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 13.3127
+material = ExtResource( 3 )
+
+[node name="CSGBox12" type="CSGBox" parent="Spatial/ah, hello gordon!"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 11.0051, -6.28614, -51.2849 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 10.194
+material = ExtResource( 3 )
+
+[node name="CSGBox13" type="CSGBox" parent="Spatial/ah, hello gordon!"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.03307, -6.28614, -59.445 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 13.5139
+material = ExtResource( 3 )
+
+[node name="CSGBox14" type="CSGBox" parent="Spatial/ah, hello gordon!"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.165214, -6.28614, -46.1929 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 5.27128
+material = ExtResource( 3 )
+
+[node name="CSGBox15" type="CSGBox" parent="Spatial/ah, hello gordon!"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.39823, -6.28614, -46.1929 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 5.27128
+material = ExtResource( 3 )
+
+[node name="CSGBox16" type="CSGBox" parent="Spatial/ah, hello gordon!"]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 6.30335, -6.37079, -45.8049 )
+use_collision = true
+width = 0.38541
+height = 3.08629
+depth = 0.742163
+material = ExtResource( 3 )
+
+[node name="CSGBox17" type="CSGBox" parent="Spatial/ah, hello gordon!"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.93342, -6.37079, -45.8049 )
+use_collision = true
+width = 0.38541
+height = 3.08629
+depth = 0.742163
+material = ExtResource( 3 )
+
+[node name="hallwayaaa" type="Spatial" parent="Spatial"]
+
+[node name="CSGBox32" type="CSGBox" parent="Spatial/hallwayaaa"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.1507, 0.412588, -31.5068 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 9.83735
+material = ExtResource( 3 )
+
+[node name="CSGBox36" type="CSGBox" parent="Spatial/hallwayaaa"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.07572, 0.412588, -31.5068 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 5.97254
+material = ExtResource( 3 )
+
+[node name="CSGBox33" type="CSGBox" parent="Spatial/hallwayaaa"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.53011, 0.412588, -26.2303 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 13.406
+material = ExtResource( 3 )
+
+[node name="CSGBox25" type="CSGBox" parent="Spatial/hallwayaaa"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.02454, 1.9864, -28.9971 )
+use_collision = true
+width = 18.5014
+height = 0.002
+depth = 5.38633
+material = ExtResource( 5 )
+
+[node name="CSGBox37" type="CSGBox" parent="Spatial/hallwayaaa"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.16733, 0.412588, -30.5984 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 8.14693
+material = ExtResource( 3 )
+
+[node name="Sprite3D" type="Sprite3D" parent="Spatial/hallwayaaa"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.82936, 0, -26.54 )
+flip_v = true
+texture = SubResource( 4 )
+
+[node name="Viewport" type="Viewport" parent="Spatial/hallwayaaa/Sprite3D"]
+size = Vector2( 214, 14 )
+transparent_bg = true
+
+[node name="Label" type="Label" parent="Spatial/hallwayaaa/Sprite3D/Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "I'm too lazy to finish these maps!"
+
+[node name="Sprite3D2" type="Sprite3D" parent="Spatial/hallwayaaa"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 19.498, 0, -28.3199 )
+flip_v = true
+texture = SubResource( 5 )
+
+[node name="level transition" type="Spatial" parent="Spatial"]
+
+[node name="CSGBox29" type="CSGBox" parent="Spatial/level transition"]
+transform = Transform( 1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 4.02454, -1.26429, -38.8584 )
+use_collision = true
+width = 5.9663
+height = 0.002
+depth = 15.7058
+material = ExtResource( 5 )
+
+[node name="CSGBox45" type="CSGBox" parent="Spatial/level transition"]
+transform = Transform( 1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 1.09335, -3.03138, -39.374 )
+use_collision = true
+width = 0.002
+height = 3.41086
+depth = 15.7058
+material = ExtResource( 3 )
+
+[node name="CSGBox46" type="CSGBox" parent="Spatial/level transition"]
+transform = Transform( -1, -3.69465e-08, -7.92319e-08, 0, 0.906308, -0.422618, 8.74228e-08, -0.422618, -0.906308, 6.91077, -3.03138, -39.374 )
+use_collision = true
+width = 0.002
+height = 3.41086
+depth = 15.7058
+material = ExtResource( 3 )
+
+[node name="Area" type="Area" parent="Spatial/level transition"]
+script = ExtResource( 6 )
+level_path = "res://maps/c1a1_mirrored.tscn"
+destination_path = "level_player_rt"
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial/level transition/Area"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15.2394, -6.44535, -57.5947 )
+shape = SubResource( 1 )
+
+[node name="level_player_rt" type="Spatial" parent="Spatial"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.0791, -6.83891, -58.1567 )
+
+[node name="npc_barney" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.75601 )
+player_path = NodePath("../../ViewportContainer/Viewport/Player")
+speed = 5
+hud_enabled = true
+health = 10
+
+[node name="test chamber2" type="Spatial" parent="Spatial"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17.1151, -9.94647, -69.3799 )
+
+[node name="CSGBox19" type="CSGBox" parent="Spatial/test chamber2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8977, 15.6649, -15.7578 )
+use_collision = true
+width = 29.8961
+height = 0.002
+depth = 18.0733
+material = ExtResource( 5 )
+
+[node name="CSGBox3" type="CSGBox" parent="Spatial/test chamber2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.71397, 7.20535, -15.8297 )
+use_collision = true
+width = 0.002
+height = 17.6012
+depth = 19.0532
+material = ExtResource( 3 )
+
+[node name="CSGBox5" type="CSGBox" parent="Spatial/test chamber2"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.40868, 7.20535, -6.54624 )
+use_collision = true
+width = 0.002
+height = 17.6012
+depth = 17.5574
+material = ExtResource( 3 )
+
+[node name="CSGBox8" type="CSGBox" parent="Spatial/test chamber2"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.5792, 7.20535, -25.011 )
+use_collision = true
+width = 0.002
+height = 17.6012
+depth = 30.9039
+material = ExtResource( 3 )
+
+[node name="CSGBox6" type="CSGBox" parent="Spatial/test chamber2"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.7019, 7.20535, -6.54624 )
+use_collision = true
+width = 0.002
+height = 17.6012
+depth = 17.5574
+material = ExtResource( 3 )
+
+[node name="CSGBox7" type="CSGBox" parent="Spatial/test chamber2"]
+transform = Transform( 1.10072e-08, -4.23028e-08, 1, -0.967775, -0.251816, 0, 0.251816, -0.967775, -4.37114e-08, 12.0477, -0.0558052, -14.961 )
+use_collision = true
+width = 0.002
+height = 17.6012
+depth = 3.79887
+material = ExtResource( 3 )
+
+[node name="CSGBox9" type="CSGBox" parent="Spatial/test chamber2"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.0477, 13.8762, -6.57603 )
+use_collision = true
+width = 0.002
+height = 17.6012
+depth = 3.79887
+material = ExtResource( 3 )
+
+[node name="CSGBox4" type="CSGBox" parent="Spatial/test chamber2"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 25.9116, 6.98583, -15.8297 )
+use_collision = true
+width = 0.002
+height = 17.4936
+depth = 18.4124
+material = ExtResource( 3 )
+
+[node name="Spatial" type="Spatial" parent="Spatial/test chamber2"]
+
+[node name="CSGBox21" type="CSGBox" parent="Spatial/test chamber2/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.949, 1.82854, -3.29369 )
+use_collision = true
+width = 3.93519
+height = 0.002
+depth = 6.40739
+material = ExtResource( 5 )
+
+[node name="CSGBox5" type="CSGBox" parent="Spatial/test chamber2/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0351, 0.412588, -3.36565 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 6.40739
+material = ExtResource( 3 )
+
+[node name="CSGBox6" type="CSGBox" parent="Spatial/test chamber2/Spatial"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.9494, 0.412588, -3.36565 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 6.40739
+material = ExtResource( 3 )
+
+[node name="CSGBox" type="CSGBox" parent="Spatial/test chamber2"]
+transform = Transform( 0.139179, 0.0601348, 0.98844, 0.988998, -0.0589603, -0.135671, 0.0501202, 0.996447, -0.0676792, 22.9146, -1.90735e-06, -15.6758 )
+
+[node name="hallway section 1" type="Spatial" parent="Spatial"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 25.714, 0, -3.99152 )
+
+[node name="CSGBox19" type="CSGBox" parent="Spatial/hallway section 1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.949, 1.82854, -15.7578 )
+use_collision = true
+width = 3.93519
+height = 0.002
+depth = 6.40739
+material = ExtResource( 5 )
+
+[node name="CSGBox3" type="CSGBox" parent="Spatial/hallway section 1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0351, 0.412588, -15.8297 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 6.40739
+material = ExtResource( 3 )
+
+[node name="CSGBox4" type="CSGBox" parent="Spatial/hallway section 1"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.9494, 0.412588, -15.8297 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 6.40739
+material = ExtResource( 3 )
+
+[node name="hallway2" type="Spatial" parent="Spatial"]
+
+[node name="CSGBox30" type="CSGBox" parent="Spatial/hallway2"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 17.0338, 0.412588, -22.7752 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 17.7821
+material = ExtResource( 3 )
+
+[node name="CSGBox31" type="CSGBox" parent="Spatial/hallway2"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.9778, 0.412588, -13.9269 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 4.07729
+material = ExtResource( 3 )
+
+[node name="CSGBox24" type="CSGBox" parent="Spatial/hallway2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1602, 1.9864, -22.7472 )
+use_collision = true
+width = 3.93519
+height = 0.002
+depth = 17.7988
+material = ExtResource( 5 )
+
+[node name="CSGBox34" type="CSGBox" parent="Spatial/hallway2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2126, 0.412588, -22.032 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 8.14693
+material = ExtResource( 3 )
+
+[node name="dat corner" type="Spatial" parent="Spatial"]
+
+[node name="CSGBox44" type="CSGBox" parent="Spatial/dat corner"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12.4073, 0.412588, -26.4507 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 14.6647
+material = ExtResource( 3 )
+
+[node name="CSGBox40" type="CSGBox" parent="Spatial/dat corner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8022, 0.412588, -25.6524 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 14.6647
+material = ExtResource( 3 )
+
+[node name="CSGBox26" type="CSGBox" parent="Spatial/dat corner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.98948, 1.9864, -23.7979 )
+use_collision = true
+width = 15.5058
+height = 0.002
+depth = 5.38633
+material = ExtResource( 5 )
+
+[node name="CSGBox27" type="CSGBox" parent="Spatial/dat corner"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.1286, 1.9864, -13.3709 )
+use_collision = true
+width = 15.5058
+height = 0.002
+depth = 5.38633
+material = ExtResource( 5 )
+
+[node name="CSGBox38" type="CSGBox" parent="Spatial/dat corner"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.33809, 0.412588, -21.1125 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 10.1528
+material = ExtResource( 3 )
+
+[node name="CSGBox35" type="CSGBox" parent="Spatial/dat corner"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.189372, 0.412588, -22.0418 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 8.43118
+material = ExtResource( 3 )
+
+[node name="tiny cooridoor" type="Spatial" parent="Spatial"]
+
+[node name="CSGBox28" type="CSGBox" parent="Spatial/tiny cooridoor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.0752, 1.9864, -15.5557 )
+use_collision = true
+width = 8.5701
+height = 0.002
+depth = 5.38633
+material = ExtResource( 5 )
+
+[node name="CSGBox42" type="CSGBox" parent="Spatial/tiny cooridoor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7396, 0.412588, -15.6236 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 8.60653
+material = ExtResource( 3 )
+
+[node name="CSGBox43" type="CSGBox" parent="Spatial/tiny cooridoor"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -20.0425, 0.412588, -18.3727 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 8.60653
+material = ExtResource( 3 )
+
+[node name="game intro" type="Spatial" parent="Spatial"]
+
+[node name="Navigation" type="Navigation" parent="Spatial/game intro"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.910141, 0 )
+
+[node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Spatial/game intro/Navigation"]
+navmesh = SubResource( 8 )
+
+[node name="CSGBox5" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.339512, 0.5697, 3.3014 )
+use_collision = true
+width = 4.70102
+height = 1.64179
+depth = 0.456026
+material = ExtResource( 3 )
+
+[node name="CSGBox6" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.339512, 2.19255, 3.3014 )
+use_collision = true
+width = 4.70102
+height = 1.64179
+depth = 0.456026
+material = ExtResource( 3 )
+
+[node name="CSGBox2" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.73868, 0 )
+use_collision = true
+width = 3.93519
+height = 0.002
+depth = 6.40739
+material = ExtResource( 5 )
+
+[node name="CSGBox3" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.96851, 1.32273, 0 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 6.40739
+material = ExtResource( 3 )
+
+[node name="CSGBox4" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.94583, 1.32273, 0 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 6.40739
+material = ExtResource( 3 )
+
+[node name="CSGBox8" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.339512, 2.53853, -3.43534 )
+use_collision = true
+width = 4.70102
+height = 1.64179
+depth = 0.456026
+material = ExtResource( 3 )
+
+[node name="CSGBox10" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.73868, -10.9931 )
+use_collision = true
+width = 13.7803
+height = 0.002
+depth = 14.8032
+material = ExtResource( 5 )
+
+[node name="CSGBox9" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.257479, -10.381 )
+use_collision = true
+width = 13.7358
+height = 0.002
+depth = 26.5906
+material = ExtResource( 4 )
+
+[node name="CSGBox11" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.83744, 1.32273, -10.4157 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 13.3127
+material = ExtResource( 3 )
+
+[node name="CSGBox12" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.90975, 1.32273, -8.90043 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 10.194
+material = ExtResource( 3 )
+
+[node name="CSGBox13" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0622683, 1.32273, -17.0606 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 13.5139
+material = ExtResource( 3 )
+
+[node name="CSGBox14" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.26055, 1.32273, -3.80843 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 5.27128
+material = ExtResource( 3 )
+
+[node name="CSGBox15" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.30289, 1.32273, -3.80843 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 5.27128
+material = ExtResource( 3 )
+
+[node name="CSGBox16" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.20802, 1.23808, -3.42046 )
+use_collision = true
+width = 0.38541
+height = 3.08629
+depth = 0.742163
+material = ExtResource( 3 )
+
+[node name="CSGBox17" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.16191, 1.23808, -3.42046 )
+use_collision = true
+width = 0.38541
+height = 3.08629
+depth = 0.742163
+material = ExtResource( 3 )
+
+[node name="CSGBox18" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.928894, -10.381 )
+use_collision = true
+width = 1.07256
+height = 2.33956
+depth = 2.44379
+material = ExtResource( 4 )
+
+[node name="CSGBox19" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.928894, -13.5481 )
+use_collision = true
+width = 1.07256
+height = 2.33956
+depth = 2.44379
+material = ExtResource( 4 )
+
+[node name="CSGBox21" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.928894, -7.11781 )
+use_collision = true
+width = 1.07256
+height = 2.33956
+depth = 2.44379
+material = ExtResource( 4 )
+
+[node name="CSGBox20" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.97384, 0.928894, -10.381 )
+use_collision = true
+width = 1.07256
+height = 2.33956
+depth = 2.44379
+material = ExtResource( 4 )
+
+[node name="CSGBox22" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.97384, 0.928894, -13.5481 )
+use_collision = true
+width = 1.07256
+height = 2.33956
+depth = 2.44379
+material = ExtResource( 4 )
+
+[node name="CSGBox23" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.97384, 0.928894, -7.11781 )
+use_collision = true
+width = 1.07256
+height = 2.33956
+depth = 2.44379
+material = ExtResource( 4 )
+
+[node name="CSGBox24" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.24603, 0.928894, -10.381 )
+use_collision = true
+width = 1.07256
+height = 2.33956
+depth = 2.44379
+material = ExtResource( 4 )
+
+[node name="CSGBox25" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.24603, 0.928894, -13.5481 )
+use_collision = true
+width = 1.07256
+height = 2.33956
+depth = 2.44379
+material = ExtResource( 4 )
+
+[node name="CSGBox26" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.24603, 0.928894, -7.11781 )
+use_collision = true
+width = 1.07256
+height = 2.33956
+depth = 2.44379
+material = ExtResource( 4 )
+
+[node name="CSGBox27" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.46719, 0.928894, -10.381 )
+use_collision = true
+width = 1.07256
+height = 2.33956
+depth = 2.44379
+material = ExtResource( 4 )
+
+[node name="CSGBox28" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.46719, 0.928894, -13.5481 )
+use_collision = true
+width = 1.07256
+height = 2.33956
+depth = 2.44379
+material = ExtResource( 4 )
+
+[node name="CSGBox29" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.46719, 0.928894, -7.11781 )
+use_collision = true
+width = 1.07256
+height = 2.33956
+depth = 2.44379
+material = ExtResource( 4 )
+
+[node name="CSGBox30" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.69484, 0.928894, -10.381 )
+use_collision = true
+width = 1.07256
+height = 2.33956
+depth = 2.44379
+material = ExtResource( 4 )
+
+[node name="CSGBox31" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.69484, 0.928894, -13.5481 )
+use_collision = true
+width = 1.07256
+height = 2.33956
+depth = 2.44379
+material = ExtResource( 4 )
+
+[node name="CSGBox32" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.69484, 0.928894, -7.11781 )
+use_collision = true
+width = 1.07256
+height = 2.33956
+depth = 2.44379
+material = ExtResource( 4 )
+
+[node name="CSGBox33" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.0752, -0.257479, -15.5557 )
+use_collision = true
+width = 8.5701
+height = 0.002
+depth = 5.38633
+material = ExtResource( 4 )
+
+[node name="CSGBox34" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.98948, -0.257479, -23.7979 )
+use_collision = true
+width = 15.5058
+height = 0.002
+depth = 5.38633
+material = ExtResource( 4 )
+
+[node name="CSGBox35" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.1286, -0.257479, -13.3709 )
+use_collision = true
+width = 15.5058
+height = 0.002
+depth = 5.38633
+material = ExtResource( 4 )
+
+[node name="CSGBox36" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1602, -0.257479, -22.7472 )
+use_collision = true
+width = 3.93519
+height = 0.002
+depth = 17.7988
+material = ExtResource( 4 )
+
+[node name="CSGBox60" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.1198, -0.262389, 8.76745 )
+use_collision = true
+width = 44.9765
+height = 0.002
+depth = 29.3129
+material = ExtResource( 4 )
+
+[node name="CSGBox37" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.9562, -0.257479, -15.9405 )
+use_collision = true
+width = 3.93519
+height = 0.002
+depth = 6.40739
+material = ExtResource( 4 )
+
+[node name="CSGBox38" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 32.8729, -10.2039, -58.4562 )
+use_collision = true
+width = 30.2963
+height = 0.002
+depth = 18.544
+material = ExtResource( 4 )
+
+[node name="CSGBox39" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 20.4088, -10.2039, -57.4309 )
+use_collision = true
+width = 3.93519
+height = 0.002
+depth = 6.40739
+material = ExtResource( 4 )
+
+[node name="CSGBox40" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 4.02454, -3.50817, -38.8584 )
+use_collision = true
+width = 5.9663
+height = 0.002
+depth = 15.7058
+material = ExtResource( 4 )
+
+[node name="CSGBox41" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.02454, -0.257479, -28.9971 )
+use_collision = true
+width = 18.5014
+height = 0.002
+depth = 5.38633
+material = ExtResource( 4 )
+
+[node name="CSGBox42" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09534, -6.9562, -52.7654 )
+use_collision = true
+width = 13.7358
+height = 0.002
+depth = 13.3147
+material = ExtResource( 4 )
+
+[node name="CSGBox43" type="CSGBox" parent="Spatial/game intro/Navigation/NavigationMeshInstance"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.2054, -6.95339, -57.4235 )
+use_collision = true
+width = 3.93519
+height = 0.002
+depth = 6.40739
+material = ExtResource( 4 )
+
+[node name="Spatial" type="Spatial" parent="Spatial/game intro"]
+
+[node name="sorry, youve got the wrong airlock mr freeman" type="Spatial" parent="Spatial"]
+
+[node name="CSGBox50" type="CSGBox" parent="Spatial/sorry, youve got the wrong airlock mr freeman"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -31.0132, 0.323501, 1.67508 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 30.4016
+material = ExtResource( 3 )
+
+[node name="CSGBox51" type="CSGBox" parent="Spatial/sorry, youve got the wrong airlock mr freeman"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -26.0791, 0.323501, 6.22522 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 31.0542
+material = ExtResource( 3 )
+
+[node name="CSGBox53" type="CSGBox" parent="Spatial/sorry, youve got the wrong airlock mr freeman"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45.2339, 0.323501, 7.04863 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 10.6357
+material = ExtResource( 3 )
+
+[node name="CSGBox61" type="CSGBox" parent="Spatial/sorry, youve got the wrong airlock mr freeman"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.1198, 1.93183, 8.76745 )
+use_collision = true
+width = 44.9765
+height = 0.002
+depth = 29.3129
+material = ExtResource( 5 )
+
+[node name="CSGBox39" type="CSGBox" parent="Spatial/sorry, youve got the wrong airlock mr freeman"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10.5624, 0.323501, -7.02822 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 26.6107
+material = ExtResource( 3 )
+
+[node name="CSGBox41" type="CSGBox" parent="Spatial/sorry, youve got the wrong airlock mr freeman"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8022, 0.412588, -5.55571 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 14.6647
+material = ExtResource( 3 )
+
+[node name="Area" type="Area" parent="Spatial/sorry, youve got the wrong airlock mr freeman"]
+script = ExtResource( 6 )
+level_path = "res://maps/c1a1b_mirrored.tscn"
+destination_path = "default"
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial/sorry, youve got the wrong airlock mr freeman/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.907, 0.0211033, 0.639405 )
+shape = SubResource( 7 )
+
+[node name="level_return" type="Spatial" parent="Spatial"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13.5824, 0.0721157, -4.48422 )
+
+[node name="ammo_pack" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.1297, -0.273286, 21.0987 )
+
+[node name="ammo_pack2" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45805, -0.752955, 2.26884 )
+
+[node name="ammo_pack3" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.789081, -0.752955, 2.26884 )
+
+[node name="ammo_pack4" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136567, -0.752955, 2.26884 )
+
+[node name="ammo_pack5" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532402, -0.752955, 2.26884 )
+
+[node name="ammo_pack6" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45805, -0.752955, 1.38322 )
+
+[node name="ammo_pack7" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.789081, -0.752955, 1.38322 )
+
+[node name="ammo_pack8" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136567, -0.752955, 1.38322 )
+
+[node name="ammo_pack9" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532402, -0.752955, 1.38322 )
+
+[node name="ammo_pack10" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45805, -0.752955, 0.395159 )
+
+[node name="ammo_pack11" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.789081, -0.752955, 0.395159 )
+
+[node name="ammo_pack12" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136567, -0.752955, 0.395159 )
+
+[node name="ammo_pack13" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532402, -0.752955, 0.395159 )
+
+[node name="ammo_pack14" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45805, -0.752955, -0.49047 )
+
+[node name="ammo_pack15" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.789081, -0.752955, -0.49047 )
+
+[node name="ammo_pack16" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136567, -0.752955, -0.49047 )
+
+[node name="ammo_pack17" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532402, -0.752955, -0.49047 )
+
+[node name="ammo_pack18" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45805, -0.0822401, 2.26884 )
+
+[node name="ammo_pack19" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.789081, -0.0822401, 2.26884 )
+
+[node name="ammo_pack20" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136567, -0.0822401, 2.26884 )
+
+[node name="ammo_pack21" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532402, -0.0822401, 2.26884 )
+
+[node name="ammo_pack22" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45805, -0.0822401, 1.38322 )
+
+[node name="ammo_pack23" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.789081, -0.0822401, 1.38322 )
+
+[node name="ammo_pack24" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136567, -0.0822401, 1.38322 )
+
+[node name="ammo_pack25" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532402, -0.0822401, 1.38322 )
+
+[node name="ammo_pack26" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45805, -0.0822401, 0.395159 )
+
+[node name="ammo_pack27" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.789081, -0.0822401, 0.395159 )
+
+[node name="ammo_pack28" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136567, -0.0822401, 0.395159 )
+
+[node name="ammo_pack29" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532402, -0.0822401, 0.395159 )
+
+[node name="ammo_pack30" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45805, -0.0822401, -0.49047 )
+
+[node name="ammo_pack31" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.789081, -0.0822401, -0.49047 )
+
+[node name="ammo_pack32" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136567, -0.0822401, -0.49047 )
+
+[node name="ammo_pack33" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532402, -0.0822401, -0.49047 )
+
+[node name="ammo_pack34" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45805, 0.457767, 2.26884 )
+
+[node name="ammo_pack35" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.789081, 0.457767, 2.26884 )
+
+[node name="ammo_pack36" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136567, 0.457767, 2.26884 )
+
+[node name="ammo_pack37" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532402, 0.457767, 2.26884 )
+
+[node name="ammo_pack38" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45805, 0.457767, 1.38322 )
+
+[node name="ammo_pack39" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.789081, 0.457767, 1.38322 )
+
+[node name="ammo_pack40" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136567, 0.457767, 1.38322 )
+
+[node name="ammo_pack41" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532402, 0.457767, 1.38322 )
+
+[node name="ammo_pack42" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45805, 0.457767, 0.395159 )
+
+[node name="ammo_pack43" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.789081, 0.457767, 0.395159 )
+
+[node name="ammo_pack44" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136567, 0.457767, 0.395159 )
+
+[node name="ammo_pack45" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532402, 0.457767, 0.395159 )
+
+[node name="ammo_pack46" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45805, 0.457767, -0.49047 )
+
+[node name="ammo_pack47" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.789081, 0.457767, -0.49047 )
+
+[node name="ammo_pack48" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136567, 0.457767, -0.49047 )
+
+[node name="ammo_pack49" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532402, 0.457767, -0.49047 )
+
+[node name="ammo_pack50" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45805, 1.12848, 2.26884 )
+
+[node name="ammo_pack51" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.789081, 1.12848, 2.26884 )
+
+[node name="ammo_pack52" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136567, 1.12848, 2.26884 )
+
+[node name="ammo_pack53" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532402, 1.12848, 2.26884 )
+
+[node name="ammo_pack54" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45805, 1.12848, 1.38322 )
+
+[node name="ammo_pack55" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.789081, 1.12848, 1.38322 )
+
+[node name="ammo_pack56" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136567, 1.12848, 1.38322 )
+
+[node name="ammo_pack57" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532402, 1.12848, 1.38322 )
+
+[node name="ammo_pack58" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45805, 1.12848, 0.395159 )
+
+[node name="ammo_pack59" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.789081, 1.12848, 0.395159 )
+
+[node name="ammo_pack60" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136567, 1.12848, 0.395159 )
+
+[node name="ammo_pack61" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532402, 1.12848, 0.395159 )
+
+[node name="ammo_pack62" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45805, 1.12848, -0.49047 )
+
+[node name="ammo_pack63" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.789081, 1.12848, -0.49047 )
+
+[node name="ammo_pack64" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136567, 1.12848, -0.49047 )
+
+[node name="ammo_pack65" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532402, 1.12848, -0.49047 )
+
+[node name="ammo_pack130" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45805, -0.752955, -1.1885 )
+
+[node name="ammo_pack131" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.789081, -0.752955, -1.1885 )
+
+[node name="ammo_pack132" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136567, -0.752955, -1.1885 )
+
+[node name="ammo_pack133" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532402, -0.752955, -1.1885 )
+
+[node name="ammo_pack134" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45805, -0.752955, -2.07413 )
+
+[node name="ammo_pack135" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.789081, -0.752955, -2.07413 )
+
+[node name="ammo_pack136" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136567, -0.752955, -2.07413 )
+
+[node name="ammo_pack137" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532402, -0.752955, -2.07413 )
+
+[node name="ammo_pack138" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45805, -0.752955, -3.06218 )
+
+[node name="ammo_pack139" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.789081, -0.752955, -3.06218 )
+
+[node name="ammo_pack140" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136567, -0.752955, -3.06218 )
+
+[node name="ammo_pack141" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532402, -0.752955, -3.06218 )
+
+[node name="ammo_pack142" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45805, -0.752955, -3.94781 )
+
+[node name="ammo_pack143" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.789081, -0.752955, -3.94781 )
+
+[node name="ammo_pack144" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136567, -0.752955, -3.94781 )
+
+[node name="ammo_pack145" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532402, -0.752955, -3.94781 )
+
+[node name="ammo_pack146" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45805, -0.0822401, -1.1885 )
+
+[node name="ammo_pack147" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.789081, -0.0822401, -1.1885 )
+
+[node name="ammo_pack148" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136567, -0.0822401, -1.1885 )
+
+[node name="ammo_pack149" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532402, -0.0822401, -1.1885 )
+
+[node name="ammo_pack150" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45805, -0.0822401, -2.07413 )
+
+[node name="ammo_pack151" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.789081, -0.0822401, -2.07413 )
+
+[node name="ammo_pack152" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136567, -0.0822401, -2.07413 )
+
+[node name="ammo_pack153" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532402, -0.0822401, -2.07413 )
+
+[node name="ammo_pack154" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45805, -0.0822401, -3.06218 )
+
+[node name="ammo_pack155" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.789081, -0.0822401, -3.06218 )
+
+[node name="ammo_pack156" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136567, -0.0822401, -3.06218 )
+
+[node name="ammo_pack157" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532402, -0.0822401, -3.06218 )
+
+[node name="ammo_pack158" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45805, -0.0822401, -3.94781 )
+
+[node name="ammo_pack159" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.789081, -0.0822401, -3.94781 )
+
+[node name="ammo_pack160" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136567, -0.0822401, -3.94781 )
+
+[node name="ammo_pack161" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532402, -0.0822401, -3.94781 )
+
+[node name="ammo_pack162" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45805, 0.457767, -1.1885 )
+
+[node name="ammo_pack163" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.789081, 0.457767, -1.1885 )
+
+[node name="ammo_pack164" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136567, 0.457767, -1.1885 )
+
+[node name="ammo_pack165" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532402, 0.457767, -1.1885 )
+
+[node name="ammo_pack166" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45805, 0.457767, -2.07413 )
+
+[node name="ammo_pack167" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.789081, 0.457767, -2.07413 )
+
+[node name="ammo_pack168" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136567, 0.457767, -2.07413 )
+
+[node name="ammo_pack169" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532402, 0.457767, -2.07413 )
+
+[node name="ammo_pack170" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45805, 0.457767, -3.06218 )
+
+[node name="ammo_pack171" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.789081, 0.457767, -3.06218 )
+
+[node name="ammo_pack172" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136567, 0.457767, -3.06218 )
+
+[node name="ammo_pack173" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532402, 0.457767, -3.06218 )
+
+[node name="ammo_pack174" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45805, 0.457767, -3.94781 )
+
+[node name="ammo_pack175" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.789081, 0.457767, -3.94781 )
+
+[node name="ammo_pack176" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136567, 0.457767, -3.94781 )
+
+[node name="ammo_pack177" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532402, 0.457767, -3.94781 )
+
+[node name="ammo_pack178" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45805, 1.12848, -1.1885 )
+
+[node name="ammo_pack179" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.789081, 1.12848, -1.1885 )
+
+[node name="ammo_pack180" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136567, 1.12848, -1.1885 )
+
+[node name="ammo_pack181" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532402, 1.12848, -1.1885 )
+
+[node name="ammo_pack182" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45805, 1.12848, -2.07413 )
+
+[node name="ammo_pack183" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.789081, 1.12848, -2.07413 )
+
+[node name="ammo_pack184" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136567, 1.12848, -2.07413 )
+
+[node name="ammo_pack185" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532402, 1.12848, -2.07413 )
+
+[node name="ammo_pack186" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45805, 1.12848, -3.06218 )
+
+[node name="ammo_pack187" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.789081, 1.12848, -3.06218 )
+
+[node name="ammo_pack188" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136567, 1.12848, -3.06218 )
+
+[node name="ammo_pack189" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532402, 1.12848, -3.06218 )
+
+[node name="ammo_pack190" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45805, 1.12848, -3.94781 )
+
+[node name="ammo_pack191" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.789081, 1.12848, -3.94781 )
+
+[node name="ammo_pack192" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136567, 1.12848, -3.94781 )
+
+[node name="ammo_pack193" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532402, 1.12848, -3.94781 )
+
+[node name="ammo_pack194" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34152, -0.752955, -20.0577 )
+
+[node name="ammo_pack195" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.67255, -0.752955, -20.0577 )
+
+[node name="ammo_pack196" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.02004, -0.752955, -20.0577 )
+
+[node name="ammo_pack197" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.35107, -0.752955, -20.0577 )
+
+[node name="ammo_pack198" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34152, -0.752955, -20.9433 )
+
+[node name="ammo_pack199" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.67255, -0.752955, -20.9433 )
+
+[node name="ammo_pack200" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.02004, -0.752955, -20.9433 )
+
+[node name="ammo_pack201" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.35107, -0.752955, -20.9433 )
+
+[node name="ammo_pack202" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34152, -0.752955, -21.9314 )
+
+[node name="ammo_pack203" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.67255, -0.752955, -21.9314 )
+
+[node name="ammo_pack204" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.02004, -0.752955, -21.9314 )
+
+[node name="ammo_pack205" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.35107, -0.752955, -21.9314 )
+
+[node name="ammo_pack206" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34152, -0.752955, -22.817 )
+
+[node name="ammo_pack207" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.67255, -0.752955, -22.817 )
+
+[node name="ammo_pack208" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.02004, -0.752955, -22.817 )
+
+[node name="ammo_pack209" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.35107, -0.752955, -22.817 )
+
+[node name="ammo_pack210" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34152, -0.0822401, -20.0577 )
+
+[node name="ammo_pack211" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.67255, -0.0822401, -20.0577 )
+
+[node name="ammo_pack212" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.02004, -0.0822401, -20.0577 )
+
+[node name="ammo_pack213" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.35107, -0.0822401, -20.0577 )
+
+[node name="ammo_pack214" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34152, -0.0822401, -20.9433 )
+
+[node name="ammo_pack215" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.67255, -0.0822401, -20.9433 )
+
+[node name="ammo_pack216" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.02004, -0.0822401, -20.9433 )
+
+[node name="ammo_pack217" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.35107, -0.0822401, -20.9433 )
+
+[node name="ammo_pack218" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34152, -0.0822401, -21.9314 )
+
+[node name="ammo_pack219" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.67255, -0.0822401, -21.9314 )
+
+[node name="ammo_pack220" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.02004, -0.0822401, -21.9314 )
+
+[node name="ammo_pack221" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.35107, -0.0822401, -21.9314 )
+
+[node name="ammo_pack222" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34152, -0.0822401, -22.817 )
+
+[node name="ammo_pack223" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.67255, -0.0822401, -22.817 )
+
+[node name="ammo_pack224" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.02004, -0.0822401, -22.817 )
+
+[node name="ammo_pack225" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.35107, -0.0822401, -22.817 )
+
+[node name="ammo_pack226" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34152, 0.457767, -20.0577 )
+
+[node name="ammo_pack227" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.67255, 0.457767, -20.0577 )
+
+[node name="ammo_pack228" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.02004, 0.457767, -20.0577 )
+
+[node name="ammo_pack229" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.35107, 0.457767, -20.0577 )
+
+[node name="ammo_pack230" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34152, 0.457767, -20.9433 )
+
+[node name="ammo_pack231" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.67255, 0.457767, -20.9433 )
+
+[node name="ammo_pack232" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.02004, 0.457767, -20.9433 )
+
+[node name="ammo_pack233" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.35107, 0.457767, -20.9433 )
+
+[node name="ammo_pack234" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34152, 0.457767, -21.9314 )
+
+[node name="ammo_pack235" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.67255, 0.457767, -21.9314 )
+
+[node name="ammo_pack236" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.02004, 0.457767, -21.9314 )
+
+[node name="ammo_pack237" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.35107, 0.457767, -21.9314 )
+
+[node name="ammo_pack238" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34152, 0.457767, -22.817 )
+
+[node name="ammo_pack239" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.67255, 0.457767, -22.817 )
+
+[node name="ammo_pack240" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.02004, 0.457767, -22.817 )
+
+[node name="ammo_pack241" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.35107, 0.457767, -22.817 )
+
+[node name="ammo_pack242" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34152, 1.12848, -20.0577 )
+
+[node name="ammo_pack243" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.67255, 1.12848, -20.0577 )
+
+[node name="ammo_pack244" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.02004, 1.12848, -20.0577 )
+
+[node name="ammo_pack245" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.35107, 1.12848, -20.0577 )
+
+[node name="ammo_pack246" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34152, 1.12848, -20.9433 )
+
+[node name="ammo_pack247" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.67255, 1.12848, -20.9433 )
+
+[node name="ammo_pack248" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.02004, 1.12848, -20.9433 )
+
+[node name="ammo_pack249" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.35107, 1.12848, -20.9433 )
+
+[node name="ammo_pack250" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34152, 1.12848, -21.9314 )
+
+[node name="ammo_pack251" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.67255, 1.12848, -21.9314 )
+
+[node name="ammo_pack252" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.02004, 1.12848, -21.9314 )
+
+[node name="ammo_pack253" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.35107, 1.12848, -21.9314 )
+
+[node name="ammo_pack254" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.34152, 1.12848, -22.817 )
+
+[node name="ammo_pack255" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.67255, 1.12848, -22.817 )
+
+[node name="ammo_pack256" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.02004, 1.12848, -22.817 )
+
+[node name="ammo_pack257" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.35107, 1.12848, -22.817 )
+
+[node name="ammo_pack66" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39911, -0.752955, 2.26884 )
+
+[node name="ammo_pack67" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.06808, -0.752955, 2.26884 )
+
+[node name="ammo_pack68" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72059, -0.752955, 2.26884 )
+
+[node name="ammo_pack69" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.38956, -0.752955, 2.26884 )
+
+[node name="ammo_pack70" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39911, -0.752955, 1.38322 )
+
+[node name="ammo_pack71" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.06808, -0.752955, 1.38322 )
+
+[node name="ammo_pack72" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72059, -0.752955, 1.38322 )
+
+[node name="ammo_pack73" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.38956, -0.752955, 1.38322 )
+
+[node name="ammo_pack74" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39911, -0.752955, 0.395159 )
+
+[node name="ammo_pack75" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.06808, -0.752955, 0.395159 )
+
+[node name="ammo_pack76" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72059, -0.752955, 0.395159 )
+
+[node name="ammo_pack77" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.38956, -0.752955, 0.395159 )
+
+[node name="ammo_pack78" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39911, -0.752955, -0.49047 )
+
+[node name="ammo_pack79" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.06808, -0.752955, -0.49047 )
+
+[node name="ammo_pack80" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72059, -0.752955, -0.49047 )
+
+[node name="ammo_pack81" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.38956, -0.752955, -0.49047 )
+
+[node name="ammo_pack82" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39911, -0.0822401, 2.26884 )
+
+[node name="ammo_pack83" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.06808, -0.0822401, 2.26884 )
+
+[node name="ammo_pack84" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72059, -0.0822401, 2.26884 )
+
+[node name="ammo_pack85" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.38956, -0.0822401, 2.26884 )
+
+[node name="ammo_pack86" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39911, -0.0822401, 1.38322 )
+
+[node name="ammo_pack87" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.06808, -0.0822401, 1.38322 )
+
+[node name="ammo_pack88" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72059, -0.0822401, 1.38322 )
+
+[node name="ammo_pack89" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.38956, -0.0822401, 1.38322 )
+
+[node name="ammo_pack90" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39911, -0.0822401, 0.395159 )
+
+[node name="ammo_pack91" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.06808, -0.0822401, 0.395159 )
+
+[node name="ammo_pack92" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72059, -0.0822401, 0.395159 )
+
+[node name="ammo_pack93" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.38956, -0.0822401, 0.395159 )
+
+[node name="ammo_pack94" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39911, -0.0822401, -0.49047 )
+
+[node name="ammo_pack95" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.06808, -0.0822401, -0.49047 )
+
+[node name="ammo_pack96" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72059, -0.0822401, -0.49047 )
+
+[node name="ammo_pack97" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.38956, -0.0822401, -0.49047 )
+
+[node name="ammo_pack98" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39911, 0.457767, 2.26884 )
+
+[node name="ammo_pack99" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.06808, 0.457767, 2.26884 )
+
+[node name="ammo_pack100" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72059, 0.457767, 2.26884 )
+
+[node name="ammo_pack101" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.38956, 0.457767, 2.26884 )
+
+[node name="ammo_pack102" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39911, 0.457767, 1.38322 )
+
+[node name="ammo_pack103" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.06808, 0.457767, 1.38322 )
+
+[node name="ammo_pack104" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72059, 0.457767, 1.38322 )
+
+[node name="ammo_pack105" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.38956, 0.457767, 1.38322 )
+
+[node name="ammo_pack106" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39911, 0.457767, 0.395159 )
+
+[node name="ammo_pack107" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.06808, 0.457767, 0.395159 )
+
+[node name="ammo_pack108" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72059, 0.457767, 0.395159 )
+
+[node name="ammo_pack109" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.38956, 0.457767, 0.395159 )
+
+[node name="ammo_pack110" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39911, 0.457767, -0.49047 )
+
+[node name="ammo_pack111" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.06808, 0.457767, -0.49047 )
+
+[node name="ammo_pack112" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72059, 0.457767, -0.49047 )
+
+[node name="ammo_pack113" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.38956, 0.457767, -0.49047 )
+
+[node name="ammo_pack114" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39911, 1.12848, 2.26884 )
+
+[node name="ammo_pack115" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.06808, 1.12848, 2.26884 )
+
+[node name="ammo_pack116" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72059, 1.12848, 2.26884 )
+
+[node name="ammo_pack117" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.38956, 1.12848, 2.26884 )
+
+[node name="ammo_pack118" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39911, 1.12848, 1.38322 )
+
+[node name="ammo_pack119" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.06808, 1.12848, 1.38322 )
+
+[node name="ammo_pack120" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72059, 1.12848, 1.38322 )
+
+[node name="ammo_pack121" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.38956, 1.12848, 1.38322 )
+
+[node name="ammo_pack122" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39911, 1.12848, 0.395159 )
+
+[node name="ammo_pack123" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.06808, 1.12848, 0.395159 )
+
+[node name="ammo_pack124" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72059, 1.12848, 0.395159 )
+
+[node name="ammo_pack125" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.38956, 1.12848, 0.395159 )
+
+[node name="ammo_pack126" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39911, 1.12848, -0.49047 )
+
+[node name="ammo_pack127" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.06808, 1.12848, -0.49047 )
+
+[node name="ammo_pack128" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72059, 1.12848, -0.49047 )
+
+[node name="ammo_pack129" parent="Spatial" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.38956, 1.12848, -0.49047 )
+
+[node name="Area" type="Area" parent="Spatial"]
+script = ExtResource( 6 )
+level_path = "res://maps/c1a1_return_mirrored.tscn"
+destination_path = "default"
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.06125, 0.101752, -24.861 )
+shape = SubResource( 7 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Spatial"]
+environment = ExtResource( 10 )
+
+[node name="OmniLight" type="OmniLight" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69407, 0 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="OmniLight2" type="OmniLight" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69407, -12.3981 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="OmniLight6" type="OmniLight" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.53793, 1.69407, -29.08 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="OmniLight18" type="OmniLight" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.632, -1.51946, -38.3699 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="OmniLight7" type="OmniLight" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.32965, 1.69407, -29.08 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="OmniLight8" type="OmniLight" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.32965, 1.69407, -22.4094 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="OmniLight9" type="OmniLight" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1391, 1.69407, -23.2731 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="OmniLight10" type="OmniLight" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1391, 1.69407, -19.0701 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="OmniLight11" type="OmniLight" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1391, 1.69407, -15.5478 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="OmniLight12" type="OmniLight" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1391, 1.69407, -11.2636 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="OmniLight13" type="OmniLight" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1391, 1.69407, 3.19729 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="OmniLight14" type="OmniLight" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5019, 1.69407, 3.19729 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="OmniLight15" type="OmniLight" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.1655, 1.69407, 3.19729 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="OmniLight16" type="OmniLight" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.0188, 1.69407, 3.19729 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="OmniLight17" type="OmniLight" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.0188, 1.69407, 18.643 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="rp" type="Spatial" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.51295, 0, -16.6277 )

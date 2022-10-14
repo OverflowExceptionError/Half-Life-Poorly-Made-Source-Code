@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://models/stair.tscn" type="PackedScene" id=1]
+[ext_resource path="res://models/4stairs_example_instance_compatibilty.gd" type="Script" id=2]
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="StairMap" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 0, -0.902464, 1.30145 )
+
+[node name="StairMap2" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 0, -0.306898, 0.430073 )
+
+[node name="StairMap3" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 0, 0.323516, -0.425144 )
+
+[node name="StairMap4" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 0, 0.921887, -1.27094 )

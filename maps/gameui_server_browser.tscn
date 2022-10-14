@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://maps/ServerBrowser.gd" type="Script" id=1]
+[ext_resource path="res://maps/gameui_server_browser.gd" type="Script" id=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WindowDialog" type="WindowDialog" parent="."]
+visible = true
+margin_left = 43.0
+margin_top = 58.0
+margin_right = 531.0
+margin_bottom = 428.0
+window_title = "GameUI_ServerBrowserTitle"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemList" type="ItemList" parent="WindowDialog"]
+margin_right = 489.0
+margin_bottom = 332.0
+allow_reselect = true
+
+[node name="Button" type="Button" parent="WindowDialog"]
+margin_left = 7.0
+margin_top = 343.0
+margin_right = 53.0
+margin_bottom = 363.0
+text = "GameUI_Connect"
+
+[node name="Button2" type="Button" parent="WindowDialog"]
+margin_left = 79.0
+margin_top = 342.0
+margin_right = 133.0
+margin_bottom = 362.0
+text = "GameUI_Cancel"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="WindowDialog"]
+visible = false
+margin_left = 125.0
+margin_top = 343.0
+margin_right = 179.0
+margin_bottom = 363.0
+text = "Open Game Dir in File Browser"
+
+[connection signal="item_selected" from="WindowDialog/ItemList" to="WindowDialog" method="_on_ItemList_item_selected"]
+[connection signal="pressed" from="WindowDialog/Button" to="WindowDialog" method="_on_Button_pressed"]
+[connection signal="pressed" from="WindowDialog/Button2" to="WindowDialog" method="_on_Button2_pressed"]
+[connection signal="pressed" from="WindowDialog/Button3" to="WindowDialog" method="_on_Button3_pressed"]

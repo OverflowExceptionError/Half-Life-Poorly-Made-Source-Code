@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://materials/dev/dev_text03/TestWall.tres" type="Material" id=1]
+
+[node name="CSGBox" type="CSGBox"]
+use_collision = true
+width = 6.0
+height = 6.0
+material = ExtResource( 1 )

@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://models/wpn_gdoom_gun.gd" type="Script" id=1]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.315541, 0.262354, 0.0728767 )
+
+[node name="GDoom Pistol\?" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Area" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 1 )
+
+[node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.210663, 0 )
+width = 0.601147
+height = 0.0797872
+depth = 0.175521
+
+[node name="CSGBox2" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.250051, -0.0497915, 0 )
+width = 0.101409
+height = 0.392108
+depth = 0.175521
+
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

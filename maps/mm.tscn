@@ -1,0 +1,184 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://maps/lol.gd" type="Script" id=1]
+[ext_resource path="res://maps/load_game.gd" type="Script" id=2]
+[ext_resource path="res://maps/opengamechanger.gd" type="Script" id=3]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+margin_left = 37.0
+margin_top = 257.0
+margin_right = 146.0
+margin_bottom = 336.0
+rect_pivot_offset = Vector2( 109, 40 )
+text = "New Game"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+scene = "res://maps/c1a0.tscn"
+replay_name_path = NodePath("../LineEdit2")
+
+[node name="Button3" type="Button" parent="."]
+margin_left = 191.0
+margin_top = 244.0
+margin_right = 300.0
+margin_bottom = 323.0
+rect_pivot_offset = Vector2( 109, 40 )
+text = "New Game (mobile port of first chapter)"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+scene = "res://maps/c1a0_m.tscn"
+replay_name_path = NodePath("../LineEdit2")
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 39.0
+margin_top = 346.0
+margin_right = 148.0
+margin_bottom = 425.0
+rect_pivot_offset = Vector2( 109, 40 )
+text = "Play Replay (BETA)"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+scene = "res://maps/replay.tscn"
+
+[node name="Button6" type="Button" parent="."]
+margin_left = 354.0
+margin_top = 346.0
+margin_right = 482.0
+margin_bottom = 425.0
+rect_pivot_offset = Vector2( 109, 40 )
+text = "GodSrc FilmMaker (BETA)"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+scene = "res://maps/filmmaker.tscn"
+
+[node name="Button5" type="Button" parent="."]
+margin_left = 191.0
+margin_top = 346.0
+margin_right = 319.0
+margin_bottom = 425.0
+rect_pivot_offset = Vector2( 109, 40 )
+text = "Execute GMScript"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+scene = "res://maps/gms.tscn"
+is_gms = true
+
+[node name="Label" type="Label" parent="."]
+margin_left = 40.0
+margin_top = 162.0
+margin_right = 104.0
+margin_bottom = 176.0
+rect_scale = Vector2( 6.40936, 5.09146 )
+text = "HALF-LIFE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 486.0
+margin_top = 210.0
+margin_right = 614.0
+margin_bottom = 224.0
+text = "but it's poorly made"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 44.0
+margin_top = 446.0
+margin_right = 576.0
+margin_bottom = 460.0
+text = "Smorce 2 is property of VuLVE Game Studios - GDoom is property of CappleSoft LLC
+GodSrc is licensed from CappleSoft under the GDoom engine."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button4" type="Button" parent="."]
+margin_left = 176.0
+margin_top = 2.0
+margin_right = 292.0
+margin_bottom = 81.0
+rect_pivot_offset = Vector2( 109, 40 )
+text = "Load (another) God(ot)Src game"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = 177.0
+margin_top = 94.0
+margin_right = 388.0
+margin_bottom = 118.0
+placeholder_text = "Game name (default)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit2" type="LineEdit" parent="."]
+margin_left = 177.0
+margin_top = 126.0
+margin_right = 388.0
+margin_bottom = 150.0
+placeholder_text = "Replay name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_left = 7.0
+margin_top = 9.0
+margin_right = 168.0
+margin_bottom = 157.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button7" type="Button" parent="."]
+margin_left = 425.0
+margin_top = 31.0
+margin_right = 615.0
+margin_bottom = 109.0
+text = "Change Game"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button9" type="Button" parent="."]
+visible = false
+margin_left = 627.0
+margin_top = 464.0
+margin_right = 752.0
+margin_bottom = 542.0
+text = "Change Game"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+Exte = "gameui_server_browser"
+
+[node name="Button8" type="Button" parent="."]
+margin_left = 190.0
+margin_top = 242.0
+margin_right = 468.0
+margin_bottom = 320.0
+text = "Open Chapter Selct"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+Exte = "gameui_chapter_select"

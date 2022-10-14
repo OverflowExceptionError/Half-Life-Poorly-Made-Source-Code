@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://maps/GameUI_Test.gd" type="Script" id=1]
+[ext_resource path="res://maps/gameui_filebrowser.gd" type="Script" id=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WindowDialog" type="FileDialog" parent="."]
+visible = true
+margin_left = 27.0
+margin_top = 43.0
+margin_right = 586.0
+margin_bottom = 463.0
+window_title = "GameUI_OpenFileDialog"
+mode_overrides_title = false
+mode = 0
+access = 2
+show_hidden_files = true
+current_dir = "/gamedata"
+current_file = "moddata.txt"
+current_path = "/gamedata/moddata.txt"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="file_selected" from="WindowDialog" to="." method="_on_WindowDialog_file_selected"]

@@ -1,0 +1,71 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://maps/replay0.gd" type="Script" id=1]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = 18.0
+margin_top = 24.0
+margin_right = 214.0
+margin_bottom = 48.0
+placeholder_text = "Level name (c1a0)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit2" type="LineEdit" parent="."]
+margin_left = 17.0
+margin_top = 55.0
+margin_right = 213.0
+margin_bottom = 79.0
+placeholder_text = "Replay name (c1a0_replay)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 18.0
+margin_top = 87.0
+margin_right = 212.0
+margin_bottom = 107.0
+text = "Load Level with Replay"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 18.0
+margin_top = 113.0
+margin_right = 212.0
+margin_bottom = 133.0
+text = "Load Level with Replay and Player"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+is_play = true
+
+[node name="Button3" type="Button" parent="."]
+margin_left = 18.0
+margin_top = 140.0
+margin_right = 245.0
+margin_bottom = 160.0
+text = "Load Level without Replay but with Player"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+is_play = true
+is_play_no_replay = true
+
+[node name="Label" type="Label" parent="."]
+margin_left = 21.0
+margin_top = 4.0
+margin_right = 159.0
+margin_bottom = 18.0
+text = "GodSrc Replay Loader"
+__meta__ = {
+"_edit_use_anchors_": false
+}

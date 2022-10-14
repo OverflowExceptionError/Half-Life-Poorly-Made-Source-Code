@@ -1,0 +1,137 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://maps/lol.gd" type="Script" id=1]
+[ext_resource path="res://maps/opengamechanger.gd" type="Script" id=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+visible = false
+margin_left = 37.0
+margin_top = 257.0
+margin_right = 146.0
+margin_bottom = 336.0
+rect_pivot_offset = Vector2( 109, 40 )
+text = "stairtest"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+scene = "res://maps/stairtest.tscn"
+
+[node name="Button3" type="Button" parent="."]
+margin_left = 43.0
+margin_top = 37.0
+margin_right = 152.0
+margin_bottom = 116.0
+rect_pivot_offset = Vector2( 109, 40 )
+text = "Back"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+scene = "res://maps/mm.tscn"
+
+[node name="Button2" type="Button" parent="."]
+visible = false
+margin_left = 41.0
+margin_top = 357.0
+margin_right = 145.0
+margin_bottom = 436.0
+rect_pivot_offset = Vector2( 109, 40 )
+text = "default"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+scene = "res://maps/default.tscn"
+
+[node name="Button5" type="Button" parent="."]
+visible = false
+margin_left = 172.0
+margin_top = 253.0
+margin_right = 276.0
+margin_bottom = 332.0
+rect_pivot_offset = Vector2( 109, 40 )
+text = "c1a0_sideways"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+scene = "res://maps/c1a0_sideways.tscn"
+
+[node name="Button6" type="Button" parent="."]
+visible = false
+margin_left = 294.0
+margin_top = 248.0
+margin_right = 400.0
+margin_bottom = 327.0
+rect_pivot_offset = Vector2( 109, 40 )
+text = "c1a0_destroyed"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+scene = "res://maps/c1a0_destroyed.tscn"
+
+[node name="Button7" type="Button" parent="."]
+visible = false
+margin_left = 440.0
+margin_top = 359.0
+margin_right = 552.0
+margin_bottom = 438.0
+rect_pivot_offset = Vector2( 109, 40 )
+text = "c1a0_obliterated"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+scene = "res://maps/c1a0_obliterated.tscn"
+
+[node name="Button4" type="Button" parent="."]
+visible = false
+margin_left = 166.0
+margin_top = 356.0
+margin_right = 270.0
+margin_bottom = 435.0
+rect_pivot_offset = Vector2( 109, 40 )
+text = "Continue to Smorce 2 special features"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+scene = "res://maps/mm_sm2.tscn"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 40.0
+margin_top = 162.0
+margin_right = 104.0
+margin_bottom = 176.0
+rect_scale = Vector2( 6.40936, 5.09146 )
+text = "HALF-LIFE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 459.0
+margin_top = 209.0
+margin_right = 523.0
+margin_bottom = 223.0
+text = "but there's bonus features"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button8" type="Button" parent="."]
+margin_left = 172.0
+margin_top = 40.0
+margin_right = 327.0
+margin_bottom = 118.0
+text = "Open Special Features"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+Exte = "gameui_chapter_select"
+chapter_name_path = "chapters_sf.cfg"

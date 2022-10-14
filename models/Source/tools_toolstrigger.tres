@@ -1,0 +1,7 @@
+[gd_resource type="SpatialMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://models/Source/materials/tools/toolstrigger.tga" type="Texture" id=1]
+
+[resource]
+resource_name = "tools/toolstrigger"
+albedo_texture = ExtResource( 1 )

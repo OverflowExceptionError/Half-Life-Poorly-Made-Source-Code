@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/smiley guy.obj-aa8df1295eb0118c510b41353319684c.mesh"
+
+[deps]
+
+files=[ "res://.import/smiley guy.obj-aa8df1295eb0118c510b41353319684c.mesh" ]
+
+source_file="res://models/smiley guy.obj"
+dest_files=[ "res://.import/smiley guy.obj-aa8df1295eb0118c510b41353319684c.mesh", "res://.import/smiley guy.obj-aa8df1295eb0118c510b41353319684c.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

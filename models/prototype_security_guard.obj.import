@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/prototype_security_guard.obj-3d9998a1e188f01f44cb7dcdca0703f2.mesh"
+
+[deps]
+
+files=[ "res://.import/prototype_security_guard.obj-3d9998a1e188f01f44cb7dcdca0703f2.mesh" ]
+
+source_file="res://models/prototype_security_guard.obj"
+dest_files=[ "res://.import/prototype_security_guard.obj-3d9998a1e188f01f44cb7dcdca0703f2.mesh", "res://.import/prototype_security_guard.obj-3d9998a1e188f01f44cb7dcdca0703f2.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

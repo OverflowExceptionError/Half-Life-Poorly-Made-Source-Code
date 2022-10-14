@@ -1,0 +1,375 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://models/info_player_start.tscn" type="PackedScene" id=1]
+[ext_resource path="res://filter.gd" type="Script" id=2]
+[ext_resource path="res://materials/dev/dev_text03/TestWall.tres" type="Material" id=3]
+[ext_resource path="res://materials/dev/dev_text01/TestWall.tres" type="Material" id=4]
+[ext_resource path="res://materials/dev/dev_text02/TestWall.tres" type="Material" id=5]
+[ext_resource path="res://maps/level_transition.gd" type="Script" id=6]
+[ext_resource path="res://maps/adasd.gd" type="Script" id=7]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1.45347, 1.1813, 1 )
+
+[sub_resource type="BoxShape" id=2]
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 1, 1, 1.62631 )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+margin_right = 640.0
+margin_bottom = 480.0
+stretch = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+egg = true
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+size = Vector2( 640, 480 )
+size_override_stretch = true
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Player" parent="ViewportContainer/Viewport" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.92172, -6.75829, -46.3657 )
+
+[node name="hallway section 2" type="Spatial" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 29.9632, -6.69591, -45.4745 )
+
+[node name="CSGBox18" type="CSGBox" parent="hallway section 2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.949, -1.16762, -15.7578 )
+use_collision = true
+width = 3.93519
+height = 0.002
+depth = 6.40739
+material = ExtResource( 4 )
+
+[node name="CSGBox19" type="CSGBox" parent="hallway section 2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.949, 1.82854, -15.7578 )
+use_collision = true
+width = 3.93519
+height = 0.002
+depth = 6.40739
+material = ExtResource( 5 )
+
+[node name="CSGBox3" type="CSGBox" parent="hallway section 2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0351, 0.412588, -15.8297 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 6.40739
+material = ExtResource( 3 )
+
+[node name="CSGBox4" type="CSGBox" parent="hallway section 2"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.9494, 0.412588, -15.8297 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 6.40739
+material = ExtResource( 3 )
+
+[node name="ah, hello gordon!" type="Spatial" parent="."]
+
+[node name="CSGBox7" type="CSGBox" parent="ah, hello gordon!"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.75583, -8.42208, -45.8198 )
+use_collision = true
+width = 4.70102
+height = 1.64179
+depth = 0.456026
+material = ExtResource( 3 )
+
+[node name="CSGBox8" type="CSGBox" parent="ah, hello gordon!"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.75583, -4.33145, -45.8198 )
+use_collision = true
+width = 4.70102
+height = 1.64179
+depth = 0.456026
+material = ExtResource( 3 )
+
+[node name="CSGBox9" type="CSGBox" parent="ah, hello gordon!"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09534, -7.86634, -52.7654 )
+use_collision = true
+width = 13.7358
+height = 0.002
+depth = 13.3147
+material = ExtResource( 4 )
+
+[node name="CSGBox10" type="CSGBox" parent="ah, hello gordon!"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09534, -4.87018, -53.3775 )
+use_collision = true
+width = 13.7803
+height = 0.002
+depth = 14.8032
+material = ExtResource( 5 )
+
+[node name="CSGBox11" type="CSGBox" parent="ah, hello gordon!"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7421, -6.28614, -52.8002 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 13.3127
+material = ExtResource( 3 )
+
+[node name="CSGBox12" type="CSGBox" parent="ah, hello gordon!"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 11.0051, -6.28614, -51.2849 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 10.194
+material = ExtResource( 3 )
+
+[node name="CSGBox13" type="CSGBox" parent="ah, hello gordon!"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.03307, -6.28614, -59.445 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 13.5139
+material = ExtResource( 3 )
+
+[node name="CSGBox14" type="CSGBox" parent="ah, hello gordon!"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.165214, -6.28614, -46.1929 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 5.27128
+material = ExtResource( 3 )
+
+[node name="CSGBox15" type="CSGBox" parent="ah, hello gordon!"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.39823, -6.28614, -46.1929 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 5.27128
+material = ExtResource( 3 )
+
+[node name="CSGBox16" type="CSGBox" parent="ah, hello gordon!"]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 6.30335, -6.37079, -45.8049 )
+use_collision = true
+width = 0.38541
+height = 3.08629
+depth = 0.742163
+material = ExtResource( 3 )
+
+[node name="CSGBox17" type="CSGBox" parent="ah, hello gordon!"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.93342, -6.37079, -45.8049 )
+use_collision = true
+width = 0.38541
+height = 3.08629
+depth = 0.742163
+material = ExtResource( 3 )
+
+[node name="hallwayaaa" type="Spatial" parent="."]
+
+[node name="CSGBox32" type="CSGBox" parent="hallwayaaa"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.1507, 0.412588, -31.5068 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 9.83735
+material = ExtResource( 3 )
+
+[node name="CSGBox36" type="CSGBox" parent="hallwayaaa"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.07572, 0.412588, -31.5068 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 5.97254
+material = ExtResource( 3 )
+
+[node name="CSGBox33" type="CSGBox" parent="hallwayaaa"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.53011, 0.412588, -26.2303 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 13.406
+material = ExtResource( 3 )
+
+[node name="CSGBox25" type="CSGBox" parent="hallwayaaa"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.02454, 1.9864, -28.9971 )
+use_collision = true
+width = 18.5014
+height = 0.002
+depth = 5.38633
+material = ExtResource( 5 )
+
+[node name="CSGBox19" type="CSGBox" parent="hallwayaaa"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.02454, -1.16762, -28.9971 )
+use_collision = true
+width = 18.5014
+height = 0.002
+depth = 5.38633
+material = ExtResource( 4 )
+
+[node name="CSGBox37" type="CSGBox" parent="hallwayaaa"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.16733, 0.412588, -30.5984 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 8.14693
+material = ExtResource( 3 )
+
+[node name="level transition" type="Spatial" parent="."]
+
+[node name="CSGBox29" type="CSGBox" parent="level transition"]
+transform = Transform( 1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 4.02454, -1.26429, -38.8584 )
+use_collision = true
+width = 5.9663
+height = 0.002
+depth = 15.7058
+material = ExtResource( 5 )
+
+[node name="CSGBox45" type="CSGBox" parent="level transition"]
+transform = Transform( 1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 1.09335, -3.03138, -39.374 )
+use_collision = true
+width = 0.002
+height = 3.41086
+depth = 15.7058
+material = ExtResource( 3 )
+
+[node name="CSGBox46" type="CSGBox" parent="level transition"]
+transform = Transform( -1, -3.69465e-08, -7.92319e-08, 0, 0.906308, -0.422618, 8.74228e-08, -0.422618, -0.906308, 6.91077, -3.03138, -39.374 )
+use_collision = true
+width = 0.002
+height = 3.41086
+depth = 15.7058
+material = ExtResource( 3 )
+
+[node name="CSGBox20" type="CSGBox" parent="level transition"]
+transform = Transform( 1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 4.02454, -4.41831, -38.8584 )
+use_collision = true
+width = 5.9663
+height = 0.002
+depth = 15.7058
+material = ExtResource( 4 )
+
+[node name="Area" type="Area" parent="level transition"]
+script = ExtResource( 6 )
+level_path = "res://maps/c1a0.tscn"
+destination_path = "level_player_rt"
+
+[node name="CollisionShape" type="CollisionShape" parent="level transition/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2507, -4.80262, -42.864 )
+shape = SubResource( 1 )
+
+[node name="test chamber" type="Spatial" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17.1151, -6.66152, -69.3799 )
+
+[node name="CSGBox18" type="CSGBox" parent="test chamber"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9237, -1.16762, -15.7578 )
+use_collision = true
+width = 30.2963
+height = 0.002
+depth = 18.544
+material = ExtResource( 4 )
+
+[node name="CSGBox19" type="CSGBox" parent="test chamber"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8977, 15.6649, -15.7578 )
+use_collision = true
+width = 29.8961
+height = 0.002
+depth = 18.0733
+material = ExtResource( 5 )
+
+[node name="CSGBox3" type="CSGBox" parent="test chamber"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.71397, 7.20535, -15.8297 )
+use_collision = true
+width = 0.002
+height = 17.6012
+depth = 19.0532
+material = ExtResource( 3 )
+
+[node name="CSGBox5" type="CSGBox" parent="test chamber"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.40868, 7.20535, -6.54624 )
+use_collision = true
+width = 0.002
+height = 17.6012
+depth = 17.5574
+material = ExtResource( 3 )
+
+[node name="CSGBox8" type="CSGBox" parent="test chamber"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.5792, 7.20535, -25.011 )
+use_collision = true
+width = 0.002
+height = 17.6012
+depth = 30.9039
+material = ExtResource( 3 )
+
+[node name="CSGBox6" type="CSGBox" parent="test chamber"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.7019, 7.20535, -6.54624 )
+use_collision = true
+width = 0.002
+height = 17.6012
+depth = 17.5574
+material = ExtResource( 3 )
+
+[node name="CSGBox7" type="CSGBox" parent="test chamber"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.0477, 10.2053, -6.54624 )
+use_collision = true
+width = 0.002
+height = 17.6012
+depth = 3.79887
+material = ExtResource( 3 )
+
+[node name="CSGBox4" type="CSGBox" parent="test chamber"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 25.9116, 6.98583, -15.8297 )
+use_collision = true
+width = 0.002
+height = 17.4936
+depth = 18.4124
+material = ExtResource( 3 )
+
+[node name="Spatial" type="Spatial" parent="test chamber"]
+
+[node name="CSGBox20" type="CSGBox" parent="test chamber/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.949, -1.16762, -3.29369 )
+use_collision = true
+width = 3.93519
+height = 0.002
+depth = 6.40739
+material = ExtResource( 4 )
+
+[node name="CSGBox21" type="CSGBox" parent="test chamber/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.949, 1.82854, -3.29369 )
+use_collision = true
+width = 3.93519
+height = 0.002
+depth = 6.40739
+material = ExtResource( 5 )
+
+[node name="CSGBox5" type="CSGBox" parent="test chamber/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0351, 0.412588, -3.36565 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 6.40739
+material = ExtResource( 3 )
+
+[node name="CSGBox6" type="CSGBox" parent="test chamber/Spatial"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.9494, 0.412588, -3.36565 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 6.40739
+material = ExtResource( 3 )
+
+[node name="CSGBox" type="CSGBox" parent="test chamber"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4423, 0, -15.6758 )
+
+[node name="Area" type="Area" parent="test chamber/CSGBox"]
+script = ExtResource( 7 )
+
+[node name="CollisionShape" type="CollisionShape" parent="test chamber/CSGBox/Area"]
+shape = SubResource( 2 )
+
+[node name="cart" type="RigidBody" parent="test chamber"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0983, 0, -11.5113 )
+
+[node name="CollisionShape" type="CollisionShape" parent="test chamber/cart"]
+shape = SubResource( 3 )
+
+[node name="CSGBox" type="CSGBox" parent="test chamber/cart"]
+depth = 3.25171

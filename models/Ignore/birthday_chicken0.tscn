@@ -1,0 +1,143 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://sounds/chicken_beta_cluck.wav" type="AudioStream" id=1]
+[ext_resource path="res://materials/npcs/chicken/generic_red.tres" type="Material" id=2]
+[ext_resource path="res://materials/npcs/chicken/generic_black.tres" type="Material" id=3]
+[ext_resource path="res://materials/npcs/chicken/generic_yellow.tres" type="Material" id=4]
+[ext_resource path="res://maps/chicken.gd" type="Script" id=5]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.359128, 0.51043, 0.258406 )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="chicken_root\\" type="Spatial" parent="."]
+
+[node name="RigidBody" type="RigidBody" parent="chicken_root\\"]
+contact_monitor = true
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="chicken_root\\/RigidBody"]
+shape = SubResource( 1 )
+
+[node name="npc_chicken" type="Spatial" parent="chicken_root\\/RigidBody/CollisionShape"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.204515, -0.32153, 0.00109069 )
+
+[node name="Leg" type="Spatial" parent="chicken_root\\/RigidBody/CollisionShape/npc_chicken"]
+
+[node name="Foot" type="Spatial" parent="chicken_root\\/RigidBody/CollisionShape/npc_chicken/Leg"]
+
+[node name="CSGBox" type="CSGBox" parent="chicken_root\\/RigidBody/CollisionShape/npc_chicken/Leg/Foot"]
+transform = Transform( 0.00091579, 0.931253, -0.364372, 0.00234055, -0.364373, -0.93125, -0.999997, 0, -0.00251333, 0, 0, 0 )
+width = 0.034
+height = 0.021
+depth = 0.324
+material = ExtResource( 4 )
+
+[node name="CSGBox3" type="CSGBox" parent="chicken_root\\/RigidBody/CollisionShape/npc_chicken/Leg/Foot"]
+transform = Transform( -0.000837809, 0.942805, 0.333345, 0.00236958, 0.333346, -0.942802, -0.999997, 0, -0.00251333, 0.0917515, 0, 0 )
+width = 0.034
+height = 0.021
+depth = 0.324
+material = ExtResource( 4 )
+
+[node name="CSGBox2" type="CSGBox" parent="chicken_root\\/RigidBody/CollisionShape/npc_chicken/Leg/Foot"]
+transform = Transform( 6.16693e-05, 0.999699, -0.0245368, 0.424894, -0.022238, -0.90497, -0.905243, -0.0103697, -0.424768, 0.0470279, 1.5879e-10, -0.0798974 )
+width = 0.034
+height = 0.021
+depth = 0.324
+material = ExtResource( 4 )
+
+[node name="CSGBox4" type="CSGBox" parent="chicken_root\\/RigidBody/CollisionShape/npc_chicken/Leg/Foot"]
+transform = Transform( 6.16693e-05, 0.999699, -0.0245368, -0.514305, -0.0210112, -0.85735, -0.857607, 0.0126723, 0.514149, 0.0470279, -3.05279e-09, 0.0817597 )
+width = 0.034
+height = 0.021
+depth = 0.324
+material = ExtResource( 4 )
+
+[node name="CSGBox2" type="CSGBox" parent="chicken_root\\/RigidBody/CollisionShape/npc_chicken/Leg"]
+transform = Transform( 6.16693e-05, 0.999699, -0.0245368, 0.00251257, -0.0245369, -0.999696, -0.999997, 0, -0.00251333, 0.0470279, 0.241066, 0 )
+width = 0.034
+height = 0.021
+depth = 0.295109
+material = ExtResource( 4 )
+
+[node name="Leg2" type="Spatial" parent="chicken_root\\/RigidBody/CollisionShape/npc_chicken"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.389671, 0, 0 )
+
+[node name="Foot" type="Spatial" parent="chicken_root\\/RigidBody/CollisionShape/npc_chicken/Leg2"]
+
+[node name="CSGBox2" type="CSGBox" parent="chicken_root\\/RigidBody/CollisionShape/npc_chicken/Leg2/Foot"]
+transform = Transform( 6.16693e-05, 0.999699, -0.0245368, 0.424894, -0.022238, -0.90497, -0.905243, -0.0103697, -0.424768, 0.0470279, 1.5879e-10, -0.0798974 )
+width = 0.034
+height = 0.021
+depth = 0.324
+material = ExtResource( 4 )
+
+[node name="CSGBox3" type="CSGBox" parent="chicken_root\\/RigidBody/CollisionShape/npc_chicken/Leg2/Foot"]
+transform = Transform( -0.000837809, 0.942805, 0.333345, 0.00236958, 0.333346, -0.942802, -0.999997, 0, -0.00251333, 0.0917515, 0, 0 )
+width = 0.034
+height = 0.021
+depth = 0.324
+material = ExtResource( 4 )
+
+[node name="CSGBox" type="CSGBox" parent="chicken_root\\/RigidBody/CollisionShape/npc_chicken/Leg2/Foot"]
+transform = Transform( 0.00091579, 0.931253, -0.364372, 0.00234055, -0.364373, -0.93125, -0.999997, -3.31026e-11, -0.00251333, 0, -6.45895e-12, 1.43867e-12 )
+width = 0.034
+height = 0.021
+depth = 0.324
+material = ExtResource( 4 )
+
+[node name="CSGBox4" type="CSGBox" parent="chicken_root\\/RigidBody/CollisionShape/npc_chicken/Leg2/Foot"]
+transform = Transform( 6.16693e-05, 0.999699, -0.0245368, -0.514305, -0.0210112, -0.85735, -0.857607, 0.0126723, 0.514149, 0.0470279, -3.05279e-09, 0.0817597 )
+width = 0.034
+height = 0.021
+depth = 0.324
+material = ExtResource( 4 )
+
+[node name="CSGBox2" type="CSGBox" parent="chicken_root\\/RigidBody/CollisionShape/npc_chicken/Leg2"]
+transform = Transform( 6.16693e-05, 0.999699, -0.0245368, 0.00251257, -0.0245369, -0.999696, -0.999997, 0, -0.00251333, 0.0470279, 0.241066, 0 )
+width = 0.034
+height = 0.021
+depth = 0.295109
+material = ExtResource( 4 )
+
+[node name="Torso" type="Spatial" parent="chicken_root\\/RigidBody/CollisionShape/npc_chicken"]
+
+[node name="CSGSphere" type="CSGSphere" parent="chicken_root\\/RigidBody/CollisionShape/npc_chicken/Torso"]
+transform = Transform( 1, 0, 0, 0, 0.7, 0, 0, 0, 0.5, 0.271976, 0.499431, 0 )
+lod_max_distance = 10.0
+lod_max_hysteresis = 10.0
+radius = 0.263196
+material = ExtResource( 2 )
+
+[node name="CSGSphere2" type="CSGSphere" parent="chicken_root\\/RigidBody/CollisionShape/npc_chicken/Torso"]
+transform = Transform( 0.5, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.271976, 0.499431, -0.153141 )
+radius = 0.263196
+material = ExtResource( 2 )
+
+[node name="CSGSphere3" type="CSGSphere" parent="chicken_root\\/RigidBody/CollisionShape/npc_chicken/Torso"]
+transform = Transform( 0.5, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.271976, 0.499431, 0.185896 )
+radius = 0.263196
+material = ExtResource( 2 )
+
+[node name="CSGSphere2" type="CSGSphere" parent="chicken_root\\/RigidBody/CollisionShape/npc_chicken"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.0146448, 0.683962, -0.0195197 )
+radius = 0.263196
+material = ExtResource( 2 )
+
+[node name="CSGSphere3" type="CSGSphere" parent="chicken_root\\/RigidBody/CollisionShape/npc_chicken"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.064594, 0.746572, -0.111934 )
+radius = 0.263196
+material = ExtResource( 3 )
+
+[node name="CSGSphere4" type="CSGSphere" parent="chicken_root\\/RigidBody/CollisionShape/npc_chicken"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.064594, 0.746572, 0.107997 )
+radius = 0.263196
+material = ExtResource( 3 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="chicken_root\\/RigidBody/CollisionShape/npc_chicken"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.225692, 0.452495, 0 )
+stream = ExtResource( 1 )
+autoplay = true
+max_distance = 36.25

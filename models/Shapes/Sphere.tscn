@@ -1,0 +1,6 @@
+[gd_scene format=2]
+
+[node name="CSGSphere" type="CSGSphere"]
+use_collision = true
+radial_segments = 30
+rings = 30

@@ -1,0 +1,362 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://materials/chicken.bmp" type="Texture" id=1]
+[ext_resource path="res://models/Ignore/info_player_started.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/billboarding.gd" type="Script" id=3]
+[ext_resource path="res://materials/dev/dev_text01/TestWall.tres" type="Material" id=4]
+[ext_resource path="res://models/stair.tscn" type="PackedScene" id=5]
+[ext_resource path="res://materials/dev/dev_text01/testwall.bmp" type="Texture" id=6]
+[ext_resource path="res://maps/chicken.gd" type="Script" id=7]
+[ext_resource path="res://models/birthday_chicken.tscn" type="PackedScene" id=8]
+[ext_resource path="res://materials/dev/dev_text03/TestWall.tres" type="Material" id=9]
+[ext_resource path="res://materials/dev/dev_text02/TestWall.tres" type="Material" id=10]
+[ext_resource path="res://materials/dev/dev_text02/testwall.bmp" type="Texture" id=11]
+[ext_resource path="res://models/Ignore/prop_aperature_cube.tscn" type="PackedScene" id=12]
+[ext_resource path="res://materials/dev/dev_text03/testwall.bmp" type="Texture" id=13]
+
+[sub_resource type="SpatialMaterial" id=2]
+params_diffuse_mode = 1
+albedo_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+albedo_texture = ExtResource( 6 )
+metallic_specular = 0.0
+uv1_scale = Vector3( 0.5, 0.5, 0.5 )
+uv1_offset = Vector3( 0.5, 0.5, 0.5 )
+uv1_triplanar = true
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.359128, 0.51043, 0.258406 )
+
+[sub_resource type="SpatialMaterial" id=3]
+params_diffuse_mode = 1
+albedo_color = Color( 0.164706, 0.164706, 0.164706, 1 )
+albedo_texture = ExtResource( 11 )
+metallic_specular = 0.0
+uv1_scale = Vector3( 0.5, 0.5, 0.5 )
+uv1_offset = Vector3( 0.5, 0.5, 0.5 )
+uv1_triplanar = true
+
+[sub_resource type="SpatialMaterial" id=4]
+params_diffuse_mode = 1
+albedo_color = Color( 0.423529, 0.423529, 0.423529, 1 )
+albedo_texture = ExtResource( 13 )
+metallic_specular = 0.0
+uv1_scale = Vector3( 0.5, 0.5, 0.5 )
+uv1_offset = Vector3( 0.5, 0.5, 0.5 )
+uv1_triplanar = true
+
+[node name="this was quickly cobbled together, dont blame me" type="Spatial"]
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.55203, 5.80006 )
+
+[node name="AperatureCube" parent="." instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2311, -4.79523, -1.35767 )
+
+[node name="StairMap" parent="." instance=ExtResource( 5 )]
+transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 0, -4.41613, -8.53855 )
+
+[node name="Spatial" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58022, -4.23877, 0.469957 )
+
+[node name="Spatial2" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.260456, -4.56788, 3.43786 )
+
+[node name="box" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.29699, 0 )
+use_collision = true
+width = 6.52171
+height = 0.002
+depth = 17.9848
+material = SubResource( 2 )
+
+[node name="BakedLightmap" type="BakedLightmap" parent="."]
+extents = Vector3( 50, 50, 50 )
+
+[node name="chicken_root\\" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.906509, -4.00392, 0 )
+
+[node name="RigidBody" type="RigidBody" parent="chicken_root\\"]
+contact_monitor = true
+script = ExtResource( 7 )
+
+[node name="CollisionShape" type="CollisionShape" parent="chicken_root\\/RigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.204515, 0.32153, -0.00109069 )
+shape = SubResource( 1 )
+
+[node name="Sprite3D" type="Sprite3D" parent="chicken_root\\/RigidBody/CollisionShape"]
+transform = Transform( 0.349284, 0, 0, 0, 0.386897, 0, 0, 0, 1, 0, 0, 0 )
+texture = ExtResource( 1 )
+script = ExtResource( 3 )
+PlayerPath = NodePath("../../../../Player")
+
+[node name="Spatial3" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58022, -4.23877, -3.88111 )
+
+[node name="Spatial4" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.260456, -4.56788, -0.913202 )
+
+[node name="Spatial5" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58022, -4.23877, -7.21079 )
+
+[node name="Spatial6" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.260456, -4.56788, -4.24288 )
+
+[node name="Spatial7" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58022, -4.23877, -5.27404 )
+
+[node name="Spatial8" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.260456, -4.56788, -2.30613 )
+
+[node name="Spatial9" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58022, -4.23877, 3.22276 )
+
+[node name="Spatial10" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.260456, -4.56788, 6.19067 )
+
+[node name="Spatial11" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58022, -4.23877, -1.12831 )
+
+[node name="Spatial12" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.260456, -4.56788, 1.8396 )
+
+[node name="Spatial13" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58022, -4.23877, -4.45799 )
+
+[node name="Spatial14" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.260456, -4.56788, -1.49008 )
+
+[node name="Spatial15" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58022, -4.23877, -2.52123 )
+
+[node name="Spatial16" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.260456, -4.56788, 0.446672 )
+
+[node name="Spatial17" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58022, -4.23877, 2.18885 )
+
+[node name="Spatial18" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.260456, -4.56788, 5.15676 )
+
+[node name="Spatial19" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58022, -4.23877, -2.16222 )
+
+[node name="Spatial20" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.260456, -4.56788, 0.80569 )
+
+[node name="Spatial21" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58022, -4.23877, -5.4919 )
+
+[node name="Spatial22" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.260456, -4.56788, -2.52399 )
+
+[node name="Spatial23" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58022, -4.23877, -3.55515 )
+
+[node name="Spatial24" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.260456, -4.56788, -0.587239 )
+
+[node name="StairMap2" parent="." instance=ExtResource( 5 )]
+transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 0, -3.82056, -9.40993 )
+isSlope = false
+
+[node name="StairMap3" parent="." instance=ExtResource( 5 )]
+transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 0, -3.19015, -10.2651 )
+isSlope = false
+
+[node name="StairMap4" parent="." instance=ExtResource( 5 )]
+transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 0, -2.59178, -11.1109 )
+isSlope = false
+
+[node name="box2" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.58679, -19.6312 )
+use_collision = true
+width = 6.52171
+height = 0.002
+depth = 17.9848
+material = SubResource( 2 )
+
+[node name="box3" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.846849, 0 )
+use_collision = true
+width = 6.52171
+height = 0.002
+depth = 17.9848
+material = SubResource( 3 )
+
+[node name="box4" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.86335, -19.6312 )
+use_collision = true
+width = 6.52171
+height = 0.002
+depth = 22.0455
+material = SubResource( 3 )
+
+[node name="box5" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.24875, -3.01341, -0.0477368 )
+use_collision = true
+width = 0.002
+height = 4.53819
+depth = 17.9848
+material = SubResource( 4 )
+
+[node name="box6" type="CSGBox" parent="."]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.21836, -3.01341, -0.0477368 )
+use_collision = true
+width = 0.002
+height = 4.53819
+depth = 17.9848
+material = SubResource( 4 )
+
+[node name="box7" type="CSGBox" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.220377, -3.01341, 8.9366 )
+use_collision = true
+width = 0.002
+height = 4.53819
+depth = 6.89741
+material = SubResource( 4 )
+
+[node name="box8" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.24875, -0.355399, -19.6273 )
+use_collision = true
+width = 0.002
+height = 4.53819
+depth = 17.9848
+material = SubResource( 4 )
+
+[node name="box9" type="CSGBox" parent="."]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.21836, -0.355399, -19.6273 )
+use_collision = true
+width = 0.002
+height = 4.53819
+depth = 17.9848
+material = SubResource( 4 )
+
+[node name="box10" type="CSGBox" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.220377, -0.355399, -28.5848 )
+use_collision = true
+width = 0.002
+height = 4.53819
+depth = 6.89741
+material = SubResource( 4 )
+
+[node name="box11" type="CSGBox" parent="."]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.17451, -2.95805, -9.86762 )
+use_collision = true
+width = 0.002
+height = 4.64336
+depth = 1.59293
+material = SubResource( 4 )
+
+[node name="box12" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.14358, -2.95805, -9.8076 )
+use_collision = true
+width = 0.002
+height = 4.64336
+depth = 1.59293
+material = SubResource( 4 )
+
+[node name="box13" type="CSGBox" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.21191, -2.95805, -8.99547 )
+use_collision = true
+width = 0.002
+height = 4.64336
+depth = 2.13677
+material = SubResource( 4 )
+
+[node name="box14" type="CSGBox" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.20325, -2.95805, -8.99547 )
+use_collision = true
+width = 0.002
+height = 4.64336
+depth = 2.13677
+material = SubResource( 4 )
+
+[node name="box15" type="CSGBox" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.20325, -0.420292, -10.6935 )
+use_collision = true
+width = 0.002
+height = 4.64336
+depth = 2.13677
+material = SubResource( 4 )
+
+[node name="box16" type="CSGBox" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.17435, -0.420292, -10.6935 )
+use_collision = true
+width = 0.002
+height = 4.64336
+depth = 2.13677
+material = SubResource( 4 )
+
+[node name="box17" type="CSGBox" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00460291, 1.42038, -8.96621 )
+use_collision = true
+width = 0.002
+height = 4.61036
+depth = 2.13677
+material = SubResource( 4 )
+
+[node name="box18" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.14921, 1.42038, -9.69575 )
+use_collision = true
+width = 0.002
+height = 4.61036
+depth = 2.13677
+material = SubResource( 4 )
+
+[node name="box19" type="CSGBox" parent="."]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.15428, 1.42038, -9.69575 )
+use_collision = true
+width = 0.002
+height = 4.61036
+depth = 2.13677
+material = SubResource( 4 )
+
+[node name="SpatialBox" type="Spatial" parent="."]
+
+[node name="box20" type="CSGBox" parent="SpatialBox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7996, -5.29699, 0 )
+use_collision = true
+width = 4.0
+height = 0.002
+depth = 4.0
+material = ExtResource( 4 )
+
+[node name="box21" type="CSGBox" parent="SpatialBox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8, -2, 0 )
+use_collision = true
+width = 4.0
+height = 0.002
+depth = 4.0
+material = ExtResource( 10 )
+
+[node name="box22" type="CSGBox" parent="SpatialBox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7996, -3.67136, -1.99304 )
+use_collision = true
+width = 4.0
+height = 3.31857
+depth = 0.002
+material = ExtResource( 9 )
+
+[node name="box23" type="CSGBox" parent="SpatialBox"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 15.7996, -3.67136, 1.97494 )
+use_collision = true
+width = 4.0
+height = 3.31857
+depth = 0.002
+material = ExtResource( 9 )
+
+[node name="box24" type="CSGBox" parent="SpatialBox"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17.794, -3.67136, 0.0214467 )
+use_collision = true
+width = 4.0
+height = 3.31857
+depth = 0.002
+material = ExtResource( 9 )
+
+[node name="box25" type="CSGBox" parent="SpatialBox"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13.8296, -3.67136, 0.0214467 )
+use_collision = true
+width = 4.0
+height = 3.31857
+depth = 0.002
+material = ExtResource( 9 )

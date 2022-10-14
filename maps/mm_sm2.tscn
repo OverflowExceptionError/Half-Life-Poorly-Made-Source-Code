@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://maps/lol.gd" type="Script" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+margin_left = 37.0
+margin_top = 257.0
+margin_right = 146.0
+margin_bottom = 336.0
+rect_pivot_offset = Vector2( 109, 40 )
+text = "playertest"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+scene = "res://maps/playertest.tscn"
+
+[node name="Button3" type="Button" parent="."]
+margin_left = 43.0
+margin_top = 37.0
+margin_right = 152.0
+margin_bottom = 116.0
+rect_pivot_offset = Vector2( 109, 40 )
+text = "Back"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+scene = "res://maps/mm_sp.tscn"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 40.0
+margin_top = 162.0
+margin_right = 104.0
+margin_bottom = 176.0
+rect_scale = Vector2( 6.40936, 5.09146 )
+text = "Smorce 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}

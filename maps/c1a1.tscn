@@ -1,0 +1,690 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://models/info_player_start.tscn" type="PackedScene" id=1]
+[ext_resource path="res://filter.gd" type="Script" id=2]
+[ext_resource path="res://materials/dev/dev_text03/TestWall.tres" type="Material" id=3]
+[ext_resource path="res://materials/dev/dev_text01/TestWall.tres" type="Material" id=4]
+[ext_resource path="res://materials/dev/dev_text02/TestWall.tres" type="Material" id=5]
+[ext_resource path="res://maps/level_transition.gd" type="Script" id=6]
+[ext_resource path="res://maps/chapter_title.gd" type="Script" id=7]
+[ext_resource path="res://maps/level_onload.gd" type="Script" id=8]
+[ext_resource path="res://npc_monster.tscn" type="PackedScene" id=9]
+[ext_resource path="res://models/ammo.tscn" type="PackedScene" id=10]
+[ext_resource path="res://test_env.tres" type="Environment" id=11]
+[ext_resource path="res://ent_glass.tscn" type="PackedScene" id=12]
+
+[sub_resource type="NavigationMesh" id=2]
+vertices = PoolVector3Array( -2.17256, -7.46734, -58.8228, -2.17256, -7.46734, -46.8227, 4.12744, -7.46734, -46.8227, 4.12744, -7.46734, -58.8228, 10.4274, -7.46734, -58.8228, 4.12744, -7.46734, -58.8228, 4.12744, -7.46734, -46.8227, 10.4274, -7.46734, -46.8227 )
+polygons = [ PoolIntArray( 3, 2, 0 ), PoolIntArray( 0, 2, 1 ), PoolIntArray( 7, 6, 4 ), PoolIntArray( 4, 6, 5 ) ]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1.45347, 1.1813, 1 )
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 8 )
+
+[node name="ammo_pack" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.56154, -7.50822, -47.1751 )
+capped = true
+
+[node name="ammo_pack2" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.56154, -7.50822, -58.3683 )
+capped = true
+
+[node name="ammo_pack3" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.47963, -7.50822, -47.4992 )
+capped = true
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+margin_right = 640.0
+margin_bottom = 480.0
+stretch = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+egg = true
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+size = Vector2( 640, 480 )
+size_override_stretch = true
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Label" type="Label" parent="ViewportContainer/Viewport"]
+margin_left = 3.0
+margin_top = 106.0
+margin_right = 303.0
+margin_bottom = 120.0
+text = "Unforeseen Consequences"
+align = 1
+uppercase = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player" parent="ViewportContainer/Viewport" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 26.3768, -6.75829, -57.5073 )
+spawn_with_suit = true
+
+[node name="hallway section 2" type="Spatial" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 29.9632, -6.69591, -45.4745 )
+
+[node name="CSGBox18" type="CSGBox" parent="hallway section 2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.949, -1.16762, -15.7578 )
+use_collision = true
+width = 3.93519
+height = 0.002
+depth = 6.40739
+material = ExtResource( 4 )
+
+[node name="CSGBox19" type="CSGBox" parent="hallway section 2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.949, 1.82854, -15.7578 )
+use_collision = true
+width = 3.93519
+height = 0.002
+depth = 6.40739
+material = ExtResource( 5 )
+
+[node name="CSGBox3" type="CSGBox" parent="hallway section 2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0351, 0.412588, -15.8297 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 6.40739
+material = ExtResource( 3 )
+
+[node name="CSGBox4" type="CSGBox" parent="hallway section 2"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.9494, 0.412588, -15.8297 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 6.40739
+material = ExtResource( 3 )
+
+[node name="ah, hello gordon!" type="Spatial" parent="."]
+
+[node name="CSGBox7" type="CSGBox" parent="ah, hello gordon!"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.75583, -8.42208, -45.8198 )
+use_collision = true
+width = 4.70102
+height = 1.64179
+depth = 0.456026
+material = ExtResource( 3 )
+
+[node name="CSGBox8" type="CSGBox" parent="ah, hello gordon!"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.75583, -4.33145, -45.8198 )
+use_collision = true
+width = 4.70102
+height = 1.64179
+depth = 0.456026
+material = ExtResource( 3 )
+
+[node name="CSGBox10" type="CSGBox" parent="ah, hello gordon!"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09534, -4.87018, -53.3775 )
+use_collision = true
+width = 13.7803
+height = 0.002
+depth = 14.8032
+material = ExtResource( 5 )
+
+[node name="CSGBox11" type="CSGBox" parent="ah, hello gordon!"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7421, -6.28614, -52.8002 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 13.3127
+material = ExtResource( 3 )
+
+[node name="CSGBox12" type="CSGBox" parent="ah, hello gordon!"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 11.0051, -6.28614, -51.2849 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 10.194
+material = ExtResource( 3 )
+
+[node name="CSGBox13" type="CSGBox" parent="ah, hello gordon!"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.03307, -6.28614, -59.445 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 13.5139
+material = ExtResource( 3 )
+
+[node name="CSGBox14" type="CSGBox" parent="ah, hello gordon!"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.165214, -6.28614, -46.1929 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 5.27128
+material = ExtResource( 3 )
+
+[node name="CSGBox15" type="CSGBox" parent="ah, hello gordon!"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.39823, -6.28614, -46.1929 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 5.27128
+material = ExtResource( 3 )
+
+[node name="CSGBox16" type="CSGBox" parent="ah, hello gordon!"]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 6.30335, -6.37079, -45.8049 )
+use_collision = true
+width = 0.38541
+height = 3.08629
+depth = 0.742163
+material = ExtResource( 3 )
+
+[node name="CSGBox17" type="CSGBox" parent="ah, hello gordon!"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.93342, -6.37079, -45.8049 )
+use_collision = true
+width = 0.38541
+height = 3.08629
+depth = 0.742163
+material = ExtResource( 3 )
+
+[node name="npc_moster" parent="ah, hello gordon!" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.76951, -53.233 )
+player_path = NodePath("../../ViewportContainer/Viewport/Player")
+navigation_path = NodePath("../Navigation")
+hud_enabled = true
+buffness = 10
+
+[node name="Navigation" type="Navigation" parent="ah, hello gordon!"]
+
+[node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="ah, hello gordon!/Navigation"]
+navmesh = SubResource( 2 )
+
+[node name="CSGBox9" type="CSGBox" parent="ah, hello gordon!/Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09534, -7.86634, -52.7654 )
+use_collision = true
+width = 13.7358
+height = 0.002
+depth = 13.3147
+material = ExtResource( 4 )
+
+[node name="hallwayaaa" type="Spatial" parent="."]
+
+[node name="CSGBox32" type="CSGBox" parent="hallwayaaa"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.1507, 0.412588, -31.5068 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 9.83735
+material = ExtResource( 3 )
+
+[node name="CSGBox36" type="CSGBox" parent="hallwayaaa"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.07572, 0.412588, -31.5068 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 5.97254
+material = ExtResource( 3 )
+
+[node name="CSGBox33" type="CSGBox" parent="hallwayaaa"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.53011, 0.412588, -26.2303 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 13.406
+material = ExtResource( 3 )
+
+[node name="CSGBox25" type="CSGBox" parent="hallwayaaa"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.02454, 1.9864, -28.9971 )
+use_collision = true
+width = 18.5014
+height = 0.002
+depth = 5.38633
+material = ExtResource( 5 )
+
+[node name="CSGBox19" type="CSGBox" parent="hallwayaaa"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.02454, -1.16762, -28.9971 )
+use_collision = true
+width = 18.5014
+height = 0.002
+depth = 5.38633
+material = ExtResource( 4 )
+
+[node name="CSGBox37" type="CSGBox" parent="hallwayaaa"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.16733, 0.412588, -30.5984 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 8.14693
+material = ExtResource( 3 )
+
+[node name="level transition" type="Spatial" parent="."]
+
+[node name="CSGBox29" type="CSGBox" parent="level transition"]
+transform = Transform( 1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 4.02454, -1.26429, -38.8584 )
+use_collision = true
+width = 5.9663
+height = 0.002
+depth = 15.7058
+material = ExtResource( 5 )
+
+[node name="CSGBox45" type="CSGBox" parent="level transition"]
+transform = Transform( 1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 1.09335, -3.03138, -39.374 )
+use_collision = true
+width = 0.002
+height = 3.41086
+depth = 15.7058
+material = ExtResource( 3 )
+
+[node name="CSGBox46" type="CSGBox" parent="level transition"]
+transform = Transform( -1, -3.69465e-08, -7.92319e-08, 0, 0.906308, -0.422618, 8.74228e-08, -0.422618, -0.906308, 6.91077, -3.03138, -39.374 )
+use_collision = true
+width = 0.002
+height = 3.41086
+depth = 15.7058
+material = ExtResource( 3 )
+
+[node name="CSGBox20" type="CSGBox" parent="level transition"]
+transform = Transform( 1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 4.02454, -4.41831, -38.8584 )
+use_collision = true
+width = 5.9663
+height = 0.002
+depth = 15.7058
+material = ExtResource( 4 )
+
+[node name="CSGBox47" type="CSGBox" parent="level transition"]
+transform = Transform( 0.140677, 0.418415, 0.897295, 0, 0.906308, -0.422618, -0.990056, 0.0594524, 0.127496, 6.91077, -3.03138, -39.374 )
+use_collision = true
+width = 0.002
+height = 3.41086
+depth = 15.7058
+material = ExtResource( 3 )
+
+[node name="CSGBox48" type="CSGBox" parent="level transition"]
+transform = Transform( 0.41544, -0.384422, -0.824397, 0, 0.906308, -0.422618, 0.909621, 0.175572, 0.376516, 6.91077, -3.03138, -39.374 )
+use_collision = true
+width = 0.002
+height = 3.41086
+depth = 15.7058
+material = ExtResource( 3 )
+
+[node name="CSGBox49" type="CSGBox" parent="level transition"]
+transform = Transform( 0.475873, 0.413115, -0.776455, -0.298726, 0.906259, 0.299094, 0.827229, 0.0896167, 0.554672, 6.12437, -3.01906, -39.374 )
+use_collision = true
+width = 0.002
+height = 3.41086
+depth = 15.7058
+material = ExtResource( 3 )
+
+[node name="Area" type="Area" parent="level transition"]
+script = ExtResource( 6 )
+level_path = "res://maps/c1a1a.tscn"
+destination_path = "level_player_rt"
+
+[node name="CollisionShape" type="CollisionShape" parent="level transition/Area"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10.149, -3.42153, -57.8087 )
+shape = SubResource( 1 )
+
+[node name="test chamber" type="Spatial" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17.1151, -6.66152, -69.3799 )
+
+[node name="CSGBox18" type="CSGBox" parent="test chamber"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9237, -1.16762, -15.7578 )
+use_collision = true
+width = 30.2963
+height = 0.002
+depth = 18.544
+material = ExtResource( 4 )
+
+[node name="CSGBox19" type="CSGBox" parent="test chamber"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8977, 15.6649, -15.7578 )
+use_collision = true
+width = 29.8961
+height = 0.002
+depth = 18.0733
+material = ExtResource( 5 )
+
+[node name="CSGBox3" type="CSGBox" parent="test chamber"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.71397, 7.20535, -15.8297 )
+use_collision = true
+width = 0.002
+height = 17.6012
+depth = 19.0532
+material = ExtResource( 3 )
+
+[node name="CSGBox5" type="CSGBox" parent="test chamber"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.40868, 7.20535, -6.54624 )
+use_collision = true
+width = 0.002
+height = 17.6012
+depth = 17.5574
+material = ExtResource( 3 )
+
+[node name="CSGBox8" type="CSGBox" parent="test chamber"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.5792, 7.20535, -25.011 )
+use_collision = true
+width = 0.002
+height = 17.6012
+depth = 30.9039
+material = ExtResource( 3 )
+
+[node name="CSGBox6" type="CSGBox" parent="test chamber"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.7019, 7.20535, -6.54624 )
+use_collision = true
+width = 0.002
+height = 17.6012
+depth = 17.5574
+material = ExtResource( 3 )
+
+[node name="CSGBox7" type="CSGBox" parent="test chamber"]
+transform = Transform( 1.10072e-08, -4.23028e-08, 1, -0.967775, -0.251816, 0, 0.251816, -0.967775, -4.37114e-08, 12.0477, -0.0558052, -14.961 )
+use_collision = true
+width = 0.002
+height = 17.6012
+depth = 3.79887
+material = ExtResource( 3 )
+
+[node name="CSGBox9" type="CSGBox" parent="test chamber"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.0477, 13.8762, -6.57603 )
+use_collision = true
+width = 0.002
+height = 17.6012
+depth = 3.79887
+material = ExtResource( 3 )
+
+[node name="CSGBox4" type="CSGBox" parent="test chamber"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 25.9116, 6.98583, -15.8297 )
+use_collision = true
+width = 0.002
+height = 17.4936
+depth = 18.4124
+material = ExtResource( 3 )
+
+[node name="Spatial" type="Spatial" parent="test chamber"]
+
+[node name="CSGBox20" type="CSGBox" parent="test chamber/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.949, -1.16762, -3.29369 )
+use_collision = true
+width = 3.93519
+height = 0.002
+depth = 6.40739
+material = ExtResource( 4 )
+
+[node name="CSGBox21" type="CSGBox" parent="test chamber/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.949, 1.82854, -3.29369 )
+use_collision = true
+width = 3.93519
+height = 0.002
+depth = 6.40739
+material = ExtResource( 5 )
+
+[node name="CSGBox5" type="CSGBox" parent="test chamber/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0351, 0.412588, -3.36565 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 6.40739
+material = ExtResource( 3 )
+
+[node name="CSGBox6" type="CSGBox" parent="test chamber/Spatial"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.9494, 0.412588, -3.36565 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 6.40739
+material = ExtResource( 3 )
+
+[node name="CSGBox" type="CSGBox" parent="test chamber"]
+transform = Transform( 0.139179, 0.0601348, 0.98844, 0.988998, -0.0589603, -0.135671, 0.0501202, 0.996447, -0.0676792, 22.9146, -1.90735e-06, -15.6758 )
+
+[node name="hallway section 3" type="Spatial" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 29.9632, -3.4578, -45.4745 )
+
+[node name="CSGBox18" type="CSGBox" parent="hallway section 3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.949, -1.16762, -15.7578 )
+use_collision = true
+width = 3.93519
+height = 0.002
+depth = 6.40739
+material = ExtResource( 4 )
+
+[node name="CSGBox19" type="CSGBox" parent="hallway section 3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.949, 1.82854, -15.7578 )
+use_collision = true
+width = 3.93519
+height = 0.002
+depth = 6.40739
+material = ExtResource( 5 )
+
+[node name="CSGBox3" type="CSGBox" parent="hallway section 3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0351, 0.412588, -15.8297 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 6.40739
+material = ExtResource( 3 )
+
+[node name="CSGBox4" type="CSGBox" parent="hallway section 3"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.9494, 0.412588, -15.8297 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 6.40739
+material = ExtResource( 3 )
+
+[node name="ah, hello gordon!2" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.23811, 0 )
+
+[node name="CSGBox7" type="CSGBox" parent="ah, hello gordon!2"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.75583, -8.42208, -45.8198 )
+use_collision = true
+width = 4.70102
+height = 1.64179
+depth = 0.456026
+material = ExtResource( 3 )
+
+[node name="CSGBox8" type="CSGBox" parent="ah, hello gordon!2"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.75583, -4.33145, -45.8198 )
+use_collision = true
+width = 4.70102
+height = 1.64179
+depth = 0.456026
+material = ExtResource( 3 )
+
+[node name="CSGBox9" type="CSGBox" parent="ah, hello gordon!2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09534, -7.86634, -52.7654 )
+use_collision = true
+width = 13.7358
+height = 0.002
+depth = 13.3147
+material = ExtResource( 4 )
+
+[node name="CSGBox10" type="CSGBox" parent="ah, hello gordon!2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09534, -4.87018, -53.3775 )
+use_collision = true
+width = 13.7803
+height = 0.002
+depth = 14.8032
+material = ExtResource( 5 )
+
+[node name="CSGBox11" type="CSGBox" parent="ah, hello gordon!2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7421, -6.28614, -52.8002 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 13.3127
+material = ExtResource( 3 )
+
+[node name="CSGBox12" type="CSGBox" parent="ah, hello gordon!2"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 11.0051, -6.28614, -51.2849 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 10.194
+material = ExtResource( 3 )
+
+[node name="CSGBox13" type="CSGBox" parent="ah, hello gordon!2"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.03307, -6.28614, -59.445 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 13.5139
+material = ExtResource( 3 )
+
+[node name="CSGBox14" type="CSGBox" parent="ah, hello gordon!2"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.165214, -6.28614, -46.1929 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 5.27128
+material = ExtResource( 3 )
+
+[node name="CSGBox15" type="CSGBox" parent="ah, hello gordon!2"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.39823, -6.28614, -46.1929 )
+use_collision = true
+width = 0.002
+height = 3.08629
+depth = 5.27128
+material = ExtResource( 3 )
+
+[node name="CSGBox16" type="CSGBox" parent="ah, hello gordon!2"]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 6.30335, -6.37079, -45.8049 )
+use_collision = true
+width = 0.38541
+height = 3.08629
+depth = 0.742163
+material = ExtResource( 3 )
+
+[node name="CSGBox17" type="CSGBox" parent="ah, hello gordon!2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.93342, -6.37079, -45.8049 )
+use_collision = true
+width = 0.38541
+height = 3.08629
+depth = 0.742163
+material = ExtResource( 3 )
+
+[node name="level_player_rt" type="Spatial" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.073, -3.8473, -57.3853 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 11 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69407, 0 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="OmniLight2" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69407, -12.3981 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="OmniLight3" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6662, 1.69407, -15.7779 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="OmniLight4" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6662, 1.69407, -23.5766 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="OmniLight5" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6662, 1.69407, -29.08 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="OmniLight6" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.53793, 1.69407, -29.08 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="OmniLight18" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.632, -1.51946, -38.3699 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="OmniLight19" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.632, -5.03658, -53.1782 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="OmniLight20" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.1653, -5.03658, -58.1486 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="OmniLight7" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.32965, 1.69407, -29.08 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="OmniLight8" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.32965, 1.69407, -22.4094 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="OmniLight9" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1391, 1.69407, -23.2731 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="OmniLight10" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1391, 1.69407, -19.0701 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="OmniLight11" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1391, 1.69407, -15.5478 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="OmniLight12" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1391, 1.69407, -11.2636 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="OmniLight13" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1391, 1.69407, 3.19729 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="OmniLight14" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5019, 1.69407, 3.19729 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="OmniLight15" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.1655, 1.69407, 3.19729 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="OmniLight16" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.0188, 1.69407, 3.19729 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="OmniLight17" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.0188, 1.69407, 18.643 )
+shadow_enabled = true
+shadow_bias = 1.0
+omni_range = 15.5241
+
+[node name="ent_glass" parent="." instance=ExtResource( 12 )]
+transform = Transform( -8.14555e-08, 0, 1, 0, 1.48877, 0, -2.04511, 0, -4.79718e-08, 23.6157, -2.95926, -57.3662 )

@@ -1,0 +1,76 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://maps/GenericUI.gd" type="Script" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WindowDialog" type="WindowDialog" parent="."]
+visible = true
+margin_left = 43.0
+margin_top = 58.0
+margin_right = 531.0
+margin_bottom = 428.0
+window_title = "GameUI_ExampleTitle"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemList" type="ItemList" parent="WindowDialog"]
+margin_right = 197.0
+margin_bottom = 175.0
+allow_reselect = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="WindowDialog"]
+margin_left = 7.0
+margin_top = 343.0
+margin_right = 53.0
+margin_bottom = 363.0
+text = "OK"
+
+[node name="Button2" type="Button" parent="WindowDialog"]
+margin_left = 61.0
+margin_top = 342.0
+margin_right = 115.0
+margin_bottom = 362.0
+text = "Cancel"
+
+[node name="Button3" type="Button" parent="WindowDialog"]
+margin_left = 406.0
+margin_top = 341.0
+margin_right = 476.0
+margin_bottom = 361.0
+text = "hi button"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit" type="TextEdit" parent="WindowDialog"]
+margin_left = 4.0
+margin_top = 177.0
+margin_right = 194.0
+margin_bottom = 328.0
+
+[node name="LineEdit" type="LineEdit" parent="WindowDialog"]
+margin_left = 210.0
+margin_top = 8.0
+margin_right = 472.0
+margin_bottom = 32.0
+
+[node name="LineEdit2" type="LineEdit" parent="WindowDialog"]
+margin_left = 210.0
+margin_top = 41.0
+margin_right = 472.0
+margin_bottom = 65.0
+
+[connection signal="pressed" from="WindowDialog/Button" to="WindowDialog" method="_on_Button_pressed"]
+[connection signal="pressed" from="WindowDialog/Button2" to="WindowDialog" method="_on_Button2_pressed"]
+[connection signal="pressed" from="WindowDialog/Button3" to="WindowDialog" method="_on_Button3_pressed"]

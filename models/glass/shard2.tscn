@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_transparent = true
+albedo_color = Color( 1, 1, 1, 0.509804 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.546549, 0.626903, 0.0371103 )
+
+[node name="Shard" type="RigidBody"]
+
+[node name="CSGBox11" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.765975, 0.687174, 0 )
+visible = false
+width = 0.501
+height = 0.592
+depth = 0.0458585
+material = SubResource( 1 )
+
+[node name="CSGBox16" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.158333, 0.0780368, 0 )
+width = 0.501
+height = 0.636726
+depth = 0.0458585
+material = SubResource( 1 )
+
+[node name="CSGBox17" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.486448, -0.616487, 0 )
+width = 1.08038
+height = 0.72733
+depth = 0.0458585
+material = SubResource( 1 )
+
+[node name="CSGBox12" type="CSGPolygon" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.506327, 0.393973, 0.0270648 )
+visible = false
+polygon = PoolVector2Array( 0, 0, 0, 0.592, 0.592, 0 )
+depth = 0.0458585
+material = SubResource( 1 )
+
+[node name="CSGBox13" type="CSGPolygon" parent="."]
+transform = Transform( 1, 0, 0, 0, -1, 1.50996e-07, 0, -1.50996e-07, -1, -1.00869, 0.393973, 0.0270648 )
+visible = false
+polygon = PoolVector2Array( 0, 0, 0, 0.592, 0.592, 0 )
+depth = 0.05
+material = SubResource( 1 )
+
+[node name="CSGBox15" type="CSGPolygon" parent="."]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.410952, -0.198043, 0.0270648 )
+polygon = PoolVector2Array( 0, 0, 0, 0.592, 0.592, 0 )
+depth = 0.05
+material = SubResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.492438, -0.282943, 0 )
+shape = SubResource( 2 )

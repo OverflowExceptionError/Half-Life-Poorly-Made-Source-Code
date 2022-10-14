@@ -1,0 +1,352 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://InstallShield/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://InstallShield/models/fizzler_one.tscn" type="PackedScene" id=2]
+[ext_resource path="res://materials/dev/M_Dark.tres" type="Material" id=3]
+[ext_resource path="res://InstallShield/models/CubeDispenser.tscn" type="PackedScene" id=4]
+[ext_resource path="res://InstallShield/models/fizzler.tscn" type="PackedScene" id=5]
+[ext_resource path="res://InstallShield/Portal.tscn" type="PackedScene" id=6]
+[ext_resource path="res://InstallShield/Portal.gdshader" type="Shader" id=7]
+[ext_resource path="res://InstallShield/models/computer.old.tscn" type="PackedScene" id=8]
+[ext_resource path="res://InstallShield/World.gd" type="Script" id=9]
+[ext_resource path="res://InstallShield/models/player_fizzler.tscn" type="PackedScene" id=10]
+[ext_resource path="res://InstallShield/models/wth.tscn" type="PackedScene" id=11]
+[ext_resource path="res://InstallShield/addon/force_model_visible.gd" type="Script" id=12]
+[ext_resource path="res://InstallShield/Levels/Main/Environment.tres" type="Environment" id=13]
+[ext_resource path="res://InstallShield/models/prop_aperature_cube.tscn" type="PackedScene" id=14]
+[ext_resource path="res://InstallShield/models/world_teleport_oneway.tscn" type="PackedScene" id=15]
+[ext_resource path="res://InstallShield/models/func_node.tscn" type="PackedScene" id=16]
+
+[sub_resource type="OpenSimplexNoise" id=44]
+octaves = 7
+period = 14.6
+
+[sub_resource type="NoiseTexture" id=37]
+resource_local_to_scene = true
+seamless = true
+noise = SubResource( 44 )
+
+[sub_resource type="ViewportTexture" id=46]
+
+[sub_resource type="ShaderMaterial" id=47]
+shader = ExtResource( 7 )
+shader_param/portal_colour = Color( 0, 1, 1, 1 )
+shader_param/scale = 1.00166
+shader_param/viewport_texture = SubResource( 46 )
+shader_param/noise = SubResource( 37 )
+
+[sub_resource type="OpenSimplexNoise" id=21]
+octaves = 7
+period = 14.6
+
+[sub_resource type="NoiseTexture" id=45]
+resource_local_to_scene = true
+seamless = true
+noise = SubResource( 21 )
+
+[sub_resource type="ViewportTexture" id=48]
+
+[sub_resource type="ShaderMaterial" id=49]
+shader = ExtResource( 7 )
+shader_param/portal_colour = Color( 1, 0.654902, 0, 1 )
+shader_param/scale = 1.00166
+shader_param/viewport_texture = SubResource( 48 )
+shader_param/noise = SubResource( 45 )
+
+[sub_resource type="ViewportTexture" id=50]
+
+[sub_resource type="ShaderMaterial" id=51]
+shader = ExtResource( 7 )
+shader_param/portal_colour = Color( 0.266667, 1, 0.164706, 1 )
+shader_param/scale = 1.00166
+shader_param/viewport_texture = SubResource( 50 )
+shader_param/noise = SubResource( 37 )
+
+[node name="World" type="Spatial"]
+script = ExtResource( 9 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+
+[node name="Spatial" parent="." instance=ExtResource( 15 )]
+transform = Transform( 7, 0, 0, 0, 1, 0, 0, 0, 1, -15.817, -0.375333, 12.5111 )
+destination_path = NodePath("../generic object")
+
+[node name="Spatial2" parent="." instance=ExtResource( 15 )]
+transform = Transform( 7, 0, 0, 0, 1, 0, 0, 0, 1, -15.817, -0.375333, 16.2034 )
+destination_path = NodePath("../generic object2")
+
+[node name="Spatial3" parent="." instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 3, -11.2812, -0.375333, 15.3489 )
+destination_path = NodePath("../generic object2")
+
+[node name="generic object" parent="." instance=ExtResource( 16 )]
+transform = Transform( 7, 0, 0, 0, 1, 0, 0, 0, 1, -15.8071, -0.363604, 15.1633 )
+
+[node name="generic object3" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 3, -12.8798, -0.363604, 15.3954 )
+
+[node name="PortalTestr" type="Spatial" parent="."]
+
+[node name="CSGBox" type="CSGBox" parent="PortalTestr"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.29046, 0 )
+use_collision = true
+width = 39.8775
+height = 0.253569
+depth = 35.1485
+material = ExtResource( 3 )
+
+[node name="CSGBox2" type="CSGBox" parent="PortalTestr"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8633, 5.50456, 0 )
+use_collision = true
+width = 0.681785
+height = 13.3236
+depth = 35.1485
+material = ExtResource( 3 )
+
+[node name="CSGBox3" type="CSGBox" parent="PortalTestr"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0866, 5.50456, 0 )
+use_collision = true
+width = 0.681785
+height = 13.3236
+depth = 35.1485
+material = ExtResource( 3 )
+
+[node name="CSGBox4" type="CSGBox" parent="PortalTestr"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.668673, 5.50456, -17.8967 )
+use_collision = true
+width = 56.4204
+height = 13.3236
+depth = 1.33855
+material = ExtResource( 3 )
+
+[node name="CSGBox5" type="CSGBox" parent="PortalTestr"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.668673, 5.50456, 17.4827 )
+use_collision = true
+width = 56.4204
+height = 13.3236
+depth = 1.33855
+material = ExtResource( 3 )
+
+[node name="CSGBox6" type="CSGBox" parent="PortalTestr"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.668673, 5.50456, 17.4827 )
+use_collision = true
+width = 56.4204
+height = 13.3236
+depth = 1.33855
+material = ExtResource( 3 )
+
+[node name="PLEASE IGNORE M3" type="Spatial" parent="PortalTestr"]
+script = ExtResource( 12 )
+
+[node name="fizzler11" parent="PortalTestr/PLEASE IGNORE M3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.0693, -0.981308, 14.7893 )
+
+[node name="Put your models here They will not be culled" type="Node" parent="PortalTestr/PLEASE IGNORE M3"]
+
+[node name="model_computer" parent="PortalTestr/PLEASE IGNORE M3" instance=ExtResource( 8 )]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -17.7517, -0.583918, -15.5018 )
+
+[node name="fizzler" parent="PortalTestr/PLEASE IGNORE M3" instance=ExtResource( 5 )]
+
+[node name="CubeDispenser" parent="PortalTestr/PLEASE IGNORE M3" instance=ExtResource( 4 )]
+
+[node name="CubeDispenser2" parent="PortalTestr/PLEASE IGNORE M3" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00147665, 3.22165, -6.42502 )
+lookout = "table"
+respawn_object = "desk"
+
+[node name="RigidBody" parent="PortalTestr/PLEASE IGNORE M3" instance=ExtResource( 11 )]
+
+[node name="player_fizzler" parent="PortalTestr/PLEASE IGNORE M3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1347, 0, 15.466 )
+map = "..\\World2"
+
+[node name="fizzler2" parent="PortalTestr/PLEASE IGNORE M3" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69077, 0, 15.1385 )
+
+[node name="player_fizzler2" parent="PortalTestr/PLEASE IGNORE M3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1347, 3.62612, 15.466 )
+map = "..\\World2"
+
+[node name="fizzler3" parent="PortalTestr/PLEASE IGNORE M3" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69077, 3.62612, 15.1385 )
+
+[node name="player_fizzler3" parent="PortalTestr/PLEASE IGNORE M3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1347, 7.36827, 15.466 )
+map = "..\\World2"
+
+[node name="fizzler4" parent="PortalTestr/PLEASE IGNORE M3" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69077, 7.36827, 15.1385 )
+
+[node name="fizzler5" parent="PortalTestr/PLEASE IGNORE M3" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.0276, 0, 13.3863 )
+
+[node name="fizzler6" parent="PortalTestr/PLEASE IGNORE M3" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.0276, 3.62612, 13.3863 )
+
+[node name="fizzler7" parent="PortalTestr/PLEASE IGNORE M3" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.0276, 7.36827, 13.3863 )
+
+[node name="fizzler8" parent="PortalTestr/PLEASE IGNORE M3" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.7439, 0, 13.3863 )
+
+[node name="fizzler9" parent="PortalTestr/PLEASE IGNORE M3" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.7439, 3.62612, 13.3863 )
+
+[node name="fizzler10" parent="PortalTestr/PLEASE IGNORE M3" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.7439, 7.36827, 13.3863 )
+
+[node name="player_fizzler4" parent="PortalTestr/PLEASE IGNORE M3" instance=ExtResource( 10 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.0312, 0, 13.3239 )
+map = "..\\World2"
+
+[node name="player_fizzler5" parent="PortalTestr/PLEASE IGNORE M3" instance=ExtResource( 10 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.0312, 3.62612, 13.3239 )
+map = "..\\World2"
+
+[node name="player_fizzler6" parent="PortalTestr/PLEASE IGNORE M3" instance=ExtResource( 10 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.0312, 7.36827, 13.3239 )
+map = "..\\World2"
+
+[node name="player_fizzler7" parent="PortalTestr/PLEASE IGNORE M3" instance=ExtResource( 10 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.8562, 0, 13.3239 )
+map = "..\\World2"
+
+[node name="player_fizzler8" parent="PortalTestr/PLEASE IGNORE M3" instance=ExtResource( 10 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.8562, 3.62612, 13.3239 )
+map = "..\\World2"
+
+[node name="player_fizzler9" parent="PortalTestr/PLEASE IGNORE M3" instance=ExtResource( 10 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.8562, 7.36827, 13.3239 )
+map = "..\\World2"
+
+[node name="CubeDispenser3" parent="PortalTestr/PLEASE IGNORE M3" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00147665, 6.13575, -10.1706 )
+lookout = "sus"
+respawn_object = "wth"
+
+[node name="fizzler12" parent="PortalTestr/PLEASE IGNORE M3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.0693, -0.981308, 11.1645 )
+
+[node name="Lighting" type="Node" parent="PortalTestr"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="PortalTestr/Lighting"]
+environment = ExtResource( 13 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="PortalTestr/Lighting"]
+transform = Transform( -0.866026, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 5, 0 )
+shadow_enabled = true
+shadow_bias = 0.05
+directional_shadow_max_distance = 250.0
+
+[node name="CSGBox7" type="CSGBox" parent="PortalTestr"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.726, 5.50456, 13.414 )
+use_collision = true
+width = 13.2131
+height = 13.3236
+depth = 1.33855
+material = ExtResource( 3 )
+
+[node name="CSGBox8" type="CSGBox" parent="PortalTestr"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3762, 5.50456, 5.11385 )
+use_collision = true
+width = 1.95695
+height = 13.3236
+depth = 17.5006
+material = ExtResource( 3 )
+
+[node name="prop_aperature_cube" parent="PortalTestr" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.11743, 27.591, -11.2543 )
+
+[node name="Portal" parent="." instance=ExtResource( 6 )]
+transform = Transform( -1.15736e-07, 5.96046e-08, -1, -7.61094e-08, -1, -5.96046e-08, -1, 7.61095e-08, 1.15736e-07, -16.2, 2.8, -16.7 )
+material_override = SubResource( 47 )
+texture = SubResource( 46 )
+linked_portal_path = NodePath("../Portal2")
+
+[node name="Portal2" parent="." instance=ExtResource( 6 )]
+transform = Transform( -5.96046e-08, -2.4869e-14, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, 5.96046e-08, -16.1, 2.8, -21.3 )
+material_override = SubResource( 49 )
+texture = SubResource( 48 )
+linked_portal_path = NodePath("../Portal")
+portal_colour = Color( 1, 0.654902, 0, 1 )
+
+[node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, -32.4615, 22.2525, 0 )
+use_collision = true
+width = 9.07168
+height = 0.002
+depth = 9.77489
+material = ExtResource( 3 )
+
+[node name="CSGBox2" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.2615, 15.5974, 0 )
+use_collision = true
+width = 20.5427
+height = 0.002
+depth = 35.4122
+material = ExtResource( 3 )
+
+[node name="CSGBox3" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.4928, 22.8479, 0 )
+use_collision = true
+width = 1.41367
+height = 14.7811
+depth = 35.4122
+material = ExtResource( 3 )
+
+[node name="CSGBox4" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.4928, 22.8479, 17.0029 )
+use_collision = true
+width = 33.5785
+height = 14.7811
+depth = 2.24177
+material = ExtResource( 3 )
+
+[node name="CSGBox5" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.4928, 22.8479, -15.8804 )
+use_collision = true
+width = 33.5785
+height = 14.7811
+depth = 2.24177
+material = ExtResource( 3 )
+
+[node name="CSGBox6" type="CSGBox" parent="."]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -29.3001, 30.08, 0 )
+use_collision = true
+width = 9.07168
+height = 0.002
+depth = 9.77489
+material = ExtResource( 3 )
+
+[node name="CSGBox7" type="CSGBox" parent="."]
+transform = Transform( 1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -34.0522, 30.08, 5.02286 )
+use_collision = true
+width = 9.07168
+height = 0.002
+depth = 9.77489
+material = ExtResource( 3 )
+
+[node name="CSGBox8" type="CSGBox" parent="."]
+transform = Transform( 1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -34.0522, 30.08, -4.63005 )
+use_collision = true
+width = 9.07168
+height = 0.002
+depth = 9.77489
+material = ExtResource( 3 )
+
+[node name="NoPortals" type="Node" parent="CSGBox8"]
+
+[node name="Portal3" parent="." instance=ExtResource( 6 )]
+transform = Transform( -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, -20.7631, 17.648, -15.2678 )
+material_override = SubResource( 51 )
+texture = SubResource( 50 )
+linked_portal_path = NodePath("../Portal2")
+portal_colour = Color( 0.266667, 1, 0.164706, 1 )
+
+[node name="generic object2" parent="." instance=ExtResource( 16 )]
+transform = Transform( 7, 0, 0, 0, 1, 0, 0, 0, 1, -15.8071, -0.363604, 7.31298 )
+
+[node name="Spatial4" parent="." instance=ExtResource( 15 )]
+transform = Transform( 7, 0, 0, 0, 1, 0, 0, 0, 1, -15.817, -0.375333, 14.1775 )
+destination_path = NodePath("../generic object")

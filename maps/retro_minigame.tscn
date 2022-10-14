@@ -1,0 +1,1714 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://default_env.tres" type="Environment" id=1]
+[ext_resource path="res://filter.gd" type="Script" id=2]
+[ext_resource path="res://materials/dev/M_Dark.tres" type="Material" id=3]
+[ext_resource path="res://models/Ignore/prop_aperature_button.tscn" type="PackedScene" id=4]
+[ext_resource path="res://models/Ignore/prop_aperature_cube.tscn" type="PackedScene" id=5]
+[ext_resource path="res://models/info_player_start.tscn" type="PackedScene" id=6]
+[ext_resource path="res://npc_barney_chase.tscn" type="PackedScene" id=7]
+[ext_resource path="res://models/ammo.tscn" type="PackedScene" id=9]
+[ext_resource path="res://materials/chicken.bmp" type="Texture" id=12]
+
+[sub_resource type="NavigationMesh" id=12]
+vertices = PoolVector3Array( -11.2078, -15.0039, -17.749, -11.2078, -15.0039, -7.24899, -4.30785, -15.0039, -7.24899, -4.30785, -15.0039, -17.749, -4.30785, -15.0039, -17.749, -4.30785, -15.0039, -28.249, -11.2078, -15.0039, -28.249, -11.2078, -15.0039, -17.749, -46.3078, -15.0039, 13.751, -46.0078, -15.0039, 13.751, -45.7078, -15.0039, 12.851, -46.9079, -15.0039, 6.25101, -46.9079, -15.0039, 12.851, -46.9079, -15.0039, 6.25101, -45.7078, -15.0039, 12.851, -44.8078, -15.0039, 12.851, -44.8078, -15.0039, 4.15101, -49.6078, -15.0039, -15.649, -49.6078, -15.0039, -13.849, -46.9079, -15.0039, -13.549, -46.9079, -15.0039, -15.949, -44.8078, -15.0039, 4.15101, -44.8078, -15.0039, -4.24899, -46.9079, -15.0039, -0.348989, -46.9079, -15.0039, 6.25101, -44.8078, -15.0039, -21.049, -46.9079, -15.0039, -21.049, -46.9079, -15.0039, -15.949, -44.8078, -15.0039, -12.649, -44.8078, -15.0039, -4.24899, -46.9079, -15.0039, -6.94899, -46.9079, -15.0039, -0.348989, -44.8078, -15.0039, -12.649, -46.9079, -15.0039, -15.949, -46.9079, -15.0039, -13.549, -44.8078, -15.0039, -12.649, -46.9079, -15.0039, -13.549, -46.9079, -15.0039, -6.94899, -44.8078, -15.0039, -4.24899, -183.708, -7.20387, -14.149, -187.308, -7.20387, -14.149, -187.308, -7.20387, -10.849, -180.408, -7.20387, -10.849, -180.408, -7.20387, -18.949, -183.408, -7.20387, -18.949, -183.708, -7.20387, -14.149, -180.408, -7.20387, -10.849, -180.708, -15.0039, -11.149, -180.708, -15.0039, -13.549, -182.808, -15.0039, -13.849, -187.008, -15.0039, -11.149, -182.808, -14.8039, -15.649, -180.708, -15.0039, -15.949, -180.708, -15.0039, -18.649, -187.008, -14.8039, -18.649, -187.008, -15.0039, -11.149, -182.808, -15.0039, -13.849, -182.808, -14.8039, -15.649, -187.008, -14.8039, -18.649, -179.208, -15.0039, -15.649, -180.108, -15.0039, -15.049, -179.208, -15.0039, -13.849, -171.108, -15.0039, -13.849, -171.108, -15.0039, -15.649, -49.6078, -15.0039, -13.849, -49.6078, -15.0039, -15.649, -57.7078, -15.0039, -15.649, -57.7078, -15.0039, -13.849, -65.8078, -15.0039, -13.849, -57.7078, -15.0039, -13.849, -57.7078, -15.0039, -15.649, -65.8078, -15.0039, -15.649, -122.508, -15.0039, -13.849, -114.408, -15.0039, -13.849, -114.408, -15.0039, -15.649, -122.508, -15.0039, -15.649, -73.9078, -15.0039, -13.849, -65.8078, -15.0039, -13.849, -65.8078, -15.0039, -15.649, -73.9078, -15.0039, -15.649, -163.008, -15.0039, -15.649, -171.108, -15.0039, -15.649, -171.108, -15.0039, -13.849, -163.008, -15.0039, -13.849, -82.0079, -15.0039, -13.849, -73.9078, -15.0039, -13.849, -73.9078, -15.0039, -15.649, -82.0079, -15.0039, -15.649, -154.908, -15.0039, -15.649, -163.008, -15.0039, -15.649, -163.008, -15.0039, -13.849, -154.908, -15.0039, -13.849, -90.1078, -15.0039, -13.849, -82.0079, -15.0039, -13.849, -82.0079, -15.0039, -15.649, -90.1078, -15.0039, -15.649, -146.808, -15.0039, -15.649, -154.908, -15.0039, -15.649, -154.908, -15.0039, -13.849, -146.808, -15.0039, -13.849, -98.2078, -15.0039, -13.849, -90.1078, -15.0039, -13.849, -90.1078, -15.0039, -15.649, -98.2078, -15.0039, -15.649, -138.708, -15.0039, -15.649, -146.808, -15.0039, -15.649, -146.808, -15.0039, -13.849, -138.708, -15.0039, -13.849, -106.308, -15.0039, -13.849, -98.2078, -15.0039, -13.849, -98.2078, -15.0039, -15.649, -106.308, -15.0039, -15.649, -130.608, -15.0039, -15.649, -138.708, -15.0039, -15.649, -138.708, -15.0039, -13.849, -130.608, -15.0039, -13.849, -114.408, -15.0039, -13.849, -106.308, -15.0039, -13.849, -106.308, -15.0039, -15.649, -114.408, -15.0039, -15.649, -122.508, -15.0039, -15.649, -130.608, -15.0039, -15.649, -130.608, -15.0039, -13.849, -122.508, -15.0039, -13.849, -34.9079, -7.20387, -10.549, -33.7078, -7.20387, -11.449, -33.7078, -7.20387, -15.049, -40.9079, -7.20387, -15.049, -41.2078, -7.00387, 4.45101, -34.6078, -7.00387, 4.45101, -34.3078, -7.00387, 3.85101, -41.2078, -7.00387, -5.44899, -12.1078, -7.00387, -6.94899, -12.1078, -7.00387, -9.34899, -23.5078, -7.00387, -9.34899, -23.8078, -7.00387, 3.85101, -13.0078, -7.00387, 3.85101, -34.9079, -7.20387, -10.549, -40.9079, -7.20387, -15.049, -41.2078, -7.00387, -5.44899, -34.6078, -6.80387, -9.34899, -38.4958, -6.80387, -9.06581, -38.5378, -7.20387, -10.879, -34.6078, -6.80387, -9.34899, -41.2078, -7.00387, -5.44899, -34.3078, -7.00387, 3.85101, -23.8078, -7.00387, 3.85101, -23.5078, -7.00387, -9.34899, -34.3078, -14.8039, -10.549, -33.7078, -14.8039, -11.149, -34.3078, -15.0039, -11.449, -39.1078, -15.0039, -12.049, -39.1078, -15.0039, -10.549, -37.9079, -15.0039, 3.25101, -36.4079, -15.0039, 3.25101, -36.1078, -15.0039, 2.65101, -38.2078, -15.0039, 2.65101, -34.3078, -14.8039, -10.549, -39.1078, -15.0039, -10.549, -40.3078, -15.0039, -10.249, -40.3078, -15.0039, -14.749, -40.3078, -15.0039, -12.349, -39.1078, -15.0039, -12.049, -34.3078, -15.0039, -11.449, -34.3078, -15.0039, -14.749, -40.3078, -15.0039, -3.94899, -40.3078, -15.0039, 2.65101, -38.2078, -15.0039, 2.65101, -40.3078, -15.0039, -3.94899, -38.2078, -15.0039, 2.65101, -36.1078, -15.0039, 2.65101, -33.7078, -15.0039, -4.24899, -34.3078, -14.8039, -10.549, -40.3078, -15.0039, -10.249, -36.1078, -15.0039, 2.65101, -33.7078, -15.0039, 2.65101, -33.7078, -15.0039, -4.24899, -11.5078, -7.00387, 3.85101, -11.2078, -7.20387, 4.45101, -4.30785, -7.20387, 4.15101, -4.30785, -7.20387, -6.34899, -11.8078, -7.00387, -6.34899, -11.8078, -7.00387, -6.34899, -12.1078, -7.00387, -6.94899, -13.0078, -7.00387, 3.85101, -11.5078, -7.00387, 3.85101, -21.7078, -21.8039, 4.75101, -20.8078, -21.8039, 4.75101, -20.5078, -21.8039, 3.85101, -22.0078, -21.8039, 3.85101, -22.0078, -21.8039, 3.85101, -20.5078, -21.8039, 3.85101, -18.1078, -21.8039, 2.95101, -16.6078, -21.8039, 3.85101, -16.6078, -21.8039, 3.25101, -18.1078, -21.8039, 2.95101, -20.5078, -21.8039, 3.85101, -18.1078, -21.8039, -4.54899, -16.6078, -21.8039, -4.84899, -16.6078, -21.8039, -5.74899, -24.7078, -21.8039, -5.74899, -22.0078, -21.8039, 3.85101, -18.1078, -21.8039, 2.95101, -18.1078, -21.8039, -4.54899, -24.7078, -21.8039, -5.74899, -32.5078, -21.8039, -5.74899, -32.5078, -21.8039, 3.85101, -15.1078, -21.8039, 2.95101, -16.6078, -21.8039, 3.25101, -16.6078, -21.8039, 3.85101, -12.4079, -21.8039, 3.85101, -16.6078, -21.8039, -5.74899, -16.6078, -21.8039, -4.84899, -15.1078, -21.8039, -4.54899, -12.4079, -21.8039, -5.74899, -15.1078, -21.8039, -4.54899, -15.1078, -21.8039, 2.95101, -12.4079, -21.8039, 3.85101, -12.4079, -21.8039, -5.74899, -11.2078, -15.0039, 4.75101, -8.20784, -15.0039, 4.75101, -7.90785, -15.0039, 3.85101, -11.2078, -15.0039, -5.74899, -7.90785, -15.0039, 3.85101, -4.60785, -15.0039, 3.85101, -4.60785, -15.0039, -5.74899, -11.2078, -15.0039, -5.74899, 1.69215, 6.19613, 4.15101, 1.99216, 6.19613, -3.94899, -3.40785, 6.19613, -3.94899, -3.40785, 6.19613, 4.15101, 1.99216, 6.19613, -3.94899, 1.69215, 6.19613, 4.15101, 3.19215, 6.19613, 4.15101, 11.2922, 6.19613, 3.85101, 11.2922, 6.19613, -3.94899, 4.09215, -1.40387, 0.251009, 4.09215, -1.40387, -0.0489902, 3.19215, -1.40387, -0.348989, 3.19215, -1.40387, 0.55101, 3.19215, -1.40387, -3.64899, -1.90785, -1.40387, -3.04899, -1.90785, -1.40387, -1.54899, 3.19215, -1.40387, -0.348989, 2.59215, -1.40387, 3.85101, 3.19215, -1.40387, 3.25101, 3.19215, -1.40387, 0.55101, 2.59215, -1.40387, 3.85101, 3.19215, -1.40387, 0.55101, 3.19215, -1.40387, -0.348989, -1.90785, -1.40387, -1.54899, -3.10785, -1.40387, -1.24899, -3.10785, -1.40387, 3.85101, 3.19215, -1.40387, -3.64899, -3.10785, -1.40387, -3.64899, -1.90785, -1.40387, -3.04899, 4.09215, -1.40387, -0.0489902, 4.09215, -1.40387, 0.251009, 4.69215, -1.40387, 0.55101, 4.69215, -1.40387, -0.348989, 4.69215, -1.40387, 0.55101, 7.39215, -1.40387, 3.55101, 8.29216, -1.40387, 3.55101, 4.69215, -1.40387, -0.348989, 7.39215, -1.40387, 3.55101, 7.69215, -1.40387, 4.45101, 7.99216, -1.40387, 4.45101, 8.29216, -1.40387, 3.55101, 10.9922, -1.40387, -3.64899, 4.69215, -1.40387, -3.64899, 4.69215, -1.40387, -0.348989, 8.29216, -1.40387, 3.55101, 10.9922, -1.20387, 3.55101, 9.64217, -1.00387, 3.55101, 4.69215, -1.40387, 0.55101, 4.69215, -1.40387, 3.55101, 7.39215, -1.40387, 3.55101, -37.6078, -15.0039, 13.451, -37.0078, -15.0039, 13.451, -36.7078, -15.0039, 12.851, -33.7078, -15.0039, 5.35101, -37.9079, -15.0039, 12.851, -33.7078, -15.0039, 5.35101, -34.6078, -15.0039, 5.05101, -38.2078, -15.0039, 4.15101, -40.3078, -15.0039, 4.15101, -40.3078, -15.0039, 12.851, -37.9079, -15.0039, 12.851, -34.6078, -15.0039, 5.05101, -34.6078, -15.0039, 4.15101, -36.1078, -15.0039, 4.15101, -36.1078, -15.0039, 4.15101, -36.4079, -15.0039, 3.25101, -37.9079, -15.0039, 3.25101, -36.1078, -15.0039, 4.15101, -37.9079, -15.0039, 3.25101, -38.2078, -15.0039, 4.15101, -34.6078, -15.0039, 5.05101, -36.7078, -15.0039, 12.851, -33.7078, -15.0039, 12.851, -33.7078, -15.0039, 5.35101, 11.2922, 6.19613, 3.85101, 3.19215, 6.19613, 4.15101, 3.79216, 6.19613, 4.45101, 11.8922, 6.19613, 4.75101, 11.2922, 6.19613, 3.85101, 3.79216, 6.19613, 4.45101, 3.79216, 6.19613, 11.951, 11.8922, 6.19613, 11.951, 0.79216, -7.20387, 5.95101, 0.79216, -7.20387, 8.65101, 3.49216, -7.20387, 8.65101, 3.49216, -7.20387, 5.05101, -11.5078, -7.00387, 5.35101, -13.6078, -7.00387, 5.35101, -13.6078, -7.00387, 13.451, -11.5078, -7.00387, 13.451, 0.79216, -7.20387, 5.95101, 3.49216, -7.20387, 5.05101, -4.00784, -7.20387, 5.05101, -1.60785, -7.20387, 5.65101, -4.00784, -7.20387, 13.151, -1.90785, -7.00387, 13.151, -1.60785, -7.20387, 5.65101, -1.84785, -7.00387, 11.651, -11.5078, -7.00387, 13.451, -11.2078, -7.20387, 14.051, -4.30785, -7.20387, 14.051, -4.00784, -7.20387, 5.05101, -4.30785, -7.20387, 4.15101, -11.2078, -7.20387, 4.45101, -11.5078, -7.00387, 5.35101, -11.5078, -7.00387, 13.451, -4.30785, -7.20387, 14.051, -4.00784, -7.20387, 13.151, -1.60785, -7.20387, 5.65101, -4.00784, -7.20387, 5.05101, -11.5078, -7.00387, 5.35101, -41.2078, -7.00387, 13.451, -41.8078, -7.00387, 13.751, -41.5078, -7.20387, 17.051, -36.7078, -7.20387, 17.051, -36.7078, -7.20387, 17.051, -36.4079, -7.20387, 20.951, -33.1078, -7.20387, 20.951, -33.1078, -7.00387, 13.751, -33.1078, -7.00387, 13.751, -31.0078, -7.00387, 13.451, -31.3078, -7.00387, 5.35101, -34.3078, -7.00387, 5.35101, -34.3078, -7.00387, 5.35101, -34.6078, -7.00387, 4.45101, -41.2078, -7.00387, 4.45101, -41.2078, -7.00387, 13.451, -36.7078, -7.20387, 17.051, -33.1078, -7.00387, 13.751, 8.29216, -1.60387, 5.35101, 7.99216, -1.40387, 4.45101, 7.69215, -1.40387, 4.45101, 8.29216, -1.60387, 5.35101, 7.69215, -1.40387, 4.45101, 7.09216, -1.60387, 5.35101, 5.29216, -1.60387, 8.35101, 5.59216, -1.60387, 9.55101, 6.49216, -1.60387, 9.55101, 7.69215, -1.60387, 10.751, 7.69215, -1.60387, 11.651, 11.5922, -1.60387, 11.651, 6.49216, -1.60387, 9.55101, 6.79216, -1.60387, 10.451, 7.69215, -1.60387, 10.751, 11.5922, -1.60387, 11.651, 11.5922, -1.60387, 5.35101, 8.29216, -1.60387, 5.35101, 4.09215, -1.60387, 5.35101, 3.79216, -1.60387, 8.35101, 5.29216, -1.60387, 8.35101, 7.09216, -1.60387, 5.35101, -20.5078, -21.8039, 5.35101, -20.8078, -21.8039, 4.75101, -21.7078, -21.8039, 4.75101, -20.5078, -21.8039, 5.35101, -21.7078, -21.8039, 4.75101, -22.0078, -21.8039, 5.35101, -21.4079, -21.8039, 7.75101, -19.3078, -21.8039, 7.45101, -19.3078, -21.8039, 7.45101, -19.0078, -21.8039, 5.35101, -20.5078, -21.8039, 5.35101, -21.4079, -21.8039, 10.451, -21.4079, -21.8039, 7.75101, -22.0078, -21.8039, 5.35101, -29.8078, -21.8039, 8.35101, -29.8078, -21.8039, 11.651, -26.2078, -21.8039, 13.151, -32.5078, -21.8039, 5.35101, -32.5078, -21.8039, 8.05101, -29.8078, -21.8039, 8.35101, -22.0078, -21.8039, 5.35101, -29.8078, -21.8039, 11.651, -32.5078, -21.8039, 11.951, -32.5078, -21.8039, 13.151, -26.2078, -21.8039, 13.151, -19.6078, -21.8039, 13.151, -19.6078, -21.8039, 10.751, -21.4079, -21.8039, 10.451, -26.2078, -21.8039, 13.151, -4.00784, -15.0039, 9.55101, -4.00784, -15.0039, 8.95101, -4.60785, -15.0039, 8.65101, -4.60785, -15.0039, 9.85101, -4.00784, -15.0039, 9.55101, -4.60785, -15.0039, 8.65101, -7.90785, -15.0039, 5.35101, -7.90785, -15.0039, 5.35101, -8.20784, -15.0039, 4.75101, -11.2078, -15.0039, 4.75101, -4.60785, -15.0039, 8.65101, -4.60785, -15.0039, 5.35101, -7.90785, -15.0039, 5.35101, -10.9079, -15.0039, 12.851, -4.60785, -15.0039, 12.851, -4.60785, -15.0039, 9.85101, -7.90785, -15.0039, 5.35101, -11.2078, -15.0039, 4.75101, -22.6078, -7.00387, 5.35101, -31.3078, -7.00387, 5.35101, -31.0078, -7.00387, 13.451, -22.3078, -7.00387, 13.451, -22.3078, -7.00387, 13.451, -13.6078, -7.00387, 13.451, -13.6078, -7.00387, 5.35101, -22.6078, -7.00387, 5.35101, -19.0078, -21.8039, 5.35101, -19.3078, -21.8039, 7.45101, -17.5078, -21.8039, 7.75101, -12.4079, -21.8039, 5.35101, -17.5078, -21.8039, 10.451, -19.6078, -21.8039, 10.751, -19.6078, -21.8039, 13.151, -12.4079, -21.8039, 13.151, -17.5078, -21.8039, 10.451, -12.4079, -21.8039, 13.151, -12.4079, -21.8039, 5.35101, -17.5078, -21.8039, 7.75101, -4.00784, -15.0039, 8.95101, -4.00784, -15.0039, 9.55101, -3.10785, -15.0039, 9.85101, -3.10785, -15.0039, 8.65101, 3.19215, -14.8039, 12.851, 3.19215, -15.0039, 5.35101, -3.10785, -15.0039, 8.65101, -3.10785, -15.0039, 9.85101, 0.04216, -14.8039, 7.00101, -3.10785, -15.0039, 9.85101, -3.10785, -15.0039, 12.851, 3.19215, -14.8039, 12.851, 3.19215, -15.0039, 5.35101, -3.10785, -15.0039, 5.35101, -3.10785, -15.0039, 8.65101, 0.04216, -14.8039, 7.00101, -37.0078, -15.0039, 13.451, -37.6078, -15.0039, 13.451, -37.9079, -15.0039, 14.351, -36.7078, -15.0039, 14.351, -36.1078, -15.0039, 19.451, -33.4079, -15.0039, 19.451, -33.4079, -15.0039, 14.651, -36.7078, -15.0039, 14.351, -36.7078, -15.0039, 14.351, -37.9079, -15.0039, 14.351, -40.9079, -15.0039, 14.651, -40.9079, -14.8039, 20.651, -36.4079, -15.0039, 20.651, -36.1078, -15.0039, 19.451, -42.1078, -7.20387, 17.351, -41.5078, -7.20387, 17.051, -41.8078, -7.00387, 13.751, -45.7078, -7.20387, 17.051, -45.4079, -7.20387, 20.951, -42.1078, -7.20387, 20.951, -42.1078, -7.20387, 17.351, -45.7078, -7.20387, 17.051, -50.2078, -7.20387, 13.751, -50.2078, -7.20387, 17.051, -45.7078, -7.20387, 17.051, -41.8078, -7.00387, 13.751, -46.0078, -15.0039, 13.751, -46.3078, -15.0039, 13.751, -46.6078, -15.0039, 14.351, -45.7078, -15.0039, 14.351, -46.6078, -15.0039, 14.351, -49.9079, -14.8039, 20.651, -42.4079, -15.0039, 20.651, -45.7078, -15.0039, 14.351, -46.6078, -15.0039, 14.351, -49.9079, -15.0039, 14.351, -49.9079, -14.8039, 20.651, -42.4079, -15.0039, 20.651, -42.4079, -15.0039, 14.351, -45.7078, -15.0039, 14.351 )
+polygons = [ PoolIntArray( 3, 2, 0 ), PoolIntArray( 0, 2, 1 ), PoolIntArray( 7, 6, 4 ), PoolIntArray( 4, 6, 5 ), PoolIntArray( 9, 8, 10 ), PoolIntArray( 10, 8, 12 ), PoolIntArray( 10, 12, 11 ), PoolIntArray( 14, 13, 15 ), PoolIntArray( 15, 13, 16 ), PoolIntArray( 18, 17, 19 ), PoolIntArray( 19, 17, 20 ), PoolIntArray( 24, 23, 21 ), PoolIntArray( 21, 23, 22 ), PoolIntArray( 26, 25, 27 ), PoolIntArray( 27, 25, 28 ), PoolIntArray( 31, 30, 29 ), PoolIntArray( 34, 33, 32 ), PoolIntArray( 36, 35, 37 ), PoolIntArray( 37, 35, 38 ), PoolIntArray( 40, 39, 41 ), PoolIntArray( 41, 39, 42 ), PoolIntArray( 44, 43, 45 ), PoolIntArray( 45, 43, 46 ), PoolIntArray( 48, 47, 49 ), PoolIntArray( 49, 47, 50 ), PoolIntArray( 52, 51, 53 ), PoolIntArray( 53, 51, 54 ), PoolIntArray( 56, 55, 57 ), PoolIntArray( 57, 55, 58 ), PoolIntArray( 60, 59, 61 ), PoolIntArray( 61, 59, 63 ), PoolIntArray( 61, 63, 62 ), PoolIntArray( 67, 66, 64 ), PoolIntArray( 64, 66, 65 ), PoolIntArray( 71, 70, 68 ), PoolIntArray( 68, 70, 69 ), PoolIntArray( 75, 74, 72 ), PoolIntArray( 72, 74, 73 ), PoolIntArray( 79, 78, 76 ), PoolIntArray( 76, 78, 77 ), PoolIntArray( 83, 82, 80 ), PoolIntArray( 80, 82, 81 ), PoolIntArray( 87, 86, 84 ), PoolIntArray( 84, 86, 85 ), PoolIntArray( 91, 90, 88 ), PoolIntArray( 88, 90, 89 ), PoolIntArray( 95, 94, 92 ), PoolIntArray( 92, 94, 93 ), PoolIntArray( 99, 98, 96 ), PoolIntArray( 96, 98, 97 ), PoolIntArray( 103, 102, 100 ), PoolIntArray( 100, 102, 101 ), PoolIntArray( 107, 106, 104 ), PoolIntArray( 104, 106, 105 ), PoolIntArray( 111, 110, 108 ), PoolIntArray( 108, 110, 109 ), PoolIntArray( 115, 114, 112 ), PoolIntArray( 112, 114, 113 ), PoolIntArray( 119, 118, 116 ), PoolIntArray( 116, 118, 117 ), PoolIntArray( 123, 122, 120 ), PoolIntArray( 120, 122, 121 ), PoolIntArray( 125, 124, 126 ), PoolIntArray( 126, 124, 127 ), PoolIntArray( 129, 128, 130 ), PoolIntArray( 130, 128, 131 ), PoolIntArray( 133, 132, 134 ), PoolIntArray( 134, 132, 136 ), PoolIntArray( 134, 136, 135 ), PoolIntArray( 139, 141, 140 ), PoolIntArray( 140, 141, 137 ), PoolIntArray( 137, 142, 138 ), PoolIntArray( 138, 142, 139 ), PoolIntArray( 139, 142, 141 ), PoolIntArray( 141, 142, 137 ), PoolIntArray( 144, 143, 145 ), PoolIntArray( 145, 143, 146 ), PoolIntArray( 146, 143, 147 ), PoolIntArray( 149, 148, 150 ), PoolIntArray( 150, 148, 152 ), PoolIntArray( 150, 152, 151 ), PoolIntArray( 153, 156, 154 ), PoolIntArray( 154, 156, 155 ), PoolIntArray( 159, 158, 157 ), PoolIntArray( 161, 160, 162 ), PoolIntArray( 162, 160, 164 ), PoolIntArray( 162, 164, 163 ), PoolIntArray( 167, 166, 165 ), PoolIntArray( 169, 168, 170 ), PoolIntArray( 170, 168, 171 ), PoolIntArray( 171, 168, 173 ), PoolIntArray( 171, 173, 172 ), PoolIntArray( 176, 175, 174 ), PoolIntArray( 178, 177, 179 ), PoolIntArray( 179, 177, 180 ), PoolIntArray( 180, 177, 181 ), PoolIntArray( 182, 185, 183 ), PoolIntArray( 183, 185, 184 ), PoolIntArray( 186, 189, 187 ), PoolIntArray( 187, 189, 188 ), PoolIntArray( 192, 191, 190 ), PoolIntArray( 194, 193, 195 ), PoolIntArray( 195, 193, 196 ), PoolIntArray( 198, 197, 199 ), PoolIntArray( 199, 197, 200 ), PoolIntArray( 202, 201, 203 ), PoolIntArray( 203, 201, 204 ), PoolIntArray( 204, 201, 205 ), PoolIntArray( 205, 201, 206 ), PoolIntArray( 208, 207, 209 ), PoolIntArray( 209, 207, 210 ), PoolIntArray( 212, 211, 213 ), PoolIntArray( 213, 211, 214 ), PoolIntArray( 216, 215, 217 ), PoolIntArray( 217, 215, 218 ), PoolIntArray( 220, 219, 221 ), PoolIntArray( 221, 219, 222 ), PoolIntArray( 224, 223, 225 ), PoolIntArray( 225, 223, 226 ), PoolIntArray( 230, 229, 227 ), PoolIntArray( 227, 229, 228 ), PoolIntArray( 232, 231, 233 ), PoolIntArray( 233, 231, 234 ), PoolIntArray( 234, 231, 235 ), PoolIntArray( 237, 236, 238 ), PoolIntArray( 238, 236, 239 ), PoolIntArray( 241, 240, 242 ), PoolIntArray( 242, 240, 243 ), PoolIntArray( 246, 245, 244 ), PoolIntArray( 248, 247, 249 ), PoolIntArray( 249, 247, 250 ), PoolIntArray( 250, 247, 251 ), PoolIntArray( 251, 247, 252 ), PoolIntArray( 255, 254, 253 ), PoolIntArray( 256, 259, 257 ), PoolIntArray( 257, 259, 258 ), PoolIntArray( 261, 260, 262 ), PoolIntArray( 262, 260, 263 ), PoolIntArray( 265, 264, 266 ), PoolIntArray( 266, 264, 267 ), PoolIntArray( 271, 270, 273 ), PoolIntArray( 273, 270, 272 ), PoolIntArray( 272, 270, 269 ), PoolIntArray( 272, 269, 268 ), PoolIntArray( 276, 275, 274 ), PoolIntArray( 277, 281, 278 ), PoolIntArray( 278, 281, 279 ), PoolIntArray( 279, 281, 280 ), PoolIntArray( 283, 282, 284 ), PoolIntArray( 284, 282, 285 ), PoolIntArray( 285, 282, 287 ), PoolIntArray( 285, 287, 286 ), PoolIntArray( 290, 289, 288 ), PoolIntArray( 293, 292, 291 ), PoolIntArray( 295, 294, 296 ), PoolIntArray( 296, 294, 297 ), PoolIntArray( 300, 299, 298 ), PoolIntArray( 303, 302, 301 ), PoolIntArray( 304, 308, 305 ), PoolIntArray( 305, 308, 306 ), PoolIntArray( 306, 308, 307 ), PoolIntArray( 310, 309, 311 ), PoolIntArray( 311, 309, 312 ), PoolIntArray( 316, 315, 313 ), PoolIntArray( 313, 315, 314 ), PoolIntArray( 320, 319, 317 ), PoolIntArray( 317, 319, 318 ), PoolIntArray( 322, 321, 324 ), PoolIntArray( 324, 321, 323 ), PoolIntArray( 327, 326, 325 ), PoolIntArray( 329, 328, 330 ), PoolIntArray( 330, 328, 331 ), PoolIntArray( 333, 332, 334 ), PoolIntArray( 334, 332, 337 ), PoolIntArray( 334, 337, 336 ), PoolIntArray( 334, 336, 335 ), PoolIntArray( 339, 338, 340 ), PoolIntArray( 340, 338, 341 ), PoolIntArray( 343, 342, 344 ), PoolIntArray( 344, 342, 345 ), PoolIntArray( 347, 346, 348 ), PoolIntArray( 348, 346, 349 ), PoolIntArray( 351, 350, 352 ), PoolIntArray( 352, 350, 353 ), PoolIntArray( 353, 350, 355 ), PoolIntArray( 353, 355, 354 ), PoolIntArray( 358, 357, 356 ), PoolIntArray( 360, 359, 361 ), PoolIntArray( 361, 359, 362 ), PoolIntArray( 362, 359, 363 ), PoolIntArray( 363, 359, 364 ), PoolIntArray( 367, 366, 365 ), PoolIntArray( 369, 368, 370 ), PoolIntArray( 370, 368, 371 ), PoolIntArray( 371, 368, 373 ), PoolIntArray( 371, 373, 372 ), PoolIntArray( 375, 374, 376 ), PoolIntArray( 376, 374, 377 ), PoolIntArray( 380, 379, 378 ), PoolIntArray( 382, 381, 383 ), PoolIntArray( 383, 381, 384 ), PoolIntArray( 384, 381, 385 ), PoolIntArray( 388, 387, 386 ), PoolIntArray( 390, 389, 391 ), PoolIntArray( 391, 389, 394 ), PoolIntArray( 391, 394, 393 ), PoolIntArray( 391, 393, 392 ), PoolIntArray( 396, 395, 397 ), PoolIntArray( 397, 395, 398 ), PoolIntArray( 400, 399, 401 ), PoolIntArray( 401, 399, 402 ), PoolIntArray( 404, 403, 405 ), PoolIntArray( 405, 403, 406 ), PoolIntArray( 409, 408, 407 ), PoolIntArray( 411, 410, 412 ), PoolIntArray( 412, 410, 413 ), PoolIntArray( 416, 415, 414 ), PoolIntArray( 419, 418, 417 ), PoolIntArray( 421, 420, 422 ), PoolIntArray( 422, 420, 423 ), PoolIntArray( 423, 420, 424 ), PoolIntArray( 428, 427, 425 ), PoolIntArray( 425, 427, 426 ), PoolIntArray( 430, 429, 431 ), PoolIntArray( 431, 429, 432 ), PoolIntArray( 434, 433, 435 ), PoolIntArray( 435, 433, 436 ), PoolIntArray( 438, 437, 439 ), PoolIntArray( 439, 437, 440 ), PoolIntArray( 444, 443, 441 ), PoolIntArray( 441, 443, 442 ), PoolIntArray( 446, 445, 447 ), PoolIntArray( 447, 445, 448 ), PoolIntArray( 451, 453, 452 ), PoolIntArray( 452, 453, 450 ), PoolIntArray( 452, 450, 449 ), PoolIntArray( 456, 455, 454 ), PoolIntArray( 459, 458, 460 ), PoolIntArray( 460, 458, 457 ), PoolIntArray( 461, 464, 462 ), PoolIntArray( 462, 464, 463 ), PoolIntArray( 466, 465, 467 ), PoolIntArray( 467, 465, 468 ), PoolIntArray( 470, 469, 471 ), PoolIntArray( 471, 469, 474 ), PoolIntArray( 471, 474, 473 ), PoolIntArray( 471, 473, 472 ), PoolIntArray( 476, 475, 477 ), PoolIntArray( 477, 475, 478 ), PoolIntArray( 480, 479, 481 ), PoolIntArray( 481, 479, 482 ), PoolIntArray( 484, 483, 485 ), PoolIntArray( 485, 483, 486 ), PoolIntArray( 487, 490, 488 ), PoolIntArray( 488, 490, 489 ), PoolIntArray( 494, 493, 491 ), PoolIntArray( 491, 493, 492 ), PoolIntArray( 497, 496, 495 ), PoolIntArray( 500, 499, 498 ) ]
+
+[sub_resource type="SpatialMaterial" id=8]
+
+[sub_resource type="SpatialMaterial" id=11]
+
+[sub_resource type="SpatialMaterial" id=1]
+
+[sub_resource type="SpatialMaterial" id=9]
+albedo_texture = ExtResource( 12 )
+
+[sub_resource type="SpatialMaterial" id=10]
+albedo_texture = ExtResource( 12 )
+
+[node name="QUAKGamer" type="Spatial"]
+
+[node name="Player" type="ViewportContainer" parent="."]
+margin_right = 640.0
+margin_bottom = 480.0
+stretch = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+egg = true
+
+[node name="Viewport" type="Viewport" parent="Player"]
+size = Vector2( 640, 480 )
+size_override_stretch = true
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Player" parent="Player/Viewport" instance=ExtResource( 6 )]
+egg = true
+spawn_with_suit = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 1 )
+
+[node name="Navigation" type="Navigation" parent="."]
+
+[node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
+navmesh = SubResource( 12 )
+
+[node name="chamber2" type="Spatial" parent="Navigation/NavigationMeshInstance"]
+
+[node name="elevator" type="Spatial" parent="Navigation/NavigationMeshInstance/chamber2"]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, -13.5548, 9.24 )
+
+[node name="CSGBox" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/elevator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.78537, 0 )
+use_collision = true
+width = 7.82371
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox2" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/elevator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.07836, 4.49407 )
+use_collision = true
+width = 7.82371
+height = 7.88402
+depth = 0.002
+material = ExtResource( 3 )
+
+[node name="CSGBox3" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/elevator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.07836, -4.49235 )
+use_collision = true
+width = 7.82371
+height = 7.88402
+depth = 0.002
+material = ExtResource( 3 )
+
+[node name="CSGBox4" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/elevator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.89436, 2.07836, 0.048665 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 9.14981
+material = ExtResource( 3 )
+
+[node name="CSGBox5" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/elevator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00896, 5.95226, -1.75629e-07 )
+use_collision = true
+width = 4.01518
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox6" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/elevator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 2.07836, 2.72032 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 3.56298
+material = ExtResource( 3 )
+
+[node name="CSGBox7" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/elevator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 2.07836, -2.85072 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 3.56298
+material = ExtResource( 3 )
+
+[node name="CSGBox8" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/elevator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 4.16356, -0.0601513 )
+use_collision = true
+width = 0.002
+height = 3.51234
+depth = 2.06858
+material = ExtResource( 3 )
+
+[node name="CSGBox9" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/elevator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90065, 5.95226, 2.36916 )
+use_collision = true
+width = 3.85136
+height = 0.0476887
+depth = 4.31697
+material = ExtResource( 3 )
+
+[node name="CSGPolygon" type="CSGPolygon" parent="Navigation/NavigationMeshInstance/chamber2/elevator"]
+transform = Transform( 1.37993e-07, 1, -4.37114e-08, 3.82137e-15, 4.37114e-08, 1, 1.07845, -1.34563e-07, 1.76079e-15, -3.76331, -1.59171, -4.42972 )
+polygon = PoolVector2Array( 0, 0, -0.0184061, 3.74691, 4.25723, -0.0345624 )
+depth = 0.01
+material = ExtResource( 3 )
+
+[node name="CSGPolygon2" type="CSGPolygon" parent="Navigation/NavigationMeshInstance/chamber2/elevator"]
+transform = Transform( -4.71406e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1.07845, 4.37114e-08, 1.91069e-15, 0.904408, -1.59171, 0.542271 )
+polygon = PoolVector2Array( 0, 0, -0.0184061, 3.74691, 4.25723, -0.0345624 )
+depth = 0.01
+material = ExtResource( 3 )
+
+[node name="mainarea" type="Spatial" parent="Navigation/NavigationMeshInstance/chamber2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.80017, -13.5387, 9.23331 )
+
+[node name="exit" parent="Navigation/NavigationMeshInstance/chamber2/mainarea" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.95954, 11.7076, -11.6904 )
+script = null
+
+[node name="Spatial" parent="Navigation/NavigationMeshInstance/chamber2/mainarea/exit" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.07611, 1.89661, 0.184391 )
+script = null
+
+[node name="Spatial" parent="Navigation/NavigationMeshInstance/chamber2/mainarea" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.2147, 0.401363, -20.4596 )
+script = null
+
+[node name="CSGBox" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.78537, -16.5667 )
+use_collision = true
+width = 7.82371
+height = 0.0476887
+depth = 43.0312
+material = ExtResource( 3 )
+
+[node name="CSGBox2" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.07836, 4.49407 )
+use_collision = true
+width = 7.82371
+height = 7.88402
+depth = 0.002
+material = ExtResource( 3 )
+
+[node name="CSGBox3" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.14467, 2.07836, -4.49235 )
+use_collision = true
+width = 7.82371
+height = 7.88402
+depth = 0.002
+material = ExtResource( 3 )
+
+[node name="CSGBox5" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.95226, -5.36618 )
+use_collision = true
+width = 7.82371
+height = 0.0476887
+depth = 21.3667
+material = ExtResource( 3 )
+
+[node name="CSGBox6" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 2.07836, 2.72032 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 3.56298
+material = ExtResource( 3 )
+
+[node name="CSGBox7" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 2.07836, -2.85072 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 3.56298
+material = ExtResource( 3 )
+
+[node name="CSGBox8" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 4.16356, -0.0601513 )
+use_collision = true
+width = 0.002
+height = 3.51234
+depth = 2.06858
+material = ExtResource( 3 )
+
+[node name="OpeningDoor" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( -3.09086e-08, 0.707107, -0.707107, -1, -4.37114e-08, 0, -3.09086e-08, 0.707107, 0.707107, 8.79001, -1.66145, -0.0601514 )
+use_collision = true
+width = 0.002
+height = 4.1638
+depth = 2.06858
+material = ExtResource( 3 )
+
+[node name="CSGBox9" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9104, 2.07836, 2.72032 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 3.56298
+material = ExtResource( 3 )
+
+[node name="CSGBox10" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9104, 4.18483, -9.10944 )
+use_collision = true
+width = 0.002
+height = 3.51126
+depth = 16.075
+material = ExtResource( 3 )
+
+[node name="CSGBox11" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.21867, 2.28338, -0.106742 )
+use_collision = true
+width = 0.002
+height = 7.49432
+depth = 2.06858
+material = ExtResource( 3 )
+
+[node name="CSGBox4" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.89436, -5.58884, -5.65818 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 20.8468
+material = ExtResource( 3 )
+
+[node name="CSGBox12" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14.4386, -1.87957, 4.7579 )
+use_collision = true
+width = 0.002
+height = 15.833
+depth = 21.8527
+material = ExtResource( 3 )
+
+[node name="CSGBox13" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14.4386, -2.35967, -15.7329 )
+use_collision = true
+width = 0.002
+height = 17.011
+depth = 21.8527
+material = ExtResource( 3 )
+
+[node name="CSGBox14" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4037, -5.58884, -5.65818 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 20.8468
+material = ExtResource( 3 )
+
+[node name="CSGBox15" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.6843, -8.62947, -5.42384 )
+use_collision = true
+width = 21.9712
+height = 0.0476887
+depth = 20.3347
+material = ExtResource( 3 )
+
+[node name="CSGBox16" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3375, -1.78537, -5.68907 )
+use_collision = true
+width = 7.82371
+height = 0.0476887
+depth = 20.3969
+material = ExtResource( 3 )
+
+[node name="CSGBox17" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.0073, 1.90528, -5.77882 )
+use_collision = true
+width = 2.37368
+height = 7.30227
+depth = 0.002
+material = ExtResource( 3 )
+
+[node name="CSGBox18" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -25.3604, -5.84524, 1.08724 )
+use_collision = true
+width = 3.31398
+height = 5.62239
+depth = 0.002
+material = SubResource( 8 )
+
+[node name="CSGBox19" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -33.1336, 0.879657, 1.08724 )
+use_collision = true
+width = 3.31398
+height = 5.62239
+depth = 0.002
+material = SubResource( 8 )
+
+[node name="Point B" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -38.6299, -9.29415, 9.91957 )
+width = 2.08173
+height = 2.33968
+depth = 2.02132
+material = SubResource( 8 )
+
+[node name="AperatureCube" parent="Navigation/NavigationMeshInstance/chamber2/mainarea" instance=ExtResource( 5 )]
+transform = Transform( 2.29213, 0, 0, 0, 3.01851, 0, 0, 0, 2.36559, -23.7406, -6.85774, 0.781668 )
+
+[node name="CSGBox20" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -33.2846, 2.07836, -5.75557 )
+use_collision = true
+width = 20.5675
+height = 7.88402
+depth = 0.002
+material = ExtResource( 3 )
+
+[node name="CSGBox21" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.5253, 1.95667, -5.68907 )
+use_collision = true
+width = 2.37368
+height = 7.30227
+depth = 0.002
+material = ExtResource( 3 )
+
+[node name="CSGBox22" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3754, 4.53752, -5.68907 )
+use_collision = true
+width = 3.57463
+height = 2.12011
+depth = 0.002
+material = ExtResource( 3 )
+
+[node name="CSGBox23" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.21867, 2.28338, -14.6169 )
+use_collision = true
+width = 0.002
+height = 7.49432
+depth = 2.06858
+material = ExtResource( 3 )
+
+[node name="CSGBox24" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.21867, 2.28338, -2.1391 )
+use_collision = true
+width = 0.002
+height = 7.49432
+depth = 2.06858
+material = ExtResource( 3 )
+
+[node name="CSGBox25" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.21867, 2.28338, -4.04694 )
+use_collision = true
+width = 0.002
+height = 7.49432
+depth = 2.06858
+material = ExtResource( 3 )
+
+[node name="CSGBox26" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.470849, 2.07836, -15.6829 )
+use_collision = true
+width = 7.82371
+height = 7.88402
+depth = 0.002
+material = ExtResource( 3 )
+
+[node name="CSGBox27" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 2.07836, -10.0041 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 10.9805
+material = ExtResource( 3 )
+
+[node name="CSGBox28" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( 1, 0, 0, 0, 0.832583, 0.5539, 0, -0.5539, 0.832583, -29.3235, 3.48516, -16.3492 )
+use_collision = true
+width = 7.70523
+height = 7.30227
+depth = 0.002
+material = ExtResource( 3 )
+
+[node name="CSGBox29" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.22206, -4.24749, -4.49235 )
+use_collision = true
+width = 8.19875
+height = 7.88402
+depth = 0.002
+material = ExtResource( 3 )
+
+[node name="CSGBox30" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( -0.109769, -0.702834, -0.702834, 0, 0.707107, -0.707107, 0.993957, -0.0776184, -0.0776184, -22.8362, -5.30172, 1.80229 )
+use_collision = true
+width = 2.30908
+height = 7.88402
+depth = 0.002
+material = ExtResource( 3 )
+
+[node name="CSGBox31" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.3466, -4.24749, -4.49235 )
+use_collision = true
+width = 11.1666
+height = 7.88402
+depth = 0.002
+material = ExtResource( 3 )
+
+[node name="CSGBox32" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15.1576, 4.18673, -4.6523 )
+use_collision = true
+width = 0.002
+height = 8.76262
+depth = 21.8527
+material = ExtResource( 3 )
+
+[node name="elevator" type="Spatial" parent="Navigation/NavigationMeshInstance/chamber2/mainarea"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -29.4, 0, -20.339 )
+
+[node name="CSGBox" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea/elevator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.7089e-07, -1.78537, 3.91119e-07 )
+use_collision = true
+width = 7.82371
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox2" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea/elevator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.36377e-06, 2.07836, 4.49407 )
+use_collision = true
+width = 7.82371
+height = 7.88402
+depth = 0.002
+material = ExtResource( 3 )
+
+[node name="CSGBox5" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea/elevator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00896, 5.95226, -1.75629e-07 )
+use_collision = true
+width = 4.01518
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox6" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea/elevator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 2.07836, 2.72032 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 3.56298
+material = ExtResource( 3 )
+
+[node name="CSGBox7" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea/elevator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 2.07836, -2.85072 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 3.56298
+material = ExtResource( 3 )
+
+[node name="CSGBox8" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea/elevator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 4.16356, -0.0601513 )
+use_collision = true
+width = 0.002
+height = 3.51234
+depth = 2.06858
+material = ExtResource( 3 )
+
+[node name="CSGBox9" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea/elevator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90065, 5.95226, 2.36916 )
+use_collision = true
+width = 3.85136
+height = 0.0476887
+depth = 4.31697
+material = ExtResource( 3 )
+
+[node name="CSGPolygon" type="CSGPolygon" parent="Navigation/NavigationMeshInstance/chamber2/mainarea/elevator"]
+transform = Transform( 1.37993e-07, 1, -4.37114e-08, 3.82137e-15, 4.37114e-08, 1, 1.07845, -1.34563e-07, 1.76079e-15, -3.76331, -1.59171, -4.42972 )
+polygon = PoolVector2Array( 0, 0, -0.0184061, 3.74691, 4.25723, -0.0345624 )
+depth = 0.01
+material = ExtResource( 3 )
+
+[node name="CSGPolygon2" type="CSGPolygon" parent="Navigation/NavigationMeshInstance/chamber2/mainarea/elevator"]
+transform = Transform( -4.71406e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1.07845, 4.37114e-08, 1.91069e-15, -0.0655518, 5.97503, 0.256714 )
+polygon = PoolVector2Array( 0, 0, -0.0184061, 3.74691, 4.25723, -0.0345624 )
+depth = 0.01
+material = ExtResource( 3 )
+
+[node name="CSGBox10" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea/elevator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.75681, 2.07836, 2.72032 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 3.56298
+material = ExtResource( 3 )
+
+[node name="CSGBox11" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea/elevator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.75681, 2.07836, -2.85072 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 3.56298
+material = ExtResource( 3 )
+
+[node name="CSGBox12" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea/elevator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.75681, 4.16356, -0.0601511 )
+use_collision = true
+width = 0.002
+height = 3.51234
+depth = 2.06858
+material = ExtResource( 3 )
+
+[node name="CSGBox4" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea/elevator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.07836, 4.37173 )
+use_collision = true
+width = 3.08016
+height = 5.39482
+depth = 0.002
+material = SubResource( 11 )
+
+[node name="CSGBox17" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea/elevator"]
+transform = Transform( -0.999741, 0.0227572, -1.48967e-07, -0.0227572, -0.999741, -9.08364e-08, -1.50996e-07, -8.74228e-08, 1, -0.0839233, 3.80401, 4.059 )
+use_collision = true
+width = 0.121299
+height = 1.0871
+depth = 0.002
+material = ExtResource( 3 )
+
+[node name="CSGBox18" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea/elevator"]
+transform = Transform( -0.999741, 0.0227572, -1.48967e-07, -0.0227572, -0.999741, -9.08364e-08, -1.50996e-07, -8.74228e-08, 1, -0.409607, 3.32185, 4.059 )
+use_collision = true
+width = 0.681463
+height = 0.178617
+depth = 0.002
+material = ExtResource( 3 )
+
+[node name="CSGBox19" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea/elevator"]
+transform = Transform( -0.999741, 0.0227572, -1.48967e-07, -0.0227572, -0.999741, -9.08364e-08, -1.50996e-07, -8.74228e-08, 1, -0.81488, 3.63197, 4.059 )
+use_collision = true
+width = 0.123533
+height = 0.491912
+depth = 0.002
+material = ExtResource( 3 )
+
+[node name="CSGBox20" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea/elevator"]
+transform = Transform( -0.999741, 0.0227572, -1.48967e-07, -0.0227572, -0.999741, -9.08364e-08, -1.50996e-07, -8.74228e-08, 1, -0.424316, 3.81737, 4.059 )
+use_collision = true
+width = 0.681463
+height = 0.178617
+depth = 0.002
+material = ExtResource( 3 )
+
+[node name="CSGBox21" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea/elevator"]
+transform = Transform( -0.999741, 0.0227572, -1.48967e-07, -0.0227572, -0.999741, -9.08364e-08, -1.50996e-07, -8.74228e-08, 1, -0.424316, 4.29581, 4.059 )
+use_collision = true
+width = 0.681463
+height = 0.178617
+depth = 0.002
+material = ExtResource( 3 )
+
+[node name="CSGBox22" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea/elevator"]
+transform = Transform( -0.999741, 0.0227572, -1.48967e-07, -0.0227572, -0.999741, -9.08364e-08, -1.50996e-07, -8.74228e-08, 1, 0.816406, -0.0960836, 4.059 )
+use_collision = true
+width = 1.13357
+height = 0.178617
+depth = 0.002
+material = ExtResource( 3 )
+
+[node name="CSGBox23" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea/elevator"]
+transform = Transform( -0.999741, 0.0227572, -1.48967e-07, -0.0227572, -0.999741, -9.08364e-08, -1.50996e-07, -8.74228e-08, 1, -0.409609, 3.32185, 4.059 )
+use_collision = true
+width = 0.681463
+height = 0.178617
+depth = 0.002
+material = ExtResource( 3 )
+
+[node name="CSGBox24" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/mainarea/elevator"]
+transform = Transform( -0.999741, 0.0227572, -1.48967e-07, -0.0227572, -0.999741, -9.08364e-08, -1.50996e-07, -8.74228e-08, 1, 0.796934, 3.80401, 4.059 )
+use_collision = true
+width = 0.121299
+height = 1.0871
+depth = 0.002
+material = ExtResource( 3 )
+
+[node name="exitelevator" type="Spatial" parent="Navigation/NavigationMeshInstance/chamber2"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -37.1477, -13.503, 17.4206 )
+
+[node name="CSGBox" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/exitelevator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.78537, 0 )
+use_collision = true
+width = 7.82371
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox2" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/exitelevator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.07836, 4.49407 )
+use_collision = true
+width = 7.82371
+height = 7.88402
+depth = 0.002
+material = ExtResource( 3 )
+
+[node name="CSGBox3" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/exitelevator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.07836, -4.49235 )
+use_collision = true
+width = 7.82371
+height = 7.88402
+depth = 0.002
+material = ExtResource( 3 )
+
+[node name="CSGBox4" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/exitelevator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.89436, 2.07836, 0.048665 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 9.14981
+material = ExtResource( 3 )
+
+[node name="CSGBox5" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/exitelevator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00896, 5.95226, -1.75629e-07 )
+use_collision = true
+width = 4.01518
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox6" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/exitelevator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 2.07836, 2.72032 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 3.56298
+material = ExtResource( 3 )
+
+[node name="CSGBox7" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/exitelevator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 2.07836, -2.85072 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 3.56298
+material = ExtResource( 3 )
+
+[node name="CSGBox8" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/exitelevator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 4.16356, -0.0601513 )
+use_collision = true
+width = 0.002
+height = 3.51234
+depth = 2.06858
+material = ExtResource( 3 )
+
+[node name="CSGBox9" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/exitelevator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90065, 5.95226, 2.36916 )
+use_collision = true
+width = 3.85136
+height = 0.0476887
+depth = 4.31697
+material = ExtResource( 3 )
+
+[node name="CSGPolygon" type="CSGPolygon" parent="Navigation/NavigationMeshInstance/chamber2/exitelevator"]
+transform = Transform( 1.37993e-07, 1, -4.37114e-08, 3.82137e-15, 4.37114e-08, 1, 1.07845, -1.34563e-07, 1.76079e-15, -3.76331, -1.59171, -4.42972 )
+polygon = PoolVector2Array( 0, 0, -0.0184061, 3.74691, 4.25723, -0.0345624 )
+depth = 0.01
+material = ExtResource( 3 )
+
+[node name="CSGPolygon2" type="CSGPolygon" parent="Navigation/NavigationMeshInstance/chamber2/exitelevator"]
+transform = Transform( -4.71406e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1.07845, 4.37114e-08, 1.91069e-15, 0.904408, -1.59171, 0.542271 )
+polygon = PoolVector2Array( 0, 0, -0.0184061, 3.74691, 4.25723, -0.0345624 )
+depth = 0.01
+material = ExtResource( 3 )
+
+[node name="CSGBox10" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/exitelevator"]
+transform = Transform( 1, -2.53939e-08, 8.1328e-09, 2.53939e-08, 0.813943, -0.580944, 8.1328e-09, 0.580944, 0.813943, -2.98342, 1.38709, -0.028016 )
+use_collision = true
+width = 0.66536
+height = 0.0476887
+depth = 9.99444
+material = ExtResource( 3 )
+
+[node name="CSGBox11" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2/exitelevator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.4739, 6.11439, 10.5696 )
+use_collision = true
+width = 23.7896
+height = 0.0476887
+depth = 29.892
+material = ExtResource( 3 )
+
+[node name="chamber1" type="Spatial" parent="Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0651975, -0.0349194, 0.0882452 )
+
+[node name="CSGBox" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.78537, 0 )
+use_collision = true
+width = 7.82371
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox2" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.07836, 4.49407 )
+use_collision = true
+width = 7.82371
+height = 7.88402
+depth = 0.002
+material = ExtResource( 3 )
+
+[node name="CSGBox3" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.07836, -4.49235 )
+use_collision = true
+width = 7.82371
+height = 7.88402
+depth = 0.002
+material = ExtResource( 3 )
+
+[node name="CSGBox4" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.89436, 2.07836, 0.048665 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 9.14981
+material = ExtResource( 3 )
+
+[node name="CSGBox9" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber1"]
+transform = Transform( 0.738714, 0.674019, 0, -0.674019, 0.738714, 0, 0, 0, 1, 0.823489, -4.64874, 9.52409 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 6.49588
+material = ExtResource( 3 )
+
+[node name="CSGBox10" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber1"]
+transform = Transform( 0.738714, 0.674019, 0, -0.674019, 0.738714, 0, 0, 0, 1, -14.8644, -18.9346, -0.842545 )
+use_collision = true
+width = 0.002
+height = 10.2517
+depth = 6.49588
+material = ExtResource( 3 )
+
+[node name="CSGBox5" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.95226, 0 )
+use_collision = true
+width = 7.82371
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox6" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 2.07836, 2.72032 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 3.56298
+material = ExtResource( 3 )
+
+[node name="CSGBox7" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 2.07836, -2.85072 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 3.56298
+material = ExtResource( 3 )
+
+[node name="CSGBox8" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 4.16356, -0.0601513 )
+use_collision = true
+width = 0.002
+height = 3.51234
+depth = 2.06858
+material = ExtResource( 3 )
+
+[node name="OpeningDoor" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber1"]
+transform = Transform( -3.09086e-08, 0.707107, -0.707107, -1, -4.37114e-08, 0, -3.09086e-08, 0.707107, 0.707107, 8.79001, -1.66145, -0.0601514 )
+use_collision = true
+width = 0.002
+height = 4.1638
+depth = 2.06858
+material = ExtResource( 3 )
+
+[node name="bigbox" type="Spatial" parent="Navigation/NavigationMeshInstance/chamber1"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.84083, 0, 0 )
+
+[node name="Spatial" parent="Navigation/NavigationMeshInstance/chamber1/bigbox" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.69306, -1.61042, -3.27633 )
+
+[node name="CSGBox" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber1/bigbox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.78537, 0 )
+use_collision = true
+width = 7.82371
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox2" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber1/bigbox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.07836, 4.49407 )
+use_collision = true
+width = 7.82371
+height = 7.88402
+depth = 0.002
+material = ExtResource( 3 )
+
+[node name="CSGBox4" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber1/bigbox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.89436, 2.07836, 0.048665 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 9.14981
+material = ExtResource( 3 )
+
+[node name="CSGBox5" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber1/bigbox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.95226, 0 )
+use_collision = true
+width = 7.82371
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox6" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber1/bigbox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 2.07836, 2.72032 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 3.56298
+material = ExtResource( 3 )
+
+[node name="CSGBox7" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber1/bigbox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 2.07836, -2.85072 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 3.56298
+material = ExtResource( 3 )
+
+[node name="CSGBox8" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber1/bigbox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 4.16356, -0.0601513 )
+use_collision = true
+width = 0.002
+height = 3.51234
+depth = 2.06858
+material = ExtResource( 3 )
+
+[node name="otherwall" type="Spatial" parent="Navigation/NavigationMeshInstance/chamber1/bigbox"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.0252e-08, 0, -0.460429 )
+
+[node name="CSGBox6" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber1/bigbox/otherwall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 2.07836, 2.72032 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 3.56298
+material = ExtResource( 3 )
+
+[node name="CSGBox7" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber1/bigbox/otherwall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 2.07836, -2.85072 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 3.56298
+material = ExtResource( 3 )
+
+[node name="CSGBox8" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber1/bigbox/otherwall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 4.16356, -0.0601515 )
+use_collision = true
+width = 0.002
+height = 3.51234
+depth = 2.06858
+material = ExtResource( 3 )
+
+[node name="exit_door" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber1/bigbox"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0667029, 3.29148, -4.32648 )
+use_collision = true
+width = 0.002
+height = 4.1638
+depth = 2.06858
+material = ExtResource( 3 )
+
+[node name="AperatureCube7" parent="Navigation/NavigationMeshInstance/chamber1/bigbox" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20829, 1.05939, -3.31509 )
+
+[node name="bigbox2" type="Spatial" parent="Navigation/NavigationMeshInstance/chamber1"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.84083, -0.0381486, 8.37015 )
+
+[node name="AperatureCube" parent="Navigation/NavigationMeshInstance/chamber1/bigbox2" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.30122, 0, -3.31509 )
+
+[node name="CSGBox" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber1/bigbox2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.42734e-07, -1.78537, 7.37012e-08 )
+use_collision = true
+width = 7.82371
+height = 0.0476887
+depth = 8.90899
+material = SubResource( 1 )
+
+[node name="CSGBox2" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber1/bigbox2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.39176e-07, 2.07836, 4.49407 )
+use_collision = true
+width = 7.82371
+height = 7.88402
+depth = 0.002
+material = SubResource( 1 )
+
+[node name="CSGBox4" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber1/bigbox2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.89436, 2.07836, 0.0486649 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 9.14981
+material = SubResource( 1 )
+
+[node name="CSGBox5" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber1/bigbox2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.42734e-07, 5.95226, 7.37012e-08 )
+use_collision = true
+width = 7.82371
+height = 0.0476887
+depth = 8.90899
+material = SubResource( 1 )
+
+[node name="CSGBox6" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber1/bigbox2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 2.07836, 2.72033 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 3.56298
+material = SubResource( 1 )
+
+[node name="CSGBox7" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber1/bigbox2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 2.07836, -2.85072 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 3.56298
+material = SubResource( 1 )
+
+[node name="CSGBox8" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber1/bigbox2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 4.16356, -0.0601513 )
+use_collision = true
+width = 0.002
+height = 3.51234
+depth = 2.06858
+material = SubResource( 1 )
+
+[node name="otherwall" type="Spatial" parent="Navigation/NavigationMeshInstance/chamber1/bigbox2"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.0252e-08, 0, -0.460429 )
+
+[node name="CSGBox6" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber1/bigbox2/otherwall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 2.07836, 2.72033 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 3.56298
+material = SubResource( 1 )
+
+[node name="CSGBox7" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber1/bigbox2/otherwall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 2.07836, -2.85072 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 3.56298
+material = SubResource( 1 )
+
+[node name="CSGBox8" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber1/bigbox2/otherwall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 4.16356, -0.0601514 )
+use_collision = true
+width = 0.002
+height = 3.51234
+depth = 2.06858
+material = SubResource( 1 )
+
+[node name="AperatureCube2" parent="Navigation/NavigationMeshInstance/chamber1/bigbox2" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.30122, 0, -2.28268 )
+
+[node name="AperatureCube3" parent="Navigation/NavigationMeshInstance/chamber1/bigbox2" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.30122, 0, -1.23551 )
+
+[node name="AperatureCube4" parent="Navigation/NavigationMeshInstance/chamber1/bigbox2" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25324, 0, -3.31509 )
+
+[node name="AperatureCube5" parent="Navigation/NavigationMeshInstance/chamber1/bigbox2" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25324, 0, -2.28268 )
+
+[node name="AperatureCube6" parent="Navigation/NavigationMeshInstance/chamber1/bigbox2" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16776, 0, -3.31509 )
+
+[node name="AperatureCube7" parent="Navigation/NavigationMeshInstance/chamber1/bigbox2" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29589, 1.05939, -3.31509 )
+
+[node name="AperatureCube8" parent="Navigation/NavigationMeshInstance/chamber1/bigbox2" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29589, 1.05939, -2.28268 )
+
+[node name="AperatureCube9" parent="Navigation/NavigationMeshInstance/chamber1/bigbox2" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2104, 1.05939, -3.31509 )
+
+[node name="AperatureCube10" parent="Navigation/NavigationMeshInstance/chamber1/bigbox2" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29589, 2.08336, -3.31509 )
+
+[node name="chamber2-bts" type="Spatial" parent="Navigation/NavigationMeshInstance"]
+
+[node name="exitelevator-rightafter" type="Spatial" parent="Navigation/NavigationMeshInstance/chamber2-bts"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -46.0522, -13.503, 17.4206 )
+
+[node name="CSGBox" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/exitelevator-rightafter"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.78537, 0 )
+use_collision = true
+width = 7.82371
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox2" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/exitelevator-rightafter"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.07836, 4.49407 )
+use_collision = true
+width = 7.82371
+height = 7.88402
+depth = 0.002
+material = ExtResource( 3 )
+
+[node name="CSGBox3" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/exitelevator-rightafter"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.07836, -4.49235 )
+use_collision = true
+width = 7.82371
+height = 7.88402
+depth = 0.002
+material = ExtResource( 3 )
+
+[node name="CSGBox4" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/exitelevator-rightafter"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.89436, 2.07836, 0.048665 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 9.14981
+material = ExtResource( 3 )
+
+[node name="CSGBox5" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/exitelevator-rightafter"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00896, 5.95226, -1.75629e-07 )
+use_collision = true
+width = 4.01518
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox6" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/exitelevator-rightafter"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 2.07836, 2.72032 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 3.56298
+material = ExtResource( 3 )
+
+[node name="CSGBox7" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/exitelevator-rightafter"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 2.07836, -2.85072 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 3.56298
+material = ExtResource( 3 )
+
+[node name="CSGBox8" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/exitelevator-rightafter"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 4.16356, -0.0601513 )
+use_collision = true
+width = 0.002
+height = 3.51234
+depth = 2.06858
+material = ExtResource( 3 )
+
+[node name="CSGBox9" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/exitelevator-rightafter"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90065, 5.95226, 2.36916 )
+use_collision = true
+width = 3.85136
+height = 0.0476887
+depth = 4.31697
+material = ExtResource( 3 )
+
+[node name="CSGPolygon" type="CSGPolygon" parent="Navigation/NavigationMeshInstance/chamber2-bts/exitelevator-rightafter"]
+transform = Transform( 1.37993e-07, 1, -4.37114e-08, 3.82137e-15, 4.37114e-08, 1, 1.07845, -1.34563e-07, 1.76079e-15, -3.76331, -1.59171, -4.42972 )
+polygon = PoolVector2Array( 0, 0, -0.0184061, 3.74691, 4.25723, -0.0345624 )
+depth = 0.01
+material = ExtResource( 3 )
+
+[node name="CSGPolygon2" type="CSGPolygon" parent="Navigation/NavigationMeshInstance/chamber2-bts/exitelevator-rightafter"]
+transform = Transform( -4.71406e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1.07845, 4.37114e-08, 1.91069e-15, 0.904408, -1.59171, 0.542271 )
+polygon = PoolVector2Array( 0, 0, -0.0184061, 3.74691, 4.25723, -0.0345624 )
+depth = 0.01
+material = ExtResource( 3 )
+
+[node name="catwalk-to-chamber3" type="Spatial" parent="Navigation/NavigationMeshInstance/chamber2-bts"]
+
+[node name="CSGBox" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45.8182, -15.2763, 9.10709 )
+use_collision = true
+width = 2.94953
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox2" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.2229, -13.068, 9.10709 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox3" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -47.6596, -13.068, 9.10709 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox4" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45.8182, -15.2763, 0.266584 )
+use_collision = true
+width = 2.94953
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox5" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.2229, -13.068, 0.266584 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox6" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -47.6596, -13.068, 0.266584 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox7" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45.8182, -15.2763, -8.46286 )
+use_collision = true
+width = 2.94953
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox8" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.2229, -13.068, -8.46286 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox9" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -47.6596, -13.068, -8.46286 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox10" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45.8182, -15.2763, -16.903 )
+use_collision = true
+width = 2.94953
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox11" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.2229, -13.068, -13.9178 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 4.23342
+material = ExtResource( 3 )
+
+[node name="CSGBox12" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( -0.00691151, 0, -0.999976, 0, 1, 0, 0.999976, 0, -0.00691151, -48.5756, -13.068, -16.0053 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox13" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( -0.00691151, 0, -0.999976, 0, 1, 0, 0.999976, 0, -0.00691151, -51.9891, -13.068, -12.7962 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox14" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( -0.00691151, 0, -0.999976, 0, 1, 0, 0.999976, 0, -0.00691151, -51.9891, -13.068, -16.0121 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox15" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.1637, -15.2763, -14.7262 )
+use_collision = true
+width = 10.0402
+height = 0.0476887
+depth = 2.80638
+material = ExtResource( 3 )
+
+[node name="CSGBox16" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( -0.00691151, 0, -0.999976, 0, 1, 0, 0.999976, 0, -0.00691151, -60.8131, -13.068, -12.7962 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox17" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( -0.00691151, 0, -0.999976, 0, 1, 0, 0.999976, 0, -0.00691151, -60.8131, -13.068, -16.0121 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox18" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -60.9877, -15.2763, -14.7262 )
+use_collision = true
+width = 10.0402
+height = 0.0476887
+depth = 2.80638
+material = ExtResource( 3 )
+
+[node name="CSGBox19" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( -0.00691151, 0, -0.999976, 0, 1, 0, 0.999976, 0, -0.00691151, -69.5288, -13.068, -12.7962 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox20" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( -0.00691151, 0, -0.999976, 0, 1, 0, 0.999976, 0, -0.00691151, -69.5288, -13.068, -16.0121 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox21" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -69.7034, -15.2763, -14.7262 )
+use_collision = true
+width = 10.0402
+height = 0.0476887
+depth = 2.80638
+material = ExtResource( 3 )
+
+[node name="CSGBox22" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( -0.00691151, 0, -0.999976, 0, 1, 0, 0.999976, 0, -0.00691151, -77.9929, -13.068, -12.7962 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox23" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( -0.00691151, 0, -0.999976, 0, 1, 0, 0.999976, 0, -0.00691151, -77.9929, -13.068, -16.0121 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox24" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -78.1674, -15.2763, -14.7262 )
+use_collision = true
+width = 10.0402
+height = 0.0476887
+depth = 2.80638
+material = ExtResource( 3 )
+
+[node name="CSGBox25" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( -0.00691151, 0, -0.999976, 0, 1, 0, 0.999976, 0, -0.00691151, -86.3505, -13.068, -12.7962 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox26" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( -0.00691151, 0, -0.999976, 0, 1, 0, 0.999976, 0, -0.00691151, -86.3505, -13.068, -16.0121 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox27" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -86.525, -15.2763, -14.7262 )
+use_collision = true
+width = 10.0402
+height = 0.0476887
+depth = 2.80638
+material = ExtResource( 3 )
+
+[node name="CSGBox28" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( -0.00691151, 0, -0.999976, 0, 1, 0, 0.999976, 0, -0.00691151, -95.1745, -13.068, -12.7962 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox29" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( -0.00691151, 0, -0.999976, 0, 1, 0, 0.999976, 0, -0.00691151, -95.1745, -13.068, -16.0121 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox30" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -95.3491, -15.2763, -14.7262 )
+use_collision = true
+width = 10.0402
+height = 0.0476887
+depth = 2.80638
+material = ExtResource( 3 )
+
+[node name="CSGBox31" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( -0.00691151, 0, -0.999976, 0, 1, 0, 0.999976, 0, -0.00691151, -103.89, -13.068, -12.7962 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox32" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( -0.00691151, 0, -0.999976, 0, 1, 0, 0.999976, 0, -0.00691151, -103.89, -13.068, -16.0121 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox33" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -104.065, -15.2763, -14.7262 )
+use_collision = true
+width = 10.0402
+height = 0.0476887
+depth = 2.80638
+material = ExtResource( 3 )
+
+[node name="CSGBox34" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( -0.00691151, 0, -0.999976, 0, 1, 0, 0.999976, 0, -0.00691151, -112.354, -13.068, -12.7962 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox35" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( -0.00691151, 0, -0.999976, 0, 1, 0, 0.999976, 0, -0.00691151, -112.354, -13.068, -16.0121 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox36" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -112.529, -15.2763, -14.7262 )
+use_collision = true
+width = 10.0402
+height = 0.0476887
+depth = 2.80638
+material = ExtResource( 3 )
+
+[node name="CSGBox37" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( -0.00691151, 0, -0.999976, 0, 1, 0, 0.999976, 0, -0.00691151, -117.153, -13.068, -12.7962 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox38" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( -0.00691151, 0, -0.999976, 0, 1, 0, 0.999976, 0, -0.00691151, -117.153, -13.068, -16.0121 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox39" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -117.328, -15.2763, -14.7262 )
+use_collision = true
+width = 10.0402
+height = 0.0476887
+depth = 2.80638
+material = ExtResource( 3 )
+
+[node name="CSGBox40" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( -0.00691151, 0, -0.999976, 0, 1, 0, 0.999976, 0, -0.00691151, -125.977, -13.068, -12.7962 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox41" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( -0.00691151, 0, -0.999976, 0, 1, 0, 0.999976, 0, -0.00691151, -125.977, -13.068, -16.0121 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox42" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -126.152, -15.2763, -14.7262 )
+use_collision = true
+width = 10.0402
+height = 0.0476887
+depth = 2.80638
+material = ExtResource( 3 )
+
+[node name="CSGBox43" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( -0.00691151, 0, -0.999976, 0, 1, 0, 0.999976, 0, -0.00691151, -134.693, -13.068, -12.7962 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox44" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( -0.00691151, 0, -0.999976, 0, 1, 0, 0.999976, 0, -0.00691151, -134.693, -13.068, -16.0121 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox45" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -134.868, -15.2763, -14.7262 )
+use_collision = true
+width = 10.0402
+height = 0.0476887
+depth = 2.80638
+material = ExtResource( 3 )
+
+[node name="CSGBox46" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( -0.00691151, 0, -0.999976, 0, 1, 0, 0.999976, 0, -0.00691151, -143.157, -13.068, -12.7962 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox47" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( -0.00691151, 0, -0.999976, 0, 1, 0, 0.999976, 0, -0.00691151, -143.157, -13.068, -16.0121 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox48" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -143.332, -15.2763, -14.7262 )
+use_collision = true
+width = 10.0402
+height = 0.0476887
+depth = 2.80638
+material = ExtResource( 3 )
+
+[node name="CSGBox49" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( -0.00691151, 0, -0.999976, 0, 1, 0, 0.999976, 0, -0.00691151, -148.89, -13.068, -12.7962 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox50" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( -0.00691151, 0, -0.999976, 0, 1, 0, 0.999976, 0, -0.00691151, -148.89, -13.068, -16.0121 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox51" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -149.064, -15.2763, -14.7262 )
+use_collision = true
+width = 10.0402
+height = 0.0476887
+depth = 2.80638
+material = ExtResource( 3 )
+
+[node name="CSGBox52" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( -0.00691151, 0, -0.999976, 0, 1, 0, 0.999976, 0, -0.00691151, -157.714, -13.068, -12.7962 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox53" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( -0.00691151, 0, -0.999976, 0, 1, 0, 0.999976, 0, -0.00691151, -157.714, -13.068, -16.0121 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox54" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -157.888, -15.2763, -14.7262 )
+use_collision = true
+width = 10.0402
+height = 0.0476887
+depth = 2.80638
+material = ExtResource( 3 )
+
+[node name="CSGBox55" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( -0.00691151, 0, -0.999976, 0, 1, 0, 0.999976, 0, -0.00691151, -166.43, -13.068, -12.7962 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox56" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( -0.00691151, 0, -0.999976, 0, 1, 0, 0.999976, 0, -0.00691151, -166.43, -13.068, -16.0121 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox57" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -166.604, -15.2763, -14.7262 )
+use_collision = true
+width = 10.0402
+height = 0.0476887
+depth = 2.80638
+material = ExtResource( 3 )
+
+[node name="CSGBox58" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( -0.00691151, 0, -0.999976, 0, 1, 0, 0.999976, 0, -0.00691151, -174.894, -13.068, -12.7962 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox59" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( -0.00691151, 0, -0.999976, 0, 1, 0, 0.999976, 0, -0.00691151, -174.894, -13.068, -16.0121 )
+use_collision = true
+width = 0.179691
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox60" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/catwalk-to-chamber3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -175.068, -15.2763, -14.7262 )
+use_collision = true
+width = 10.0402
+height = 0.0476887
+depth = 2.80638
+material = ExtResource( 3 )
+
+[node name="exitelevator-rightafter2" type="Spatial" parent="Navigation/NavigationMeshInstance/chamber2-bts"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -183.996, -13.503, -14.7964 )
+
+[node name="CSGBox" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/exitelevator-rightafter2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.78537, 0 )
+use_collision = true
+width = 7.82371
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox2" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/exitelevator-rightafter2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.07836, 4.49407 )
+use_collision = true
+width = 7.82371
+height = 7.88402
+depth = 0.002
+material = ExtResource( 3 )
+
+[node name="CSGBox3" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/exitelevator-rightafter2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.07836, -4.49235 )
+use_collision = true
+width = 7.82371
+height = 7.88402
+depth = 0.002
+material = ExtResource( 3 )
+
+[node name="CSGBox4" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/exitelevator-rightafter2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.89436, 2.07836, 0.048665 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 9.14981
+material = ExtResource( 3 )
+
+[node name="CSGBox5" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/exitelevator-rightafter2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00896, 5.95226, -1.75629e-07 )
+use_collision = true
+width = 4.01518
+height = 0.0476887
+depth = 8.90899
+material = ExtResource( 3 )
+
+[node name="CSGBox6" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/exitelevator-rightafter2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 2.07836, 2.72032 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 3.56298
+material = ExtResource( 3 )
+
+[node name="CSGBox7" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/exitelevator-rightafter2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 2.07836, -2.85072 )
+use_collision = true
+width = 0.002
+height = 7.88402
+depth = 3.56298
+material = ExtResource( 3 )
+
+[node name="CSGBox8" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/exitelevator-rightafter2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89568, 4.16356, -0.0601513 )
+use_collision = true
+width = 0.002
+height = 3.51234
+depth = 2.06858
+material = ExtResource( 3 )
+
+[node name="CSGBox9" type="CSGBox" parent="Navigation/NavigationMeshInstance/chamber2-bts/exitelevator-rightafter2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90065, 5.95226, 2.36916 )
+use_collision = true
+width = 3.85136
+height = 0.0476887
+depth = 4.31697
+material = ExtResource( 3 )
+
+[node name="CSGPolygon" type="CSGPolygon" parent="Navigation/NavigationMeshInstance/chamber2-bts/exitelevator-rightafter2"]
+transform = Transform( 1.37993e-07, 1, -4.37114e-08, 3.82137e-15, 4.37114e-08, 1, 1.07845, -1.34563e-07, 1.76079e-15, -3.76331, -1.59171, -4.42972 )
+polygon = PoolVector2Array( 0, 0, -0.0184061, 3.74691, 4.25723, -0.0345624 )
+depth = 0.01
+material = ExtResource( 3 )
+
+[node name="CSGPolygon2" type="CSGPolygon" parent="Navigation/NavigationMeshInstance/chamber2-bts/exitelevator-rightafter2"]
+transform = Transform( -4.71406e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1.07845, 4.37114e-08, 1.91069e-15, 0.904408, -1.59171, 0.542271 )
+polygon = PoolVector2Array( 0, 0, -0.0184061, 3.74691, 4.25723, -0.0345624 )
+depth = 0.01
+material = ExtResource( 3 )
+
+[node name="AperatureCube" parent="Navigation/NavigationMeshInstance/chamber2-bts/exitelevator-rightafter2" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55788, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="Navigation/NavigationMeshInstance"]
+transform = Transform( 0.996102, 0.00982311, 0.0876599, 0.0876557, 0.000864377, -0.99615, -0.00986107, 0.999951, -4.37093e-08, -2.63782e-08, -3.96281e-07, 21.159 )
+width = 0.002
+height = 0.459424
+depth = 0.857195
+material = SubResource( 9 )
+
+[node name="CSGBox2" type="CSGBox" parent="Navigation/NavigationMeshInstance"]
+transform = Transform( 0.999952, 0.00977381, 4.37093e-08, 4.37114e-08, 1.91069e-15, -1, -0.00977381, 0.999952, -4.27225e-10, -3.22675e-09, -3.95968e-07, 21.6196 )
+width = 0.002
+height = 0.459424
+depth = 0.871377
+material = SubResource( 10 )
+
+[node name="npc_barney" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.35588 )
+player_path = NodePath("../Player/Viewport/Player")
+navigation_path = NodePath("../Navigation")
+hud_enabled = true
+health = 10
+
+[node name="npc_barney2" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14.1882, 8.24429 )
+player_path = NodePath("../Player/Viewport/Player")
+navigation_path = NodePath("../Navigation")
+
+[node name="npc_barney3" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.0616, -13.1141, 6.71253 )
+player_path = NodePath("../Player/Viewport/Player")
+navigation_path = NodePath("../Navigation")
+
+[node name="npc_barney4" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.7882, -13.1141, 6.71253 )
+player_path = NodePath("../Player/Viewport/Player")
+navigation_path = NodePath("../Navigation")
+
+[node name="npc_barney5" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.9982, -13.1141, 18.0168 )
+player_path = NodePath("../Player/Viewport/Player")
+navigation_path = NodePath("../Navigation")

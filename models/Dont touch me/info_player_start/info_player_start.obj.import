@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/info_player_start.obj-ac863129b5991036db2d7b577e4be2b3.mesh"
+
+[deps]
+
+files=[ "res://.import/info_player_start.obj-ac863129b5991036db2d7b577e4be2b3.mesh" ]
+
+source_file="res://models/Dont touch me/info_player_start/info_player_start.obj"
+dest_files=[ "res://.import/info_player_start.obj-ac863129b5991036db2d7b577e4be2b3.mesh", "res://.import/info_player_start.obj-ac863129b5991036db2d7b577e4be2b3.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

@@ -1,0 +1,35 @@
+# Decompiled with VMF2OBJ v2.0.0 by Dylancyclone
+
+
+newmtl dev/dev_blendmeasure
+Ka 1.000 1.000 1.000
+Kd 1.000 1.000 1.000
+Ks 0.000 0.000 0.000
+map_Ka materials/dev/dev_measuregeneric01b.tga
+map_Kd materials/dev/dev_measuregeneric01b.tga
+
+
+newmtl dev/dev_measuregeneric01
+Ka 1.000 1.000 1.000
+Kd 1.000 1.000 1.000
+Ks 0.000 0.000 0.000
+map_Ka materials/dev/dev_measuregeneric01.tga
+map_Kd materials/dev/dev_measuregeneric01.tga
+
+
+newmtl dev/dev_measurewall01a
+Ka 1.000 1.000 1.000
+Kd 1.000 1.000 1.000
+Ks 0.000 0.000 0.000
+map_Ka materials/dev/dev_measurewall01a.tga
+map_Kd materials/dev/dev_measurewall01a.tga
+
+
+newmtl tools/toolstrigger
+Ka 1.000 1.000 1.000
+Kd 1.000 1.000 1.000
+Ks 0.000 0.000 0.000
+map_Ka materials/tools/toolstrigger.tga
+map_Kd materials/tools/toolstrigger.tga
+illum 4
+
