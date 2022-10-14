@@ -1,0 +1,16 @@
+0.1.0:
+	Added new entities:
+		VehicleRiderObject
+		WorldTeleport
+		ScriptedDeleteObjects
+	Added new code for trigger:
+		Trigger now has the option of being used outside of IESL-based environments, as IESL has been deprecated.
+	Depricated IESL
+	New map format based maps:
+		[MAP PATH]/dev_leveltest.tscn
+		[MAP PATH]/newmaps/dev_default.tscn
+		[MAP PATH]/newmaps/new_devtest.tscn
+	To access these maps, simply run one of these commands to access them in the base game.
+		get map change res://maps/dev_leveltest.tscn (dev_leveltest)
+		get map change res://maps/newmaps/dev_default.tscn (dev_default)
+		get map change res://maps/newmaps/new_devtest.tscn (new_devtest)

@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://ent_glass.tscn" type="PackedScene" id=1]
+[ext_resource path="res://mmmm.tres" type="Material" id=2]
+[ext_resource path="res://ent_door.gd" type="Script" id=3]
+
+[sub_resource type="BoxShape" id=2]
+margin = 0.001
+extents = Vector3( 1, 1, 0.107409 )
+
+[node name="ent_door" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="side1" type="Spatial" parent="."]
+
+[node name="ent_glass" parent="side1" instance=ExtResource( 1 )]
+transform = Transform( 0.45, 0, 0, 0, 0.45, 0, 0, 0, 1, -0.507591, -0.483039, 0 )
+
+[node name="ent_glass2" parent="side1" instance=ExtResource( 1 )]
+transform = Transform( 0.45, 0, 0, 0, 0.45, 0, 0, 0, 1, -0.507591, 0.500033, 0 )
+
+[node name="CSGBox3" type="CSGBox" parent="side1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0481488, 0.00149119, 0.00676084 )
+width = 0.0843005
+depth = 0.115537
+material = ExtResource( 2 )
+
+[node name="CSGBox5" type="CSGBox" parent="side1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.552592, 0.00149119, 0.00676084 )
+width = 0.895852
+height = 0.116003
+depth = 0.115537
+material = ExtResource( 2 )
+
+[node name="CSGBox7" type="CSGBox" parent="side1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.552592, 0.00149119, 0.00676084 )
+width = 0.895852
+height = 0.116003
+depth = 0.115537
+material = ExtResource( 2 )
+
+[node name="side2" type="Spatial" parent="."]
+
+[node name="CSGBox6" type="CSGBox" parent="side2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.536324, 0.00149119, 0.00676084 )
+width = 0.895852
+height = 0.116003
+depth = 0.115537
+material = ExtResource( 2 )
+
+[node name="CSGBox8" type="CSGBox" parent="side2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.536324, 0.00149119, 0.00676084 )
+width = 0.895852
+height = 0.116003
+depth = 0.115537
+material = ExtResource( 2 )
+
+[node name="CSGBox4" type="CSGBox" parent="side2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0363438, 0.00149119, 0.00676084 )
+width = 0.0843005
+depth = 0.115537
+material = ExtResource( 2 )
+
+[node name="ent_glass" parent="side2" instance=ExtResource( 1 )]
+transform = Transform( 0.45, 0, 0, 0, 0.45, 0, 0, 0, 1, 0.533082, -0.483039, 0 )
+
+[node name="ent_glass2" parent="side2" instance=ExtResource( 1 )]
+transform = Transform( 0.45, 0, 0, 0, 0.45, 0, 0, 0, 1, 0.533082, 0.500033, 0 )
+
+[node name="Area" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0326607, 0 )
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]

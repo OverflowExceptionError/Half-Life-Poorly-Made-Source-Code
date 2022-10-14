@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://maps/ent_glass.gd" type="Script" id=1]
+
+[sub_resource type="SpatialMaterial" id=4]
+flags_transparent = true
+albedo_color = Color( 1, 1, 1, 0.509804 )
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 1.0316, 1, 0.0376694 )
+
+[node name="ent_glass" type="KinematicBody"]
+script = ExtResource( 1 )
+
+[node name="CSGBox11" type="CSGBox" parent="."]
+width = 2.06354
+height = 1.98712
+depth = 0.0458585
+material = SubResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 5 )
