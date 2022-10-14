@@ -1,3 +1,8 @@
+# ASSETS PROPERTY OF VULVE GAME DEVELOPMENT
+# (C) 2022 VULVE STUDIOS
+# BUILT WITH GODSRC
+# POWERED BY GDOOM TECHNOLOGY
+# Asset usage of the Simple Free-Look Camera addon for Godot 3.
 # Simple Free-Look Camera
 A simple 3D 100-line free-look camera for Godot 3.2 that mimics the functionality of the editor's camera for in-game use.
 ## Usage
